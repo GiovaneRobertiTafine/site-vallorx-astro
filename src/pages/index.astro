@@ -2,8 +2,6 @@
 import { Pages } from '../utils/pages.enum.ts';
 // Style Imports
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import 'jquery/dist/jquery.min.js';
 import '../styles/global.scss';
 
 // Full Astro Component Syntax:
@@ -100,31 +98,31 @@ let title = 'Home';
                                     <img src="/assets/ponte-estaiada.webp" class="img-fluid d-block image-slide" alt="...">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="./assets/industria.webp" class="img-fluid d-block image-slide" alt="...">
+                                    <img src="/assets/industria.webp" class="img-fluid d-block image-slide" alt="...">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="./assets/shopping.webp" class="img-fluid d-block image-slide" alt="...">
+                                    <img src="/assets/shopping.webp" class="img-fluid d-block image-slide" alt="...">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="./assets/contabil.webp" class="img-fluid d-block image-slide" alt="...">
+                                    <img src="/assets/contabil.webp" class="img-fluid d-block image-slide" alt="...">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="./assets/tributario6.webp" class="img-fluid d-block image-slide" alt="...">
+                                    <img src="/assets/tributario6.webp" class="img-fluid d-block image-slide" alt="...">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="./assets/cargueiro3.webp" class="img-fluid d-block image-slide" alt="...">
+                                    <img src="/assets/cargueiro3.webp" class="img-fluid d-block image-slide" alt="...">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="./assets/outsourcing2.webp" class="img-fluid d-block image-slide" alt="...">
+                                    <img src="/assets/outsourcing2.webp" class="img-fluid d-block image-slide" alt="...">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="./assets/advogado2.webp" class="img-fluid d-block image-slide" alt="...">
+                                    <img src="/assets/advogado2.webp" class="img-fluid d-block image-slide" alt="...">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="./assets/jatinho.webp" class="img-fluid d-block image-slide" alt="...">
+                                    <img src="/assets/jatinho.webp" class="img-fluid d-block image-slide" alt="...">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="./assets/expatriados.webp" class="img-fluid d-block image-slide" alt="...">
+                                    <img src="/assets/expatriados.webp" class="img-fluid d-block image-slide" alt="...">
                                 </div>
                             </div>
                         </div>
@@ -151,6 +149,11 @@ let title = 'Home';
 
         <Footer />
 	</main>
+
+    <script type="module" hoist>
+        import "bootstrap/dist/js/bootstrap.bundle.min.js";
+        import "jquery/dist/jquery.min.js";
+    </script>
 </body>
 </html>
 

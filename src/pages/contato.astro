@@ -2,7 +2,6 @@
 import { Pages } from '../utils/pages.enum.ts';
 // Style Imports
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import 'bootstrap/dist/js/bootstrap.min.js';
 import 'jquery/dist/jquery.min.js';
 import '../styles/global.scss';
 
@@ -191,6 +190,11 @@ let title = 'Contato';
 
         <Footer />
 	</main>
+
+    <script type="module" hoist>
+        import "bootstrap/dist/js/bootstrap.bundle.min.js";
+        import "jquery/dist/jquery.min.js";
+    </script>
     <script>
                         // Example starter JavaScript for disabling form submissions if there are invalid fields
         (function () {

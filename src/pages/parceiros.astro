@@ -2,7 +2,6 @@
 import { Pages } from '../utils/pages.enum.ts';
 // Style Imports
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import '../styles/global.scss';
 
 // Component Imports
@@ -79,5 +78,10 @@ let title = 'Parceiros';
             <Footer/>
         </div>
 	</main>
+
+    <script type="module" hoist>
+        import "bootstrap/dist/js/bootstrap.bundle.min.js";
+        import "jquery/dist/jquery.min.js";
+    </script>
 </body>
 </html>

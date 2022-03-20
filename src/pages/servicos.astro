@@ -2,7 +2,6 @@
 import { Pages } from '../utils/pages.enum.ts';
 // Style Imports
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'flag-icons/css/flag-icons.min.css';
 import '../styles/global.scss';
 
@@ -138,7 +137,7 @@ let title = 'Serviços';
 
             <div class="w-100 service-box flex-reverse" id="tributaria">
                 <div class="w-100">
-                    <img class="image-service" src="./assets/tributario6.webp" alt="tributario" />
+                    <img class="image-service" src="/assets/tributario6.webp" alt="tributario" />
                 </div>
                 <div class="w-100 service-desc">
                     <h3 class="fw-bold">
@@ -185,13 +184,13 @@ let title = 'Serviços';
                     </p>
                 </div>
                 <div class="w-100">
-                    <img class="image-service" src="./assets/cargueiro3.webp" alt="cargueiro" />
+                    <img class="image-service" src="/assets/cargueiro3.webp" alt="cargueiro" />
                 </div>
             </div>
 
             <div class="w-100 service-box flex-reverse" id="outsourcing">
                 <div class="w-100">
-                    <img class="image-service" src="./assets/outsourcing2.webp" alt="outsourcing" />
+                    <img class="image-service" src="/assets/outsourcing2.webp" alt="outsourcing" />
                 </div>
                 <div class="w-100 service-desc">
                     <h3 class="fw-bold">
@@ -238,13 +237,13 @@ let title = 'Serviços';
                     </p>
                 </div>
                 <div class="w-100">
-                    <img class="image-service" src="./assets/advogado2.webp" alt="advogado" />
+                    <img class="image-service" src="/assets/advogado2.webp" alt="advogado" />
                 </div>
             </div>
 
             <div class="w-100 service-box flex-reverse" id="expatriados">
                 <div class="w-100">
-                    <img class="image-service" src="./assets/expatriados.webp" alt="outsourcing" />
+                    <img class="image-service" src="/assets/expatriados.webp" alt="outsourcing" />
                 </div>
                 <div class="w-100 service-desc service-expatriados">
                     <h3 class="fw-bold">
@@ -291,5 +290,10 @@ let title = 'Serviços';
 
         <Footer/>
 	</main>
+
+    <script type="module" hoist>
+        import "bootstrap/dist/js/bootstrap.bundle.min.js";
+        import "jquery/dist/jquery.min.js";
+    </script>
 </body>
 </html>
