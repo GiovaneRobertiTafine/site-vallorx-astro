@@ -1,0 +1,295 @@
+---
+import { Pages } from '../utils/pages.enum.ts';
+// Style Imports
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'flag-icons/css/flag-icons.min.css';
+import '../styles/global.scss';
+
+// Component Imports
+import Navbar from '../components/nav-bar.tsx';
+import Footer from '../components/footer.tsx';
+
+let title = 'Serviços';
+---
+
+
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/assets/favicon/site.webmanifest">
+    <link rel="mask-icon" href="/assets/favicon/safari-pinned-tab.svg" color="#fff">
+    <title>Vallox | {title}</title>
+
+	<link rel="icon" type="image/x-icon" href="/assets/favicon/favicon.ico" />
+	<style>
+        #servicos {
+            color: rgb(50, 50, 50);
+        }
+
+        .image-service {
+            height: 400px;
+            width: 100%;
+            object-fit: cover;
+            transition: transform 0.2s;
+            -moz-transition: all 0.3s;
+            -webkit-transition: all 0.3s;
+        }
+
+        .service-box {
+            height: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: row;
+            font-size: 0.87rem;
+        }
+
+        .service-desc>* {
+            margin: 0 1.5rem 0 1.5rem
+        }
+
+        .service-expatriados {
+            font-size: 0.7rem;
+        }
+
+        .service-box div {
+            overflow: hidden;
+        }
+
+        .image-service:hover {
+            filter: grayscale(30%);
+            -moz-transform: scale(1.1);
+            -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+        }
+
+        .fi {
+            margin: 0 5px 0 5px !important;
+            font-size: 1.3rem;
+        }
+
+        @media screen and (max-width: 768px) {
+
+            .service-box {
+                height: 100%;
+                flex-direction: column;
+                margin-top: 50px;
+            }
+
+            .flex-reverse {
+                flex-direction: column-reverse;
+            }
+
+            .image-service {
+                height: 250px;
+                margin-top: 20px;
+            }
+
+            .fi {
+                font-size: 1rem;
+            }
+        }
+	</style>
+</head>
+<body>
+	<main>
+		<Navbar pageActive={Pages.SERVICOS}/>
+
+        <section id="servicos" class="mt-3 mb-5">
+            <div class="container">
+                <h1 class="text-center text-lg-start fw-bold titulo-pagina">Serviços:</h1>
+
+                <div class="text-center fst-italic text-muted">
+                    <h3>
+                        "Esteja com pessoas qualificadas e capacitadas que possam te ajudar e não com
+                        pessoas a quem você precisa impressionar."
+                    </h3>
+                </div>
+            </div>
+
+            <div class="w-100 service-box mt-5" id="contabil">
+                <div class="w-100 service-desc">
+                    <h3 class="fw-bold">
+                        Contábil
+                    </h3>
+                    <h4 class="text-blue">
+                        Obrigações Acessórias
+                    </h4>
+                    <p class="text-muted">
+                        Consiste na averiguação do enquadramento da sua empresa junto ao Fisco e demais
+                        obrigações acessórias relacionadas as atividades do seu negócio.
+                        <br /><br />
+                        Diagnosticamos os arquivos de obrigações acessórias, oferecendo diversas informações
+                        relevantes para o gerenciamento fiscal e de governança corporativa, como:
+                        <strong>
+                            Análise de balanço, Conciliações e Classificações Contábeis, bem como,
+                            Outras Atividades Específicas demandadas pela área.
+                        </strong>
+                    </p>
+                </div>
+                <div class="w-100">
+                    <img class="image-service" src="./assets/contabil.webp" alt="contabil" />
+                </div>
+            </div>
+
+            <div class="w-100 service-box flex-reverse" id="tributaria">
+                <div class="w-100">
+                    <img class="image-service" src="./assets/tributario6.webp" alt="tributario" />
+                </div>
+                <div class="w-100 service-desc">
+                    <h3 class="fw-bold">
+                        Tributário
+                    </h3>
+                    <h4 class="text-blue">
+                        Planejamento
+                    </h4>
+                    <p class="text-muted">
+                        A maioria das médias e pequenas empresas desconhecem os meios legais de pagar menos
+                        impostos. <br /><br />
+                        O nosso trabalho é identificar oportunidades de forma legal para que sua empresa possa
+                        aproveitar melhor o crédito tributário a favor do resultado financeiro das suas
+                        atividades de negócios. <br /><br />
+                        Além disso, efetuamos serviços como: Apurações, Revisões e Retificações de Cálculos
+                        de impostos Diretos, Indiretos e de todas as suas respectivas Obrigações Acessórias.
+                        <br /><br />
+                        E também, atuamos na preparação de materiais para a Defesa em Auto de Infração,
+                        analisando a sua consistência, totalidade, validade e exatidão.
+                    </p>
+                </div>
+            </div>
+
+            <div class="w-100 service-box" id="export-import">
+                <div class="w-100 service-desc">
+                    <h3 class="fw-bold">
+                        Exportação & Importação
+                    </h3>
+                    <h4 class="text-blue">
+                        Estratégia de Negócios e Novos Mercados
+                    </h4>
+                    <p class="text-muted">
+                        Muitas empresas de pequeno porte deixam de buscar novos mercados fora do Brasil, por
+                        acreditar que não são capazes ou por não terem estrutura necessária.
+                        <br /><br />
+                        Sabemos que, com boa orientação você também pode internacionalizar seus produtos e
+                        serviços.
+                        <br /><br />
+                        E para atingir seu objetivo e alcançar a meta desejada é necessário ter conhecimento em:
+                        Mercado Interno, Mercado Externo, Parceiros, Concorrentes, Produtos e Serviços.
+                        <br /><br />
+                        Neste campo de atuação, podemos ajudá-lo na qualificação e capacitação para Exportar e
+                        Importar.
+                    </p>
+                </div>
+                <div class="w-100">
+                    <img class="image-service" src="./assets/cargueiro3.webp" alt="cargueiro" />
+                </div>
+            </div>
+
+            <div class="w-100 service-box flex-reverse" id="outsourcing">
+                <div class="w-100">
+                    <img class="image-service" src="./assets/outsourcing2.webp" alt="outsourcing" />
+                </div>
+                <div class="w-100 service-desc">
+                    <h3 class="fw-bold">
+                        Outsourcing
+                    </h3>
+                    <h4 class="text-blue">
+                        Serviços in Company
+                    </h4>
+                    <p class="text-muted">
+                        Alguns trabalhos exigem uma força tarefa que deve ser realizada em curto prazo de tempo,
+                        como controle e análise de:
+                        <strong>vendas, compras, estoques, funcionários, obrigações acessórias e trabalhista junto
+                            ao Fisco.</strong>
+                        <br />
+                        <br />
+                        Neste caso se faz necessário um aumento de pessoas no quadro de funcionários.
+                        <br /><br />
+                        Visando atender as suas necessidades pontuais, oferecemos nossos serviços, a fim de
+                        ajudá-los na realização dos trabalhos in company ou a distância.
+                        <br /><br />
+                        <strong>"O segredo não é encontrar alguém que seja igual a você, mas sim encontrar alguém
+                            com os mesmos objetivos que você!"</strong>
+                    </p>
+                </div>
+            </div>
+
+            <div class="w-100 service-box" id="extrajudicial">
+                <div class="w-100 service-desc">
+                    <h3 class="fw-bold">
+                        Extrajudicial
+                    </h3>
+                    <h4 class="card-text text-blue">
+                        Assessoria à Advogados
+                    </h4>
+                    <p class="text-muted">
+                        Sabemos dos diversos processos judiciais e extrajudiciais que os advogados estão à
+                        frente para defender os direitos de seus clientes.
+                        <br /><br />
+                        No entanto, existem muitos casos em que há necessidade de um profissional contador para
+                        ajudá-lo na elaboração de cálculos complexos, bem como, revisão de cálculos elaborados
+                        por outro profissional da área contábil. <br /><br />
+                        Temos expertise em diversas áreas que podemos assessorá-lo, tais como: Cálculos
+                        trabalhistas, Cálculos financeiros, Cálculos de desapropriação de bens e outros.
+                    </p>
+                </div>
+                <div class="w-100">
+                    <img class="image-service" src="./assets/advogado2.webp" alt="advogado" />
+                </div>
+            </div>
+
+            <div class="w-100 service-box flex-reverse" id="expatriados">
+                <div class="w-100">
+                    <img class="image-service" src="./assets/expatriados.webp" alt="outsourcing" />
+                </div>
+                <div class="w-100 service-desc service-expatriados">
+                    <h3 class="fw-bold">
+                        Expatriados/Expatriates
+                    </h3>
+                    <h4 class="text-blue">
+                        Consultoria Personalizada
+                    </h4>
+                    <p class="text-muted">
+                        É importante saber que, a Receita Federal do Brasil – RFB vem intensificando a
+                        fiscalização sobre a tributação de rendimentos por pessoas físicas, conforme a
+                        <strong>IN SRF n° 208/02</strong>, tributos de expatriados/expatriates
+                        envolvem uma série de questões para as organizações corporativas que enviam profissionais
+                        brasileiros para o exterior e também profissionais que vem de outros países, bem como,
+                        um número ainda maior de situações para os próprios funcionários.
+                        <br><br>
+                        Para tanto, oferecemos um conjunto completo de serviços profissionais que vão além da
+                        necessidade de planejamento tributário.
+
+
+                    </p>
+                    <ul class="text-muted font-weight-bolder service-expatriados">
+                        <li>COMUNICAÇÃO E DECLARAÇÃO DE SAÍDA DEFINITIVA DO PAÍS</li>
+                        <li>ANÁLISE DE TRATADOS TRIBUTÁRIOS PARA EVITAR BITRIBUTAÇÃO</li>
+                        <li>CÁLCULOS DE EQUALIZAÇÃO DE IMPOSTOS, E</li>
+                        <li>OUTROS</li>
+                    </ul>
+
+                    <div class="mt-3">
+                        <span class="fi fi-br"></span>
+                        <span class="fi fi-us"></span>
+                        <span class="fi fi-gb"></span>
+                        <span class="fi fi-pt"></span>
+                        <span class="fi fi-es"></span>
+                        <span class="fi fi-de"></span>
+                        <span class="fi fi-jp"></span>
+                        <span class="fi fi-za"></span>
+                        <span class="fi fi-gr"></span>
+                        <strong class="text-muted">...</strong>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <Footer/>
+	</main>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

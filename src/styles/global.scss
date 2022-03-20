@@ -1,0 +1,41 @@
+// @import "~bootstrap/scss/bootstrap";
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;
+    /* Firefox, other Gecko */
+    box-sizing: border-box;
+    /* Opera/IE 8+ */
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #fff;
+    overflow-x: hidden;
+    height: 100vh;
+    font-family: 'Roboto',
+        sans-serif;
+}
+
+a {
+    color: rgb(20, 20, 20);
+}
+
+a:hover {
+    color: rgb(20, 20, 20);
+}
+
+ul {
+    list-style: none;
+}
+
+.text-blue {
+    color: #069;
+}

@@ -1,0 +1,218 @@
+---
+import { Pages } from '../utils/pages.enum.ts';
+// Style Imports
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '../styles/global.scss';
+
+// Full Astro Component Syntax:
+// https://docs.astro.build/core-concepts/astro-components/
+
+// Component Imports
+import Navbar from '../components/nav-bar.tsx';
+import Footer from '../components/footer.tsx';
+// You can import components from any supported Framework here!
+// Component Script:
+// You can write any JavaScript/TypeScript that you'd like here.
+// It will run during the build, but never in the browser.
+// All variables are available to use in the HTML template below.
+let title = 'Contato';
+
+---
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/assets/favicon/site.webmanifest">
+    <link rel="mask-icon" href="/assets/favicon/safari-pinned-tab.svg" color="#fff">
+	<title>{title}</title>
+
+	<link rel="icon" type="image/x-icon" href="/assets/favicon/favicon.ico" />
+
+    <style>
+        #contato {
+            color: rgb(50, 50, 50);
+        }
+        #descricao-escritorio {
+            font-size: 0.85rem;
+        }
+
+        #img-escritorio {
+            width: 100%;
+            height: 10rem;
+            background-repeat: no-repeat;
+            object-fit: cover;
+            object-position: bottom center;
+        }
+
+        .siga-icons {
+            cursor: pointer;
+            width: 2.5rem;
+        }
+    </style>
+</head>
+<body>
+	<main>
+		<Navbar pageActive={Pages.CONTATO}/>
+
+        <section id="contato" class="container mt-3">
+            <h1 class="text-center text-lg-start fw-bold">Contato:</h1>
+            <div class="row">
+                <div class="col-lg-6 col-md-12 mx-auto">
+                    <form class="mb-5 needs-validation" id="formExemplo" novalidate>
+                        <div class="mb-3">
+                            <label for="inputEmail" class="form-label">Nome completo:</label>
+                            <input type="email" class="form-control" id="inputEmail" aria-describedby="nome" name="nome" 
+                            title="Nome Completo" required minlength="5">
+                            <div class="invalid-feedback">
+                                Please choose a username.
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="inputEmpresa" class="form-label">Empresa:</label>
+                            <input type="text" class="form-control" id="inputEmpresa" aria-describedby="empresa" name="empresa" 
+                            name="empresa" required minlength="5">
+                        </div>
+                        <div class="mb-3">
+                            <label for="inputEmail" class="form-label">Email:</label>
+                            <input type="text" class="form-control" id="inputEmail" aria-describedby="email" name="email" 
+                            name="email" required minlength="5">
+                        </div>
+                        <div class="mb-3">
+                            <label for="inputTelefone" class="form-label">Telefone:</label>
+                            <div class="d-flex">
+                                <input type="text" class="form-control w-25 text-center" id="inputTelefone" aria-describedby="ddd" aria-label="First name" 
+                                name="ddd" required placeholder="DDD" maxlength="2">
+                                <input type="text" class="form-control" id="inputTelefone" aria-describedby="telefone" aria-label="First name" 
+                                name="telefone" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="selectAssunto" class="form-label">Assunto:</label>
+                            <select class="form-select" aria-label="Select Assunto" id="selectAssunto" name="selectAssunto" title="selectAssunto"
+                                    required>
+                                <option value="" hidden></option>
+                                <option value="Planejamento Tributário">
+                                    Planejamento Tributário</option>
+                                <option
+                                    value="Revisão de Crédito Tributário – Impostos Diretos e Indiretos (Federal – Estadual – Municipal)">
+                                    Revisão de Crédito Tributário – Impostos Diretos e Indiretos (Federal – Estadual
+                                    – Municipal)</option>
+                                <option value="Revisão de Obrigações Acessórias (Federal – Estadual – Municipal)">
+                                    Revisão de Obrigações Acessórias (Federal – Estadual – Municipal)</option>
+                                <option value="Revisão da Conciliação Contábil – Ativo e Passivo">
+                                    Revisão da Conciliação Contábil – Ativo e Passivo</option>
+                                <option value="Balanço Patrimonial - Fechamento Contábil">
+                                    Balanço Patrimonial - Fechamento Contábil</option>
+                                <option value="BPO – Terceirização dos Processos de Negócios">
+                                    BPO – Terceirização dos Processos de Negócios</option>
+                                <option value="Reorganização Societária">
+                                    Reorganização Societária</option>
+                                <option value="Brasileiro/Expatriado – Saída Definitiva do País">
+                                    Brasileiro/Expatriado – Saída Definitiva do País</option>
+                                <option value="DIRPF – Elaboração e Preenchimento do Carnê-Leão">
+                                    DIRPF – Elaboração e Preenchimento do Carnê-Leão</option>
+                                <option
+                                    value="Serviços para Advogados – Cálculos de Rescisão Trabalhista e Desapropriação de Bens Imóveis">
+                                    Serviços para Advogados – Cálculos de Rescisão Trabalhista e Desapropriação de
+                                    Bens Imóveis</option>
+                                <option value="Outro/ Especificar:">
+                                    Outro/ Especificar</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="textAreaMensagem" class="form-label">Mensagem:</label>
+                            <textarea class="form-control" id="mensagem" rows="5" name="mensagem"
+                                style="overflow-y: auto; resize: none;" title="Mensagem" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Enviar</button>
+                    </form>
+                    <h4>Fale conosco:</h4>
+                    <div class="row my-4">
+                        <div class="col-lg-6 col-12">
+                            <img src="/assets/contato/telephone.svg" alt="telefone">
+                            +55 11 97769-6191
+                        </div>
+                        <div class="col-lg-6 col-12 mt-3 mt-lg-0">
+                            <img src="/assets/contato/envelope.svg" alt="email">
+                            private@vallorx.com.br
+                        </div>
+                    </div>
+                    <h4>Escritório:</h4>
+                    <div class="row my-4">
+                        <div class="col-12 col-lg-8" id="descricao-escritorio">
+                            <div class="d-inline-flex align-items-start gap-2">
+                                <img src="/assets/contato/building.svg" alt="endereco">
+                                <p class="ml-4 small">
+                                    Avenida Paulista, 1842 <br />
+                                    Edifício CETENCO PLAZA <br /> Torre Norte – 15° andar – conj. 155 <br />
+                                    Bela Vista - São Paulo / SP – CEP: 01310-923
+                                </p>
+                            </div>
+                            <div class="d-inline-flex align-items-start gap-2">
+                                <img src="/assets/contato/stoplights.svg" alt="estacionamento">
+                                <p class="ml-4 small">
+                                    <strong>Estacionamento/Convênio: (Visita – Pré-Agendada)</strong><br />
+                                    Rua Frei Caneca, 1381 – Bela Vista – São Paulo/SP
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-4 mb-3">
+                            <img src="./assets/predio.jfif" alt="escr" id="img-escritorio">
+                        </div>
+                        <div class="col-12">
+                            <iframe title="Mapa esc est"
+                                src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d3657.2620056777496!2d-46.66062483538401!3d-23.559031717390592!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e6!4m5!1s0x94ce59ccfe9d9519%3A0xf276453731f2aa4!2sRua%20Frei%20Caneca%2C%201381%20-%20Consola%C3%A7%C3%A3o%2C%20S%C3%A3o%20Paulo%20-%20SP!3m2!1d-23.558511499999998!2d-46.658305899999995!4m5!1s0x94ce59cc461c5d55%3A0x47375bee97c54255!2sAv.%20Paulista%2C%201842%20-%20Bela%20Vista%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2001310-200!3m2!1d-23.559588299999998!2d-46.658066!5e0!3m2!1spt-BR!2sbr!4v1643685337277!5m2!1spt-BR!2sbr"
+                                height="450" style="border:0; width: 100%;" allowfullscreen=""
+                                loading="lazy"></iframe>
+                        </div>
+                    </div>
+                    <h4>Siga-nos:</h4>
+                    <div class="row my-4">
+                        <div class="d-flex gap-4" id="siga-nos">
+                            <a href="https://www.facebook.com/VallorX-100364011748833" rel="noopener" target="_blank">
+                                <img src="/assets/contato/facebook.svg" alt="facebook" class="siga-icons">
+                            </a>
+                            <a href="https://instagram.com/vallorx" rel="noopener" target="_blank">
+                                <img src="/assets/contato/instagram.svg" alt="instagram" class="siga-icons">
+                            </a>
+                            <a href="https://www.linkedin.com/company/vallorx/about" class="ml-3" rel="noopener" target="_blank">
+                                <img src="/assets/contato/linkedin.svg" alt="linkedin" class="siga-icons">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </section>
+
+        <Footer />
+	</main>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+                        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (function () {
+        'use strict'
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.querySelectorAll('.needs-validation')
+
+        // Loop over them and prevent submission
+        Array.prototype.slice.call(forms)
+            .forEach(function (form) {
+            form.addEventListener('submit', function (event) {
+                if (!form.checkValidity()) {
+                event.preventDefault()
+                event.stopPropagation()
+                }
+
+                form.classList.add('was-validated')
+            }, false)
+            })
+        })()
+    </script>
+</body>
+</html>
+
