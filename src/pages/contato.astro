@@ -247,7 +247,7 @@ const patternTelefone = "([9])?([\\d]{4})+([\\-])?([\\d]{4})$";
                 var urlData = $('#form-contato').serialize();
                     $.ajax({
                         type: 'POST',
-                        url: './js/email.php',
+                        url: '../js/email.php',
                         data: urlData,
                         dataType: 'json',
                         success: (result) => {
