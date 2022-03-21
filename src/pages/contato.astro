@@ -4,6 +4,7 @@ import { Pages } from '../utils/pages.enum.ts';
 // Style Imports
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+
 import '../styles/global.scss';
 
 // Full Astro Component Syntax:
@@ -159,7 +160,7 @@ const patternTelefone = "([9])?([\\d]{4})+([\\-])?([\\d]{4})$";
                                 </div>
                             </div>
                             <div class="col-12">
-                                <button class="btn btn-primary" onclick="enviarEmail()" id="button-enviar">Enviar</button>
+                                <button class="btn btn-primary" onclick="enviarEmail()" type="button" id="button-enviar">Enviar</button>
                                 <img src="/assets/loading.gif" alt="loading" id="loading">
                             </div>
                             <span id="resposta-email"></span>
@@ -195,7 +196,7 @@ const patternTelefone = "([9])?([\\d]{4})+([\\-])?([\\d]{4})$";
                             </div>
                         </div>
                         <div class="col-12 col-lg-4 mb-3">
-                            <img src="./assets/predio.jfif" alt="escr" id="img-escritorio">
+                            <img src="/assets/predio.jfif" alt="escr" id="img-escritorio">
                         </div>
                         <div class="col-12">
                             <iframe title="Mapa esc est"
@@ -225,68 +226,12 @@ const patternTelefone = "([9])?([\\d]{4})+([\\-])?([\\d]{4})$";
 
         <Footer />
 	</main>
-    <script>
-            function enviarEmail () {
-                'use strict';
-
-                // Fetch all the forms we want to apply custom Bootstrap validation styles to
-                var forms = document.querySelectorAll('.needs-validation');
-                // Loop over them and prevent submission
-                Array.prototype.slice.call(forms)
-                    .forEach(function (form) {
-                        form.addEventListener('submit', function (event) {
-                            if (!form.checkValidity()) {
-                                event.preventDefault();
-                                event.stopPropagation();
-
-                            }
-
-                            form.classList.add('was-validated');
-
-                            var urlData = $('#form-contato').serialize();
-                            $.ajax({
-                                type: 'POST',
-                                url: '../js/email.php',
-                                data: urlData,
-                                dataType: 'json',
-                                success: (result) => {
-                                    if (result.status === '200') {
-                                        $('#resposta-email').html(result.mensagem).show();
-                                        setTimeout(() => {
-                                            $('#resposta-email').hide();
-                                        }, 5000);
-                                    } else if (result.status === '400') {
-                                        $('#resposta-email').html(result.mensagem).css('color', 'red').show();
-                                        setTimeout(() => {
-                                            $('#resposta-email').hide();
-                                        }, 5000);
-                                    }
-                                },
-                                error: (result) => {
-                                    $('#resposta-email').html('Infelizmente houve um erro ao enviar sua mensagem!').css('color', 'red').show();
-                                    setTimeout(() => {
-                                        $('#resposta-email').hide();
-                                    }, 5000);
-
-                                },
-                                beforeSend: () => { /* antes de enviar */
-                                    $('#loading').fadeIn('fast'); /* mostra o loading */
-                                },
-                                complete: () => { /* completo */
-                                    $('#loading').fadeOut('fast'); /* esconde o loading */
-                                    $('#formExemplo')[0].reset();
-                                }
-
-                            });
-
-                        }, false);
-                    });
-            }
-    </script>
+    
     <script type="module" hoist>
+        import "jquery/dist/jquery.min.js"
         import "bootstrap/dist/js/bootstrap.bundle.min.js";
-        import "jquery/dist/jquery.min.js";
     </script>
+    <script src="/assets/js/enviar-email.js"></script>
 </body>
 </html>
 
