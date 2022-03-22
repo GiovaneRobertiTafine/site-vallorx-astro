@@ -1,5 +1,4 @@
 import $ from 'jquery';
-
 globalThis.$ = $;
 
 export function enviarEmail() {
@@ -13,7 +12,7 @@ export function enviarEmail() {
     const urlData = $('#form-contato').serialize();
     $.ajax({
         type: 'POST',
-        url: 'src/js/email.php',
+        url: '/js/email.php',
         data: urlData,
         dataType: 'json',
         success: (result) => {
