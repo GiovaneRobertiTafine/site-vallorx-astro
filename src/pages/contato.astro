@@ -227,11 +227,12 @@ const patternTelefone = "([9])?([\\d]{4})+([\\-])?([\\d]{4})$";
     <script type="module" hoist>
         import "jquery";
         import "bootstrap/dist/js/bootstrap.bundle.min.js";
+        import "../js/email.php";
+    </script>
+    <script type="module" hoist>
         import { enviarEmail } from "../js/enviar-email.js"
 				globalThis.enviarEmail = enviarEmail;
-        
     </script>
-    <script src="/js/email.php"></script>
 </body>
 </html>
 

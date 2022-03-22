@@ -1,6 +1,5 @@
 import * as $ from 'jquery';
 export function enviarEmail() {
-    console.log('asas');
     const form = document.getElementById('form-contato');
 
     if (!form.checkValidity()) {
@@ -8,33 +7,30 @@ export function enviarEmail() {
         return;
     }
 
-    const data = new FormData(form);
-
-    console.log(data);
+    const urlData = $('#form-contato').serialize();
     $.ajax({
         type: 'POST',
-        url: '/js/email.php',
-        data: data,
+        url: 'src/js/email.php',
+        data: urlData,
         dataType: 'json',
-        processData: false,
         success: (result) => {
             if (result.status === '200') {
                 $('#resposta-email').html(result.mensagem).show();
                 setTimeout(() => {
                     $('#resposta-email').hide();
-                }, 5000);
+                }, 10000);
             } else if (result.status === '400') {
                 $('#resposta-email').html(result.mensagem).css('color', 'red').show();
                 setTimeout(() => {
                     $('#resposta-email').hide();
-                }, 5000);
+                }, 10000);
             }
         },
         error: (result) => {
             $('#resposta-email').html('Infelizmente houve um erro ao enviar sua mensagem!').css('color', 'red').show();
             setTimeout(() => {
                 $('#resposta-email').hide();
-            }, 5000);
+            }, 10000);
 
         },
         beforeSend: () => { /* antes de enviar */
@@ -42,7 +38,7 @@ export function enviarEmail() {
         },
         complete: () => { /* completo */
             $('#loading').fadeOut('fast'); /* esconde o loading */
-            // $('#formExemplo')[0].reset();
+            // $('#form-contato')[0].reset();
         }
 
     });
