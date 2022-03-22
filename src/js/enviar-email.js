@@ -1,4 +1,7 @@
 import * as $ from 'jquery';
+
+window.$ = $;
+
 export function enviarEmail() {
     const form = document.getElementById('form-contato');
 

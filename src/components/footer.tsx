@@ -19,7 +19,6 @@ const Footer = () => {
             <div className="d-lg-flex justify-content-end align-content-center w-100">
                 <span className="small cursor-pointer">Desenvolvido por: Giovane Roberti Tafine</span>
             </div>
-
         </footer>
 
     );
