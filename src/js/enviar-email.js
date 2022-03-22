@@ -1,5 +1,4 @@
 import $ from 'jquery';
-globalThis.$ = $;
 
 export function enviarEmail() {
     const form = document.getElementById('form-contato');
