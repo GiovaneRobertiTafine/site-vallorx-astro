@@ -68,3 +68,5 @@ function EnviaEmail($para, $assunto, $mensagem){
     $retorno = mail($para, $assunto, nl2br($mensagem), $headers);
     return $retorno;
 }
+
+?> 

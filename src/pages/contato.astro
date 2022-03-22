@@ -3,8 +3,6 @@ import { Pages } from '../utils/pages.enum.ts';
 
 // Style Imports
 import 'bootstrap/dist/css/bootstrap.min.css';
-
-
 import '../styles/global.scss';
 
 // Full Astro Component Syntax:
@@ -226,12 +224,14 @@ const patternTelefone = "([9])?([\\d]{4})+([\\-])?([\\d]{4})$";
 
         <Footer />
 	</main>
-    
     <script type="module" hoist>
-        import "jquery/dist/jquery.min.js"
+        import "jquery";
         import "bootstrap/dist/js/bootstrap.bundle.min.js";
+        import { enviarEmail } from "../js/enviar-email.js"
+				globalThis.enviarEmail = enviarEmail;
+        
     </script>
-    <script src="/assets/js/enviar-email.js"></script>
+    <script src="/js/email.php"></script>
 </body>
 </html>
 

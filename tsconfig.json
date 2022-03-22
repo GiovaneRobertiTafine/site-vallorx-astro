@@ -1,5 +1,15 @@
 {
-  "compilerOptions": {
-    "moduleResolution": "node"
-  }
+    "compilerOptions": {
+        // "target": "com",
+        // "module": "ESNext",
+        // "sourceMap": true,
+        "moduleResolution": "node"
+    },
+    "include": [
+        "src/**/*",
+        // "src/js/enviar-email.js",
+    ],
+    "exclude": [
+        "node_modules",
+    ]
 }
