@@ -38,7 +38,6 @@ const NavBar: React.FC<{ pageActive: number; }> = ({ pageActive }) => {
                             <li className="nav-item">
                                 <a className={pageActive === Pages.HOME ? "nav-link active" : "nav-link"} aria-current="page" href="/">Home</a>
                             </li>
-                            <li className="nav-link">{screenWidth.toString()}</li>
                             {(screenWidth) ?
                                 <li className="nav-item dropdown">
                                     <a className={pageActive === Pages.SERVICOS ? "nav-link dropdown-toggle active" : "nav-link dropdown-toggle"} href="/servicos" id="navbarDropdownMenuLink" role="button" aria-expanded="false">
