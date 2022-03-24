@@ -19,9 +19,16 @@ body {
     padding: 0;
     background: #fff;
     overflow-x: hidden;
-    height: 100vh;
+    // min-height: 100vh;
     font-family: 'Roboto',
         sans-serif;
+}
+
+main {
+    height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
 }
 
 a {

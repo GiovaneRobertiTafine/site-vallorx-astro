@@ -38,16 +38,11 @@ let title = 'Parceiros';
             object-position: center center;
 
         }
-
-        .footer {
-            position: absolute;
-            bottom: 0;
-        }
 	</style>
 </head>
 <body>
 	<main>
-		<Navbar pageActive={Pages.PARCEIROS}/>
+		<Navbar client:visible pageActive={Pages.PARCEIROS}/>
 
         <section id="parceiros" class="container mt-3">
             <h1 class="text-center text-lg-start fw-bold">Parceiros:</h1>
@@ -74,7 +69,7 @@ let title = 'Parceiros';
             </div>
         </section>
 
-        <div class="footer w-100">
+        <div class="mt-auto">
             <Footer/>
         </div>
 	</main>
