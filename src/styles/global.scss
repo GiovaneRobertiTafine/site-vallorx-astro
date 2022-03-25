@@ -46,3 +46,13 @@ ul {
 .text-blue {
     color: #069;
 }
+
+.selo {
+    width: 100px;
+}
+
+@media screen and (max-width: 768px) {
+    .selo {
+        width: 70px;
+    }
+}

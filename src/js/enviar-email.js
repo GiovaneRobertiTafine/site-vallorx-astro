@@ -11,7 +11,7 @@ export function enviarEmail() {
     const urlData = $('#form-contato').serialize();
     $.ajax({
         type: 'POST',
-        url: '/php/email.php',
+        url: '/js/email.php',
         data: urlData,
         dataType: 'json',
         success: (result) => {
