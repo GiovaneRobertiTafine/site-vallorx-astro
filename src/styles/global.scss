@@ -18,13 +18,13 @@ body {
     margin: 0;
     padding: 0;
     background: #fff;
-    overflow-x: hidden;
     font-family: 'Roboto',
         sans-serif;
 }
 
 main {
     height: 100vh;
+    overflow-x: hidden;
     position: relative;
     display: flex;
     flex-direction: column;
