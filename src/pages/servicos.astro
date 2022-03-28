@@ -3,7 +3,15 @@ import { Pages } from '../utils/pages.enum.ts';
 // Style Imports
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/global.scss';
-import  BR  from 'country-flag-icons/3x2/BR.svg'
+import BR from 'country-flag-icons/3x2/BR.svg'
+import US from 'country-flag-icons/3x2/US.svg'
+import GB from 'country-flag-icons/3x2/GB.svg'
+import PT from 'country-flag-icons/3x2/PT.svg'
+import ES from 'country-flag-icons/3x2/ES.svg'
+import DE from 'country-flag-icons/3x2/DE.svg'
+import JP from 'country-flag-icons/3x2/JP.svg'
+import ZA from 'country-flag-icons/3x2/ZA.svg'
+import GR from 'country-flag-icons/3x2/GR.svg'
 // Component Imports
 import Navbar from '../components/nav-bar.tsx';
 import Footer from '../components/footer.tsx';
@@ -72,7 +80,7 @@ let title = 'Serviços';
             width: 2rem;
         }
 
-        @media screen and (max-width: 768px) {
+        @media screen and (max-width: 991px) {
 
             .service-box {
                 flex-direction: column;
@@ -89,7 +97,7 @@ let title = 'Serviços';
             }
 
             .country {
-                width: 1rem;
+                width: 1.5rem;
             }
         }
 	</style>
@@ -274,17 +282,14 @@ let title = 'Serviços';
 
                     <div class="mt-3">
                         <img class="country" src={BR} alt="BR">
-                        <img
-                            class="country"
-                            alt="United States"
-                            src="http://purecatamphetamine.github.io/country-flag-icons/3x2/US.svg"/>
-                        <!-- <span class="fi fi-gb"></span>
-                        <span class="fi fi-pt"></span>
-                        <span class="fi fi-es"></span>
-                        <span class="fi fi-de"></span>
-                        <span class="fi fi-jp"></span>
-                        <span class="fi fi-za"></span>
-                        <span class="fi fi-gr"></span> -->
+                        <img class="country" src={US} alt="US">
+                        <img class="country" src={GB} alt="GB">
+                        <img class="country" src={PT} alt="PT">
+                        <img class="country" src={ES} alt="ES">
+                        <img class="country" src={DE} alt="DE">
+                        <img class="country" src={JP} alt="JP">
+                        <img class="country" src={ZA} alt="ZA">
+                        <img class="country" src={GR} alt="GR">
                         <strong class="text-muted">...</strong>
                     </div>
                 </div>
