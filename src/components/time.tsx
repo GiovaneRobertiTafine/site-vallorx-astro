@@ -2,7 +2,9 @@ import '../styles/time.scss';
 import { useEffect } from 'react';
 import { DateTimeFormat } from '../utils/date-time-format.interface';
 import { TimeZone } from '../utils/time-zone.enum';
-import { US, CN, GB } from 'country-flag-icons/react/3x2';
+import US from 'country-flag-icons/react/3x2/US';
+import CN from 'country-flag-icons/react/3x2/CN';
+import GB from 'country-flag-icons/react/3x2/GB';
 
 const Time = ({ viewTime, changeViewTime }) => {
     const optionsTime = { hour: 'numeric', minute: 'numeric', hour12: false } as DateTimeFormat;
