@@ -17,6 +17,7 @@
     .img-clock {
         display: none;
         background-color: #069;
+        cursor: pointer;
     }
 
     .schedule {
@@ -43,7 +44,7 @@
         transition: all ease-in .5s;
 
         &.close {
-            right: -40%;
+            right: -41%;
         }
 
         &.open {
