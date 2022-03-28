@@ -1,0 +1,62 @@
+.box-time {
+    position: absolute;
+    right: 5px;
+    top: 5rem;
+    width: 20%;
+    z-index: 999;
+    transition: all ease-in .3s;
+
+    &.close {
+        opacity: 0;
+    }
+
+    &.open {
+        opacity: 1;
+    }
+
+    .img-clock {
+        display: none;
+        background-color: #069;
+    }
+
+    .schedule {
+        .card-header {
+            text-align: left;
+
+            #close {
+                width: 24px;
+                float: right;
+                cursor: pointer;
+            }
+        }
+
+        .card-body {
+            text-align: start;
+        }
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .box-time {
+        width: 50%;
+        opacity: 1 !important;
+        transition: all ease-in .5s;
+
+        &.close {
+            right: -40%;
+        }
+
+        &.open {
+            right: 5px;
+        }
+
+        .img-clock {
+            display: block;
+            width: 18%;
+            height: 30px;
+            float: left;
+            text-align: center;
+        }
+
+    }
+}

@@ -1,18 +1,33 @@
 import '../styles/nav-bar.scss';
 import { Pages } from '../utils/pages.enum';
 import React, { useMemo, useEffect, useState } from 'react';
+import Time from './time';
+import { DateTimeFormat } from '../utils/date-time-format.interface';
 
 const NavBar: React.FC<{ pageActive: number; }> = ({ pageActive }) => {
     const [screenWidth, setScreenWidth] = useState(false);
+    const [viewTime, setViewTime] = useState(false);
 
     const handleResize = () => {
-        window.screen.width > 768 ? setScreenWidth(true) : setScreenWidth(false);
+        window.screen.width > 991 ? setScreenWidth(true) : setScreenWidth(false);
     };
+
+    const handleViewTime = (event?) => {
+        if (event?.path.indexOf(document.querySelector('#time-link')) < 0 &&
+            event?.path.indexOf(document.querySelector('.box-time')) < 0
+        ) {
+            setViewTime(false);
+        } else if (!event) {
+            !viewTime ? setViewTime(true) : setViewTime(false);
+        }
+    };
+
 
     useEffect(() => {
         window.screen.width > 768 ? setScreenWidth(true) : setScreenWidth(false);
         window.addEventListener("resize", handleResize);
-
+        window.addEventListener("click", handleViewTime);
+        const options = { hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: false, timeZone: 'Asia/Hong_Kong' } as DateTimeFormat;
     }, []);
 
     function pageLinkServicos(id: string) {
@@ -63,10 +78,20 @@ const NavBar: React.FC<{ pageActive: number; }> = ({ pageActive }) => {
                             <li className="nav-item">
                                 <a className={pageActive === Pages.CONTATO ? "nav-link active" : "nav-link"} aria-current="page" href="/contato">Contato</a>
                             </li>
+                            {(screenWidth) ?
+                                <li className="nav-item">
+                                    <div className="nav-link" id="time-link" onClick={() => handleViewTime()}>
+                                        <img src="/assets/time/clock.svg" alt="time" />
+                                    </div>
+                                </li>
+                                :
+                                null
+                            }
                         </ul>
                     </div>
                 </div>
             </nav>
+            <Time viewTime={viewTime} changeViewTime={handleViewTime} />
         </header>
 
     );
