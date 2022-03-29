@@ -3,6 +3,16 @@ import { Pages } from '../utils/pages.enum.ts';
 // Style Imports
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/global.scss';
+// import BR from 'country-flag-icons/3x2/BR.svg'
+// import US from 'country-flag-icons/3x2/US.svg'
+// import GB from 'country-flag-icons/3x2/GB.svg'
+// import PT from 'country-flag-icons/3x2/PT.svg'
+// import ES from 'country-flag-icons/3x2/ES.svg'
+// import DE from 'country-flag-icons/3x2/DE.svg'
+// import JP from 'country-flag-icons/3x2/JP.svg'
+// import ZA from 'country-flag-icons/3x2/ZA.svg'
+// import GR from 'country-flag-icons/3x2/GR.svg'
+import 'flag-icons/sass/flag-icons.scss'
 // Component Imports
 import Navbar from '../components/nav-bar.tsx';
 import Footer from '../components/footer.tsx';
@@ -68,7 +78,7 @@ let title = 'Serviços';
 
         .country {
             margin: 0 5px 0 5px !important;
-            width: 2rem;
+            font-size: 1.3rem;
         }
 
         @media screen and (max-width: 991px) {
@@ -88,7 +98,7 @@ let title = 'Serviços';
             }
 
             .country {
-                width: 1.5rem;
+                font-size: 1rem;
             }
         }
 	</style>
@@ -272,6 +282,7 @@ let title = 'Serviços';
                     </ul>
 
                     <div class="mt-3">
+                        <span class="fi fi-br country"></span>
                         <!-- <img class="country" src={BR} alt="BR">
                         <img class="country" src={US} alt="US">
                         <img class="country" src={GB} alt="GB">

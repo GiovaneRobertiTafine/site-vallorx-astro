@@ -2,7 +2,6 @@ import '../styles/time.scss';
 import { useEffect } from 'react';
 import { DateTimeFormat } from '../utils/date-time-format.interface';
 import { TimeZone } from '../utils/time-zone.enum';
-import 'flag-icons-svg/css/flag-icons.css';
 
 const Time = ({ viewTime, changeViewTime }) => {
     const optionsTime = { hour: 'numeric', minute: 'numeric', hour12: false } as DateTimeFormat;
@@ -36,7 +35,6 @@ const Time = ({ viewTime, changeViewTime }) => {
                 </div>
                 <div className="card-body">
                     <small>Nova Iorque</small><br />
-                    <span class="flag-icon flag-icon-us country"></span>
                     <small id="new-york">00:00</small>
                     <br /><br />
                     <small>Pequim</small><br />
