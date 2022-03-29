@@ -24,7 +24,7 @@ const NavBar: React.FC<{ pageActive: number; }> = ({ pageActive }) => {
 
 
     useEffect(() => {
-        window.screen.width > 768 ? setScreenWidth(true) : setScreenWidth(false);
+        window.screen.width > 991 ? setScreenWidth(true) : setScreenWidth(false);
         window.addEventListener("resize", handleResize);
         window.addEventListener("click", handleViewTime);
         const options = { hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: false, timeZone: 'Asia/Hong_Kong' } as DateTimeFormat;

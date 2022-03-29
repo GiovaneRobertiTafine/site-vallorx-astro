@@ -2,9 +2,7 @@ import '../styles/time.scss';
 import { useEffect } from 'react';
 import { DateTimeFormat } from '../utils/date-time-format.interface';
 import { TimeZone } from '../utils/time-zone.enum';
-import US from 'country-flag-icons/react/3x2/US';
-import CN from 'country-flag-icons/react/3x2/CN';
-import GB from 'country-flag-icons/react/3x2/GB';
+import 'flag-icons-svg/css/flag-icons.css';
 
 const Time = ({ viewTime, changeViewTime }) => {
     const optionsTime = { hour: 'numeric', minute: 'numeric', hour12: false } as DateTimeFormat;
@@ -38,15 +36,15 @@ const Time = ({ viewTime, changeViewTime }) => {
                 </div>
                 <div className="card-body">
                     <small>Nova Iorque</small><br />
-                    <US title="US" className="country" />
+                    <span class="flag-icon flag-icon-us country"></span>
                     <small id="new-york">00:00</small>
                     <br /><br />
                     <small>Pequim</small><br />
-                    <CN title="CN" className="country" />
+                    {/* <Flag flagCode="us" height={25} /> */}
                     <small id="pequim">00:00</small>
                     <br /><br />
                     <small>Londres</small><br />
-                    <GB title="GB" className="country" />
+                    {/* <Flag flagCode="us" height={25} /> */}
                     <small id="londres">00:00</small>
                     <br />
                 </div>
