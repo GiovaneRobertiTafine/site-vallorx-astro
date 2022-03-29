@@ -23,7 +23,4 @@ export default /** @type {import('astro').AstroUserConfig} */ ({
     renderers: [
         "@astrojs/renderer-react",
     ],
-    vite: {
-        plugins: ['flag-icons/css/flag-icons.min.css']
-    }
 });
