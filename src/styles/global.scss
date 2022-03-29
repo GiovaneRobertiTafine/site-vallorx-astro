@@ -1,5 +1,4 @@
 @import "bootstrap/dist/css/bootstrap.min.css";
-@import "flag-icons/css/flag-icons.min.css";
 
 *,
 *::before,
@@ -54,5 +53,68 @@ ul {
 @media screen and (max-width: 768px) {
     .selo {
         width: 70px;
+    }
+}
+
+// Flags
+
+.country {
+    background-size: contain;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    position: relative;
+    display: inline-block;
+    width: 1.3em;
+    line-height: 1em;
+    font-size: 2rem;
+
+    &::before {
+        content: '\00a0';
+    }
+
+    &.country-br {
+        background-image: url(/assets/flags/br.svg);
+    }
+
+    &.country-us {
+        background-image: url(/assets/flags/us.svg);
+    }
+
+    &.country-gb {
+        background-image: url(/assets/flags/gb.svg);
+    }
+
+    &.country-pt {
+        background-image: url(/assets/flags/pt.svg);
+    }
+
+    &.country-es {
+        background-image: url(/assets/flags/es.svg);
+    }
+
+    &.country-de {
+        background-image: url(/assets/flags/de.svg);
+    }
+
+    &.country-jp {
+        background-image: url(/assets/flags/jp.svg);
+    }
+
+    &.country-za {
+        background-image: url(/assets/flags/za.svg);
+    }
+
+    &.country-gr {
+        background-image: url(/assets/flags/gr.svg);
+    }
+
+    &.country-cn {
+        background-image: url(/assets/flags/cn.svg);
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .country {
+        font-size: 1rem;
     }
 }

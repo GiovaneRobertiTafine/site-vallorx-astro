@@ -35,14 +35,15 @@ const Time = ({ viewTime, changeViewTime }) => {
                 </div>
                 <div className="card-body">
                     <small>Nova Iorque</small><br />
+                    <span class="country country-us"></span>
                     <small id="new-york">00:00</small>
                     <br /><br />
                     <small>Pequim</small><br />
-                    {/* <Flag flagCode="us" height={25} /> */}
+                    <span class="country country-cn"></span>
                     <small id="pequim">00:00</small>
                     <br /><br />
                     <small>Londres</small><br />
-                    {/* <Flag flagCode="us" height={25} /> */}
+                    <span class="country country-gb"></span>
                     <small id="londres">00:00</small>
                     <br />
                 </div>

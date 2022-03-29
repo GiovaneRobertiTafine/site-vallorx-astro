@@ -2,7 +2,7 @@
 import { Pages } from '../utils/pages.enum.ts';
 // Style Imports
 import '../styles/global.scss';
-// import BR from 'country-flag-icons/3x2/BR.svg'
+// import BR from 'svg-country-flags/svg/br.svg'
 // import US from 'country-flag-icons/3x2/US.svg'
 // import GB from 'country-flag-icons/3x2/GB.svg'
 // import PT from 'country-flag-icons/3x2/PT.svg'
@@ -75,11 +75,6 @@ let title = 'Serviços';
             transform: scale(1.1);
         }
 
-        .country {
-            margin: 0 5px 0 5px !important;
-            font-size: 1.3rem;
-        }
-
         @media screen and (max-width: 991px) {
 
             .service-box {
@@ -96,9 +91,6 @@ let title = 'Serviços';
                 margin-top: 20px;
             }
 
-            .country {
-                font-size: 1rem;
-            }
         }
 	</style>
 </head>
@@ -281,16 +273,15 @@ let title = 'Serviços';
                     </ul>
 
                     <div class="mt-3">
-                        <span class="fi fi-gr country"></span>
-                        <!-- <img class="country" src={BR} alt="BR">
-                        <img class="country" src={US} alt="US">
-                        <img class="country" src={GB} alt="GB">
-                        <img class="country" src={PT} alt="PT">
-                        <img class="country" src={ES} alt="ES">
-                        <img class="country" src={DE} alt="DE">
-                        <img class="country" src={JP} alt="JP">
-                        <img class="country" src={ZA} alt="ZA">
-                        <img class="country" src={GR} alt="GR"> -->
+                        <span class="country country-br"></span>
+                        <span class="country country-us"></span>
+                        <span class="country country-gb"></span>
+                        <span class="country country-pt"></span>
+                        <span class="country country-es"></span>
+                        <span class="country country-de"></span>
+                        <span class="country country-jp"></span>
+                        <span class="country country-za"></span>
+                        <span class="country country-gr"></span>
                         <strong class="text-muted">...</strong>
                     </div>
                 </div>
