@@ -36,10 +36,10 @@ export function obterVideos() {
     // });
 
 
-    var jqxhr = $.get("/js/videos.php", (data) => {
+    var jqxhr = $.get("/php/videos.php", (data) => {
     })
         .done((result) => {
-            result = JSON.stringify(result);
+            result = JSON.parse(result);
             console.log("done: " + result);
             if (result.status === '200') {
                 result.data.map((video) => {
