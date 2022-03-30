@@ -17,13 +17,16 @@ jobs:
           node-version: '14.x'
       - run: npm install
       - run: npm run build
-      - run: cd dist
       
       - name: 📂 Sync files
-        uses: SamKirkland/FTP-Deploy-Action@4.1.0
+        uses: SamKirkland/FTP-Deploy-Action@4.3.0
         with:
           server: ${{ secrets.ftp_host }}
           username: ${{ secrets.ftp_user }}
           password: ${{ secrets.ftp_password }}
-          local- dir : /dist/
+          local- dir : ./dist/
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
           # server-dir: public_html/
