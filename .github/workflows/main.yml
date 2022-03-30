@@ -29,4 +29,4 @@ jobs:
             **/.git*
             **/.git*/**
             **/node_modules/**
-          # server-dir: public_html/
+          server-dir: public_html/
