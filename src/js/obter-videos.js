@@ -1,6 +1,6 @@
 import $ from 'jquery';
 
-export async function obterVideos() {
+export function obterVideos() {
     $.ajax({
         headers: 'Cache-Control: no-cache',
         type: 'GET',
