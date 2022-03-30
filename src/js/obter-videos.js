@@ -39,15 +39,15 @@ export function obterVideos() {
     var jqxhr = $.get("/php/videos.php", (data) => {
     })
         .done((result) => {
+            result = JSON.parse(result);
             console.log("done: " + result);
             if (result.status === '200') {
-                result = JSON.parse(result);
                 result.data.map((video) => {
                     console.log(video);
                     $('#box-videos').append(
                         `
-                        <VideoNews content={{name: ${video}}}/>
-                        <video controls>
+                        
+                        <video controls ontrolsList="nodownload">
                             <source src="/assets/videos-news/${video}" type="video/mp4" >
                         </video>
                         `

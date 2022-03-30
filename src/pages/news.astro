@@ -10,6 +10,10 @@ import VideoNews from '../layouts/video-news.astro';
 
 let title = 'Parceiros';
 
+const response = await fetch('/php/videos.php');
+console.log(response)
+const data = await response.json();
+console.log(data)
 
 ---
 
@@ -50,7 +54,7 @@ let title = 'Parceiros';
     <script type="module" hoist>
         import { obterVideos } from "../js/obter-videos.js"
 				globalThis.obterVideos = obterVideos;
-                obterVideos()
+                // obterVideos()
     </script>
     <script>
     </script>
