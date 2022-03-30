@@ -71,14 +71,14 @@ const patternTelefone = "([9])?([\\d]{4})+([\\-])?([\\d]{4})$";
 		<Navbar client:visible pageActive={Pages.CONTATO}/>
 
         <section id="contato" class="container mt-3">
-            <h1 class="text-center text-lg-start fw-bold">Contato:</h1>
+            <h1 class="text-center text-lg-start fw-bold line-title">Contato</h1>
             <div class="row">
                 <div class="col-lg-6 col-md-12 mx-auto">
                     <form class="row g-3 mb-5 needs-validation" id="form-contato" novalidate>
                             <div class="mb-3">
                                 <label for="inputNomeCompleto" class="form-label">Nome completo:</label>
                                 <input type="text" class="form-control" id="inputNomeCompleto" aria-describedby="nome" name="nome" 
-                                name="nome" required minlength="5">
+                                name="nome" required minlength={5}>
                                 <div class="invalid-feedback">
                                     Nome completo é requirido, minimo 5 caracteres
                                 </div>
@@ -86,7 +86,7 @@ const patternTelefone = "([9])?([\\d]{4})+([\\-])?([\\d]{4})$";
                             <div class="mb-3">
                                 <label for="inputEmpresa" class="form-label">Empresa:</label>
                                 <input type="text" class="form-control" id="inputEmpresa" aria-describedby="empresa" name="empresa" 
-                                name="empresa" required minlength="5">
+                                name="empresa" required minlength={5}>
                                 <div class="invalid-feedback">
                                     Empresa é requirido, minimo 5 caracteres
                                 </div>
@@ -94,7 +94,7 @@ const patternTelefone = "([9])?([\\d]{4})+([\\-])?([\\d]{4})$";
                             <div class="mb-3">
                                 <label for="inputEmail" class="form-label">Email:</label>
                                 <input type="text" class="form-control" id="inputEmail" aria-describedby="email" name="email" 
-                                name="email" required minlength="5" pattern={patternEmail}>
+                                name="email" required minlength={5} pattern={patternEmail}>
                                 <div class="invalid-feedback">
                                     Email é requirido ou email inválido
                                 </div>
@@ -103,7 +103,7 @@ const patternTelefone = "([9])?([\\d]{4})+([\\-])?([\\d]{4})$";
                                 <label for="inputTelefone" class="form-label">Telefone:</label>
                                 <div class="d-flex flex-wrap">
                                     <input type="text" class="form-control w-25 text-center" id="inputTelefone" aria-describedby="ddd" aria-label="First name" 
-                                    name="ddd" required placeholder="DDD" maxlength="2" minlength="2">
+                                    name="ddd" required placeholder="DDD" maxlength={2} minlength={2}>
                                     <input type="text" class="form-control w-75" id="inputTelefone" aria-describedby="telefone" aria-label="First name" 
                                     name="telefone" required pattern={patternTelefone}>
                                     <div class="invalid-feedback">
@@ -150,8 +150,8 @@ const patternTelefone = "([9])?([\\d]{4})+([\\-])?([\\d]{4})$";
                             </div>
                             <div class="mb-3">
                                 <label for="textAreaMensagem" class="form-label">Mensagem:</label>
-                                <textarea class="form-control" id="mensagem" rows="5" name="mensagem"
-                                    style="overflow-y: auto; resize: none;" title="Mensagem" required minlength="10"></textarea>
+                                <textarea class="form-control" id="mensagem" rows={5} name="mensagem"
+                                    style="overflow-y: auto; resize: none;" title="Mensagem" required minlength={10}></textarea>
                                 <div class="invalid-feedback">
                                     Mensagem é requirido, minimo 10 caracteres
                                 </div>
@@ -198,7 +198,7 @@ const patternTelefone = "([9])?([\\d]{4})+([\\-])?([\\d]{4})$";
                         <div class="col-12">
                             <iframe title="Mapa esc est"
                                 src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d3657.2620056777496!2d-46.66062483538401!3d-23.559031717390592!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e6!4m5!1s0x94ce59ccfe9d9519%3A0xf276453731f2aa4!2sRua%20Frei%20Caneca%2C%201381%20-%20Consola%C3%A7%C3%A3o%2C%20S%C3%A3o%20Paulo%20-%20SP!3m2!1d-23.558511499999998!2d-46.658305899999995!4m5!1s0x94ce59cc461c5d55%3A0x47375bee97c54255!2sAv.%20Paulista%2C%201842%20-%20Bela%20Vista%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2001310-200!3m2!1d-23.559588299999998!2d-46.658066!5e0!3m2!1spt-BR!2sbr!4v1643685337277!5m2!1spt-BR!2sbr"
-                                height="450" style="border:0; width: 100%;" allowfullscreen=""
+                                height="450" style="border:0; width: 100%;"
                                 loading="lazy"></iframe>
                         </div>
                     </div>

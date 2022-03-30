@@ -118,3 +118,21 @@ ul {
         font-size: 1rem;
     }
 }
+
+// Line-title
+
+.line-title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+
+    &::after {
+        content: "";
+        flex: 1;
+        height: 4px;
+        background-image: linear-gradient(to right, #069, #00bd68);
+        align-self: flex-end;
+        margin-left: 10px;
+        margin-bottom: 10px;
+    }
+}

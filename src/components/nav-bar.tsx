@@ -78,6 +78,9 @@ const NavBar: React.FC<{ pageActive: number; }> = ({ pageActive }) => {
                             <li className="nav-item">
                                 <a className={pageActive === Pages.CONTATO ? "nav-link active" : "nav-link"} aria-current="page" href="/contato">Contato</a>
                             </li>
+                            <li className="nav-item">
+                                <a className={pageActive === Pages.NEWS ? "nav-link active" : "nav-link"} aria-current="page" href="/news">NEWS</a>
+                            </li>
                             {(screenWidth) ?
                                 <li className="nav-item">
                                     <div className="nav-link" id="time-link" onClick={() => handleViewTime()}>
