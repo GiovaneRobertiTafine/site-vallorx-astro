@@ -48,7 +48,7 @@ export function obterVideos() {
                         `
                         <VideoNews content={{name: ${video}}}/>
                         <video controls>
-                            <source src="${'/assets/videos-news/' + video}" type="video/mp4" >
+                            <source src="/assets/videos-news/${video}" type="video/mp4" >
                         </video>
                         `
                     );
