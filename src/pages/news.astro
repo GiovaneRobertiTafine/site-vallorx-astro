@@ -10,11 +10,17 @@ import VideoNews from '../layouts/video-news.astro';
 
 let title = 'Parceiros';
 
-const response = await fetch('/php/videos.php');
-console.log(response)
-const data = await response.json();
-console.log(data)
-
+const data = await fetch('https://vallorx.com.br/php/videos.php', {method: 'GET'})
+                .then((response) => {
+                    return response.json()
+                })
+                .then((json) => {
+                    if (json.status === '200') {
+                        return json.data
+                    } else {
+                        return null
+                    }
+                })
 ---
 
 
@@ -39,8 +45,13 @@ console.log(data)
         <section id="parceiros" class="container mt-3">
             <h1 class="text-center text-lg-start fw-bold line-title">NEWS</h1>
             <h3 class="text-danger" id="erro-videos"></h3>
-            <div class="row" id="box-videos">
+            <div class="row mb-5" id="box-videos">
                 <!-- <VideoNews content={{name: 'typeof(video)'}}/> -->
+                {data.length > 0? data.map((videoName) => (
+                    <VideoNews content={{nome: videoName, linkVideo: "/assets/videos-news/" + videoName }} />
+                )):
+                    <h3>Erro ao obter os dados.</h3>
+                }
             </div>
         </section>
         <div class="mt-auto">
@@ -55,8 +66,6 @@ console.log(data)
         import { obterVideos } from "../js/obter-videos.js"
 				globalThis.obterVideos = obterVideos;
                 // obterVideos()
-    </script>
-    <script>
     </script>
    
 </body>

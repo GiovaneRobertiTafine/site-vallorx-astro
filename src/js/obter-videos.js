@@ -39,8 +39,11 @@ export function obterVideos() {
     var jqxhr = $.get("/php/videos.php", (data) => {
     })
         .done((result) => {
-            result = JSON.parse(result);
-            console.log("done: " + result);
+            try {
+                result = JSON.parse(result);
+            } catch (error) {
+                error;
+            }
             if (result.status === '200') {
                 result.data.map((video) => {
                     console.log(video);

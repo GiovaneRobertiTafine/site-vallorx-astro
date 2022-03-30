@@ -1,9 +1,11 @@
 ---
 const { content } = Astro.props;
-const { name, video } = content;
+const { nome, linkVideo } = content;
+
+const regexNomeVideo = /.mp4/gi;
 ---
 
-
-<div>
-    <h3>{name}</h3>
-</div>
+<h3>{nome.replace(regexNomeVideo, '')}:</h3>
+<video class="mx-auto w-75 mb-5" controls width="70%" poster="/assets/fundo-video.jpg" controlsList="nodownload" preload="auto">
+    <source src={linkVideo} type="video/mp4" />
+</video>
