@@ -17,7 +17,8 @@ jobs:
           node-version: '14.x'
       - run: npm install
       - run: npm run build
-
+      - run: cd dist
+      
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@4.1.0
         with:
