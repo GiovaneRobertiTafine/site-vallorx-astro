@@ -39,7 +39,7 @@ export function enviarEmail() {
         },
         complete: () => { /* completo */
             $('#loading').fadeOut('fast'); /* esconde o loading */
-            // $('#form-contato')[0].reset();
+            $('#form-contato').trigger('reset');
         }
 
     });
