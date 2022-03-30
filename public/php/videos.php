@@ -8,7 +8,7 @@
     if (isset($_GET)):
         $dir = '../assets/videos-news';
         if (is_dir($dir)):
-            $files = array_diff(scandir($dir), array('.', '..'));
+            $files = array_values(array_diff(scandir($dir), array('..', '.')));
             // do something
         else:
             $array  = array('status' => '400', 'mensagem' => 'Erro interno ao obter os dados.');
