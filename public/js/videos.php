@@ -1,22 +1,25 @@
 <?php
+    header('Content-type: text/html; charset=utf-8');
+    function console_log( $data ){
+        echo '<script>';
+        echo 'console.log('. json_encode( $data ) .')';
+        echo '</script>';
+    }
     if (isset($_GET)):
         $dir = '../assets/videos-news';
         if (is_dir($dir)):
             $files = array_diff(scandir($dir), array('.', '..'));
             // do something
         else:
-            echo "No such directory";
+            $array  = array('status' => '400', 'mensagem' => 'Erro interno ao obter os dados.');
+            echo json_encode($array);
         endif;
-        // $files2 = scandir($dir, 1);
 
-        // print_r($files);
-        // print_r($files2);
-        // echo $files
         if ($files):
-            $array  = array('status' => '200', 'mensagem' => 'Sua mensagem foi enviada com sucesso!', 'data' => $files);
+            $array  = array('status' => '200', 'mensagem' => 'Dados obtidos com sucesso.', 'data' => $files);
             echo json_encode($array);
         else:
-            $array  = array('status' => '500', 'mensagem' => 'Infelizmente houve um erro ao enviar sua mensagem!');
+            $array  = array('status' => '500', 'mensagem' => 'Não foi possível obter os dados.');
             echo json_encode($array);
         endif;
 
