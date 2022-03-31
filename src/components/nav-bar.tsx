@@ -79,7 +79,7 @@ const NavBar: React.FC<{ pageActive: number; }> = ({ pageActive }) => {
                                 <a className={pageActive === Pages.CONTATO ? "nav-link active" : "nav-link"} aria-current="page" href="/contato">Contato</a>
                             </li>
                             <li className="nav-item">
-                                <a className={pageActive === Pages.NEWS ? "nav-link active" : "nav-link"} aria-current="page" href="/news">NEWS</a>
+                                <a className={pageActive === Pages.NEWS ? "nav-link active" : "nav-link"} aria-current="page" href="/news">News</a>
                             </li>
                             {(screenWidth) ?
                                 <li className="nav-item">

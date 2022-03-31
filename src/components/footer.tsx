@@ -17,7 +17,7 @@ const Footer = () => {
             </div>
             <hr />
             <div className="d-lg-flex justify-content-end align-content-center w-100">
-                <span className="small cursor-pointer">Desenvolvido por: Giovane Roberti Tafine</span>
+                <a className="small cursor-pointer text-reset text-decoration-none" href="https://br.linkedin.com/in/mandrilla" target="_blank">Desenvolvido por: Giovane Roberti Tafine</a>
             </div>
         </footer>
 
