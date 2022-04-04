@@ -1,0 +1,63 @@
+---
+import '../styles/global.scss';
+---
+<style>
+    .progress {
+        display: none;
+    }
+</style>
+<!-- Modal -->
+<div class="modal fade" id="addModal" tabindex={-1} aria-labelledby="addModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addModalLabel">Add News</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form class="needs-validation" id="form-add" novalidate>
+            <div class="mb-3">
+                <label for="inputTitle" class="form-label">Title</label>
+                <input type="text" class="form-control" id="inputTitle" aria-describedby="title" title="title" name="title" required>
+                <div class="invalid-feedback">
+                    Title is required
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="inputVideo" class="form-label">Video</label>
+                <input class="form-control" type="file" id="inputVideo" aria-describedby="video" title="video" name="video" required>
+                <div class="invalid-feedback">
+                    Video is required
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="textAreaDescription" class="form-label">Description:</label>
+                <textarea class="form-control" id="textAreaDescription" rows={5} name="description"
+                    style="overflow-y: auto; resize: none;" title="description" required></textarea>
+                <div class="invalid-feedback">
+                    Description is required
+                </div>
+            </div>
+        </form>
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" onclick="gestaoVideos.addNews()" id="btn-save">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="module" hoist>
+    import * as gestaoVideos from "../js/gestao-videos.js"
+        globalThis.gestaoVideos = gestaoVideos;
+
+    
+</script>
+<script>
+    
+
+</script>

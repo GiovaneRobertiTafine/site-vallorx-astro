@@ -4,14 +4,13 @@
     top: 5rem;
     width: 15%;
     z-index: 999;
-    transition: all ease-in .3s;
 
     &.close {
-        opacity: 0;
+        visibility: hidden
     }
 
     &.open {
-        opacity: 1;
+        visibility: visible;
     }
 
     .img-clock {

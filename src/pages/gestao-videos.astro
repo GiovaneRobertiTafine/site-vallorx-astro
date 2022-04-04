@@ -2,6 +2,12 @@
 // Style Imports
 import '../styles/global.scss';
 
+// Component Imports
+import Navbar from '../components/nav-bar.tsx';
+
+// Layouts
+import ModalAddNews from '../layouts/modal-add-news.astro';
+
 let title = 'Gestão Vídeos';
 
 const data = await fetch('https://vallorx.com.br/php/gestao-videos.php', {method: 'GET'})
@@ -31,22 +37,42 @@ const data = await fetch('https://vallorx.com.br/php/gestao-videos.php', {method
 
 	<link rel="icon" type="image/x-icon" href="/assets/favicon/favicon.ico" />
 	<style>
+        .icons-header {
+            width: 2em;
+        }
 	</style>
 </head>
 <body>
 	<main>
-
+        <Navbar client:visible pageActive={null}/>
         <section id="gestao-videos" class="container mt-3">
-                {data? data.map((video) => (
-                    <h3>{video['Id'] + video.FileName + video.Description }</h3>
-                )):
-                    <h3>Erro ao obter os dados.</h3>
-                }
+            <div class="d-flex mb-3 justify-content-end">
+                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#addModal">
+                    <img class="icons-header" src="/assets/gestao-videos/plus-circle.svg" alt="plus-circle">
+                </button>
+                <img class="icons-header" src="/assets/gestao-videos/x-circle.svg" alt="x-circle">
+            </div>
+                    {data? data.map((video) => (
+                        <ul class="list-group">
+                            <li href="#" class="list-group-item" aria-current="true">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1">{video.Title}</h5>
+                                    <img src="/assets/gestao-videos/x-square.svg" alt="x-square" />
+                                </div>
+                                <p class="mb-1">{video.Description}</p>
+                            </li>
+                        </ul>
+                    )):
+                        <h3>Erro ao obter os dados.</h3>
+                    }
+
         </section>
+        <ModalAddNews/>
 
 	</main>
 
     <script type="module" hoist>
+        import "jquery";
         import "bootstrap/dist/js/bootstrap.bundle.min.js";
     </script>
 </body>
