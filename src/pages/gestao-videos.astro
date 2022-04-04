@@ -52,7 +52,8 @@ const data = await fetch('https://vallorx.com.br/php/gestao-videos.php', {method
                 </button>
                 <img class="icons-header" src="/assets/gestao-videos/x-circle.svg" alt="x-circle">
             </div>
-                    {data? data.map((video) => (
+                    {data.length? 
+                    data.map((video) => (
                         <ul class="list-group">
                             <li href="#" class="list-group-item" aria-current="true">
                                 <div class="d-flex w-100 justify-content-between">
@@ -63,7 +64,7 @@ const data = await fetch('https://vallorx.com.br/php/gestao-videos.php', {method
                             </li>
                         </ul>
                     )):
-                        <h3>Erro ao obter os dados.</h3>
+                        <h3>Não foi possível obter os dados ou nao tenha nenhum vídeo registrado.</h3>
                     }
 
         </section>

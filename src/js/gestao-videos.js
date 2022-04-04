@@ -15,9 +15,9 @@ export function addNews() {
             type: 'POST',
             url: 'https://vallorx.com.br/php/gestao-videos.php',
             data: urlData,
-            dataType: 'json',
             success: (result) => {
-                $('.progress').css('width', `${result.progress}%`);
+                console.log(result);
+                console.log(result.progress);
                 if (result.status === '200') {
                     $('#resposta-add-news').html(result.mensagem).show();
                     clearInterval(i);
