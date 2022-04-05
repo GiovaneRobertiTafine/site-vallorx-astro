@@ -9,6 +9,10 @@
 // php -S localhost:8000 index.php
 // depois abrir a pagina localhost:8000
 header('Content-type: text/html; charset=utf-8');
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Headers: Content-Type");
+header('Access-Control-Allow-Methods: GET, POST, DELETE');
+
 $pdo = new PDO('sqlite:../sqlite/videos.db');
 
 if($_SERVER["REQUEST_METHOD"] == "GET") {

@@ -4,23 +4,10 @@ import '../styles/global.scss';
 
 // Component Imports
 import Navbar from '../components/nav-bar.tsx';
-
-// Layouts
-import ModalAddNews from '../layouts/modal-add-news.astro';
+import ModalAddNews from '../components/modal-add-news.astro';
+import ModalDeleteNews from '../components/modal-delete-news.astro';
 
 let title = 'Gestão Vídeos';
-
-const data = await fetch('https://vallorx.com.br/php/gestao-videos.php', {method: 'GET'})
-                .then((response) => {
-                    return response.json()
-                })
-                .then((json) => {
-                    if (json) {
-                        return json
-                    } else {
-                        return null
-                    }
-                })
 
 ---
 
@@ -33,7 +20,7 @@ const data = await fetch('https://vallorx.com.br/php/gestao-videos.php', {method
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
     <link rel="manifest" href="/assets/favicon/site.webmanifest">
     <link rel="mask-icon" href="/assets/favicon/safari-pinned-tab.svg" color="#fff">
-    <title>Vallox | {title}</title>
+    <title>{title}</title>
 
 	<link rel="icon" type="image/x-icon" href="/assets/favicon/favicon.ico" />
 	<style>
@@ -50,31 +37,21 @@ const data = await fetch('https://vallorx.com.br/php/gestao-videos.php', {method
                 <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#addModal">
                     <img class="icons-header" src="/assets/gestao-videos/plus-circle.svg" alt="plus-circle">
                 </button>
-                <img class="icons-header" src="/assets/gestao-videos/x-circle.svg" alt="x-circle">
+                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#deleteModal" onclick="gestaoVideos.deleteAllOrId()">
+                    <img class="icons-header" src="/assets/gestao-videos/x-circle.svg" alt="x-circle">
+                </button>
             </div>
-                    {data.length? 
-                    data.map((video) => (
-                        <ul class="list-group">
-                            <li href="#" class="list-group-item" aria-current="true">
-                                <div class="d-flex w-100 justify-content-between">
-                                    <h5 class="mb-1">{video.Title}</h5>
-                                    <img src="/assets/gestao-videos/x-square.svg" alt="x-square" />
-                                </div>
-                                <p class="mb-1">{video.Description}</p>
-                            </li>
-                        </ul>
-                    )):
-                        <h3>Não foi possível obter os dados ou nao tenha nenhum vídeo registrado.</h3>
-                    }
+            <div id="list-news">
+            </div>
 
         </section>
         <ModalAddNews/>
-
+        <ModalDeleteNews/>
 	</main>
-
     <script type="module" hoist>
-        import "jquery";
         import "bootstrap/dist/js/bootstrap.bundle.min.js";
+        import * as gestaoVideos from "../js/gestao-videos.js"
+            globalThis.gestaoVideos = gestaoVideos;
     </script>
 </body>
 </html>

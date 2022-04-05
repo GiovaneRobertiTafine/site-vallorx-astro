@@ -12,13 +12,13 @@ import VideoNews from '../layouts/video-news.astro';
 
 let title = 'News';
 
-const data = await fetch('https://vallorx.com.br/php/videos.php', {method: 'GET'})
+const data = await fetch('https://vallorx.com.br/php/gestao-videos.php', {method: 'GET'})
                 .then((response) => {
                     return response.json()
                 })
                 .then((json) => {
-                    if (json.status === '200') {
-                        return json.data
+                    if (json) {
+                        return json
                     } else {
                         return null
                     }
@@ -49,8 +49,12 @@ const data = await fetch('https://vallorx.com.br/php/videos.php', {method: 'GET'
             <h3 class="text-danger" id="erro-videos"></h3>
             <div class="row mb-5" id="box-videos">
                 <!-- <VideoNews content={{name: 'typeof(video)'}}/> -->
-                {data.length > 0? data.map((videoName) => (
-                    <VideoNews content={{nome: videoName, linkVideo: "/assets/videos-news/" + videoName }} />
+                {data.length > 0? data.map((video) => (
+                    <div class="card my-3">
+                        <div class="card-body">
+                            <VideoNews content={{video: video, linkVideo: "https://vallorx.com.br/videos/" + video.FileName }} />
+                        </div>
+                    </div>
                 )):
                     <h3>Erro ao obter os dados.</h3>
                 }
@@ -61,13 +65,9 @@ const data = await fetch('https://vallorx.com.br/php/videos.php', {method: 'GET'
         </div>
     </main>
      <script type="module" hoist>
-        import "jquery"
         import "bootstrap/dist/js/bootstrap.bundle.min.js";
-    </script>
-    <script type="module" hoist>
-        import { obterVideos } from "../js/obter-videos.js"
+        import * as obterVideos from "../js/obter-videos.js"
 				globalThis.obterVideos = obterVideos;
-                // obterVideos()
     </script>
    
 </body>

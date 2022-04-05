@@ -1,4 +1,5 @@
 import $ from 'jquery';
+//Layouts
 
 export function obterVideos() {
     // $.ajax({
@@ -35,41 +36,42 @@ export function obterVideos() {
 
     // });
 
+    // --------------------------------------------------------------------------------------------------
+    // var jqxhr = $.get("/php/videos.php", (data) => {
+    // })
+    //     .done((result) => {
+    //         try {
+    //             result = JSON.parse(result);
+    //         } catch (error) {
+    //             error;
+    //         }
+    //         if (result.status === '200') {
+    //             result.data.map((video) => {
+    //                 console.log(video);
+    //                 $('#box-videos').append(
+    //                     `
 
-    var jqxhr = $.get("/php/videos.php", (data) => {
-    })
-        .done((result) => {
-            try {
-                result = JSON.parse(result);
-            } catch (error) {
-                error;
-            }
-            if (result.status === '200') {
-                result.data.map((video) => {
-                    console.log(video);
-                    $('#box-videos').append(
-                        `
-                        
-                        <video controls ontrolsList="nodownload">
-                            <source src="/assets/videos-news/${video}" type="video/mp4" >
-                        </video>
-                        `
-                    );
-                });
-            }
-        })
-        .fail((err) => {
-            console.log("error: " + err);
-            $('#erro-videos').html(err);
-        })
-        .always(() => {
-            // alert("finished");
-        });
+    //                     <video controls ontrolsList="nodownload">
+    //                         <source src="/assets/videos-news/${video}" type="video/mp4" >
+    //                     </video>
+    //                     `
+    //                 );
+    //             });
+    //         }
+    //     })
+    //     .fail((err) => {
+    //         console.log("error: " + err);
+    //         $('#erro-videos').html(err);
+    //     })
+    //     .always(() => {
+    //         // alert("finished");
+    //     });
 
-    // Perform other work here ...
+    // // Perform other work here ...
 
-    // Set another completion function for the request above
-    jqxhr.always(() => {
-        // alert("second finished");
-    });
+    // // Set another completion function for the request above
+    // jqxhr.always(() => {
+    //     // alert("second finished");
+    // });
+
 }
