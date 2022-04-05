@@ -43,8 +43,8 @@
 
 @media screen and (max-width: 991px) {
     .box-time {
-        width: 50%;
-        opacity: 1 !important;
+        width: 180px;
+        visibility: visible !important;
         transition: all ease-in .5s;
 
         &.close {
