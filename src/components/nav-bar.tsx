@@ -84,7 +84,7 @@ const NavBar: React.FC<{ pageActive: number; }> = ({ pageActive }) => {
                             {(screenWidth) ?
                                 <li className="nav-item">
                                     <div className="nav-link" id="time-link" onClick={() => handleViewTime()}>
-                                        <img src="/assets/time/clock.svg" alt="time" />
+                                        <img src="/assets/svg/clock.svg" alt="time" />
                                     </div>
                                 </li>
                                 :

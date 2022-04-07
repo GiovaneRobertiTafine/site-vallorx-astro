@@ -6,13 +6,13 @@ const { video, linkVideo } = content;
 
 <button class="btn btn-primary float-end d-none d-lg-block" type="button" data-bs-toggle="collapse" data-bs-target={"#collapse"+video.Id} aria-expanded="false" aria-controls={"collapse"+video.Id}>
     Assitir vídeo 
-    <img src="/assets/gestao-videos/play.svg" alt="play">
+    <img src="/assets/svg/play.svg" alt="play">
 </button>
 <h3>{video.Title}</h3>
 <p class="pt-3">{video.Description}</p>
 <button class="btn btn-primary float-lg-end d-lg-none mb-3" type="button" data-bs-toggle="collapse" data-bs-target={"#collapse"+video.Id} aria-expanded="false" aria-controls={"collapse"+video.Id}>
     Assitir vídeo 
-    <img src="/assets/gestao-videos/play.svg" alt="play">
+    <img src="/assets/svg/play.svg" alt="play">
 </button>
 <div class="collapse" id={"collapse"+video.Id}>
     <video class="mx-auto w-100" controls width="70%" poster="" controlslist="nodownload" preload="auto">

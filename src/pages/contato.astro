@@ -165,11 +165,11 @@ const patternTelefone = "([9])?([\\d]{4})+([\\-])?([\\d]{4})$";
                     <h4>Fale conosco:</h4>
                     <div class="row my-4">
                         <div class="col-lg-6 col-12">
-                            <img src="/assets/contato/telephone.svg" alt="telefone">
+                            <img src="/assets/svg/telephone.svg" alt="telefone">
                             +55 11 97769-6191
                         </div>
                         <div class="col-lg-6 col-12 mt-3 mt-lg-0">
-                            <img src="/assets/contato/envelope.svg" alt="email">
+                            <img src="/assets/svg/envelope.svg" alt="email">
                             private@vallorx.com.br
                         </div>
                     </div>
@@ -177,7 +177,7 @@ const patternTelefone = "([9])?([\\d]{4})+([\\-])?([\\d]{4})$";
                     <div class="row my-4">
                         <div class="col-12 col-lg-8" id="descricao-escritorio">
                             <div class="d-inline-flex align-items-start gap-2">
-                                <img src="/assets/contato/building.svg" alt="endereco">
+                                <img src="/assets/svg/building.svg" alt="endereco">
                                 <p class="ml-4 small">
                                     Avenida Paulista, 1842 <br />
                                     Edifício CETENCO PLAZA <br /> Torre Norte – 15° andar – conj. 155 <br />
@@ -185,7 +185,7 @@ const patternTelefone = "([9])?([\\d]{4})+([\\-])?([\\d]{4})$";
                                 </p>
                             </div>
                             <div class="d-inline-flex align-items-start gap-2">
-                                <img src="/assets/contato/stoplights.svg" alt="estacionamento">
+                                <img src="/assets/svg/stoplights.svg" alt="estacionamento">
                                 <p class="ml-4 small">
                                     <strong>Estacionamento/Convênio: (Visita – Pré-Agendada)</strong><br />
                                     Rua Frei Caneca, 1381 – Bela Vista – São Paulo/SP
@@ -206,13 +206,13 @@ const patternTelefone = "([9])?([\\d]{4})+([\\-])?([\\d]{4})$";
                     <div class="row my-4">
                         <div class="d-flex gap-4" id="siga-nos">
                             <a href="https://www.facebook.com/VallorX-100364011748833" rel="noopener" target="_blank">
-                                <img src="/assets/contato/facebook.svg" alt="facebook" class="siga-icons">
+                                <img src="/assets/svg/facebook.svg" alt="facebook" class="siga-icons">
                             </a>
                             <a href="https://instagram.com/vallorx" rel="noopener" target="_blank">
-                                <img src="/assets/contato/instagram.svg" alt="instagram" class="siga-icons">
+                                <img src="/assets/svg/instagram.svg" alt="instagram" class="siga-icons">
                             </a>
                             <a href="https://www.linkedin.com/company/vallorx/about" class="ml-3" rel="noopener" target="_blank">
-                                <img src="/assets/contato/linkedin.svg" alt="linkedin" class="siga-icons">
+                                <img src="/assets/svg/linkedin.svg" alt="linkedin" class="siga-icons">
                             </a>
                         </div>
                     </div>
@@ -226,10 +226,7 @@ const patternTelefone = "([9])?([\\d]{4})+([\\-])?([\\d]{4})$";
         </div>
 	</main>
     <script type="module" hoist>
-        import "jquery";
         import "bootstrap/dist/js/bootstrap.bundle.min.js";
-    </script>
-    <script type="module" hoist>
         import { enviarEmail } from "../js/enviar-email.js"
 				globalThis.enviarEmail = enviarEmail;
     </script>

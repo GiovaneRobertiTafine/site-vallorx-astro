@@ -25,13 +25,13 @@ const Time = ({ viewTime, changeViewTime }) => {
     return (
         <div className={changeViewTimeMobile}>
             <div className="card img-clock" onClick={() => changeViewTime()}>
-                <img src="/assets/time/clock.svg" alt="time" />
+                <img src="/assets/svg/clock.svg" alt="time" />
             </div>
 
             <div className="card schedule">
                 <div className="card-header">
                     Horário
-                    <img id="close" src="/assets/time/x.svg" alt="svg" onClick={() => changeViewTime()} />
+                    <img id="close" src="/assets/svg/x.svg" alt="svg" onClick={() => changeViewTime()} />
                 </div>
                 <div className="card-body">
                     <small>Nova Iorque</small><br />
