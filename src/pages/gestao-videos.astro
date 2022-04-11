@@ -32,12 +32,12 @@ let title = 'Gestão Vídeos';
 <body>
 	<main>
         <Navbar client:visible pageActive={null}/>
-        <section id="gestao-videos" class="container mt-3">
+        <section id="gestao-videos" class="container mt-3 pb-3">
             <div class="d-flex mb-3 justify-content-end">
-                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#addModal">
+                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#addModal" title="add">
                     <img class="icons-header" src="/assets/svg/plus-circle.svg" alt="plus-circle">
                 </button>
-                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#deleteModal" onclick="gestaoVideos.deleteAllOrId()">
+                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#deleteModal" onclick="gestaoVideos.deleteAllOrId()" title="delAll">
                     <img class="icons-header" src="/assets/svg/x-circle.svg" alt="x-circle">
                 </button>
             </div>
@@ -47,6 +47,26 @@ let title = 'Gestão Vídeos';
         </section>
         <ModalAddNews/>
         <ModalDeleteNews/>
+        <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 10000">
+            <div class="toast toast-success align-items-center text-white bg-success" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="d-flex">
+                    <div class="toast-body" id="toast-success-response-body">
+                    
+                    </div>
+                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+        <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 10000">
+            <div class="toast toast-danger align-items-center text-white bg-danger" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="d-flex">
+                    <div class="toast-body" id="toast-danger-response-body">
+                    
+                    </div>
+                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
 	</main>
     <script type="module" hoist>
         import "bootstrap/dist/js/bootstrap.bundle.min.js";
