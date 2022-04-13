@@ -1,8 +1,7 @@
 import '../styles/nav-bar.scss';
 import { Pages } from '../utils/pages.enum';
-import React, { useMemo, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Time from './time';
-import { DateTimeFormat } from '../utils/date-time-format.interface';
 
 const NavBar: React.FC<{ pageActive: number; }> = ({ pageActive }) => {
     const [screenWidth, setScreenWidth] = useState(false);
@@ -27,7 +26,6 @@ const NavBar: React.FC<{ pageActive: number; }> = ({ pageActive }) => {
         window.screen.width > 991 ? setScreenWidth(true) : setScreenWidth(false);
         window.addEventListener("resize", handleResize);
         window.addEventListener("click", handleViewTime);
-        const options = { hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: false, timeZone: 'Asia/Hong_Kong' } as DateTimeFormat;
     }, []);
 
     function pageLinkServicos(id: string) {
