@@ -12,7 +12,7 @@ import VideoNews from '../layouts/video-news.astro';
 
 let title = 'News';
 
-const data = await fetch('https://vallorx.com.br/php/gestao-videos.php', {method: 'GET'})
+const data = await fetch('https://vallorx.com.br/php/gestao-videos.php')
                 .then((response) => {
                     return response.json()
                 })
