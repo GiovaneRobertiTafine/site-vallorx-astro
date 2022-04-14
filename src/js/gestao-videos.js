@@ -22,7 +22,7 @@ export function getNews() {
                             `<li href="#" class="list-group-item" aria-current="true">
                             <div class="d-flex w-100 justify-content-between">
                                 <h5 class="mb-1">${video.Title} - ${video.FileName}</h5>
-                                <button type="button" class="btn" value=${video.FileName} alt="x-square" data-bs-toggle="modal" data-bs-target="#deleteModal" onclick="gestaoVideos.deleteAllOrId(this)" title="del">
+                                <button type="button" class="btn" value="${video.FileName}" alt="x-square" data-bs-toggle="modal" data-bs-target="#deleteModal" onclick="gestaoVideos.deleteAllOrId(this)" title="del">
                                     <img class="icons-header" src="/assets/svg/x-square.svg" alt="x-circle">
                                 </button>
                             </div>
