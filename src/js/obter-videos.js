@@ -1,7 +1,7 @@
 import $ from 'jquery';
 //Layouts
 
-export function obterVideos() {
+export async function obterVideos() {
     // $.ajax({
     //     type: 'GET',
     //     url: '/js/videos.php',
@@ -74,4 +74,19 @@ export function obterVideos() {
     //     // alert("second finished");
     // });
 
+    return await $.ajax({
+        type: 'GET',
+        url: 'https://vallorx.com.br/php/gestao-videos.php',
+        cache: false,
+        processData: false,
+        contentType: false,
+        success: (result) => {
+            return result = JSON.parse(result);
+        },
+        error: (result) => {
+            return '';
+
+        }
+
+    });
 }
