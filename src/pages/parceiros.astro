@@ -10,26 +10,24 @@ import Footer from '../components/footer.tsx';
 let title = 'Parceiros';
 ---
 
-
 <html lang="pt-br">
+
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Site: vallorx,
-    Autor: Giovane Roberti Tafine, Gerente: CLAUDEMIR PEDRO DA SILVA, Page: Parceiro,
-    Descrição:  Parceiros da vallorx.">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Parceiros da vallorx.">
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
     <link rel="manifest" href="/assets/favicon/site.webmanifest">
     <link rel="mask-icon" href="/assets/favicon/safari-pinned-tab.svg" color="#fff">
     <title>Vallox | {title}</title>
 
-	<link rel="icon" type="image/x-icon" href="/assets/favicon/favicon.ico" />
-	<style>
+    <link rel="icon" type="image/x-icon" href="/assets/favicon/favicon.ico" />
+    <style>
         #parceiros {
             color: rgb(50, 50, 50)
         }
-        
+
         .img-parceiros {
             width: 240px;
             height: auto;
@@ -40,11 +38,12 @@ let title = 'Parceiros';
             object-position: center center;
 
         }
-	</style>
+    </style>
 </head>
+
 <body>
-	<main>
-		<Navbar client:visible pageActive={Pages.PARCEIROS}/>
+    <main>
+        <Navbar client:visible pageActive={Pages.PARCEIROS} />
 
         <section id="parceiros" class="container mt-3">
             <h1 class="text-center text-lg-start fw-bold line-title">Parceiros</h1>
@@ -72,12 +71,13 @@ let title = 'Parceiros';
         </section>
 
         <div class="mt-auto">
-            <Footer/>
+            <Footer />
         </div>
-	</main>
+    </main>
 
     <script>
         import "bootstrap/dist/js/bootstrap.bundle.min.js";
     </script>
 </body>
+
 </html>

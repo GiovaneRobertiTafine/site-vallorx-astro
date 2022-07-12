@@ -14,63 +14,63 @@ import VideoNews from '../components/video-news.tsx';
 let title = 'News';
 
 const data = await fetch('https://vallorx.com.br/php/gestao-videos.php')
-                .then((response) => {
-                    return response.json()
-                })
-                .then((json) => {
-                    if (json) {
-                        return json
-                    } else {
-                        return null
-                    }
-                })
+    .then((response) => {
+        return response.json();
+    })
+    .then((json) => {
+        if (json) {
+            return json;
+        } else {
+            return null;
+        }
+    });
 ---
 
-
 <html lang="pt-br">
+
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Site: vallorx,
-    Autor: Giovane Roberti Tafine, Gerente: CLAUDEMIR PEDRO DA SILVA, Page: Serviços,
-    Descrição: Vídeos comerciais referentes aos serviços prestados pela vallorx.">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Vídeos comerciais referentes aos serviços prestados pela vallorx.">
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
     <link rel="manifest" href="/assets/favicon/site.webmanifest">
     <link rel="mask-icon" href="/assets/favicon/safari-pinned-tab.svg" color="#fff">
     <title>Vallox | {title}</title>
 
-	<link rel="icon" type="image/x-icon" href="/assets/favicon/favicon.ico" />
-	<style>
-	</style>
+    <link rel="icon" type="image/x-icon" href="/assets/favicon/favicon.ico" />
+    <style>
+    </style>
 </head>
+
 <body>
-	<main>
-		<Navbar client:visible pageActive={Pages.NEWS}/>
+    <main>
+        <Navbar client:visible pageActive={Pages.NEWS} />
 
         <section id="news" class="container mt-3">
             <h1 class="text-center text-lg-start fw-bold line-title">News</h1>
             <h3 class="text-danger" id="erro-videos"></h3>
             <div class="row mb-5" id="box-videos">
                 <div class="col">
-                    <VideoNews client:load/>
+                    <VideoNews client:load />
                 </div>
-                
+
             </div>
         </section>
         <div class="mt-auto">
-            <Footer/>
+            <Footer />
         </div>
     </main>
-     <script>
+    <script>
         import "bootstrap/dist/js/bootstrap.bundle.min.js";
-        
+
     </script>
     <script hoist type="module">
         import * as obterVideos from "../js/obter-videos.js";
-			globalThis.obterVideos = obterVideos;
-        
+        globalThis.obterVideos = obterVideos;
+
         obterVideos.obterVideos();
     </script>
 </body>
+
 </html>
