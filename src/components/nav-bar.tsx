@@ -61,7 +61,7 @@ const NavBar: React.FC<{ pageActive: number; }> = ({ pageActive }) => {
                                         <li><a className="dropdown-item" href={pageLinkServicos('#tributaria')}>Tributaria</a></li>
                                         <li><a className="dropdown-item" href={pageLinkServicos('#export-import')}>Export | Import</a></li>
                                         <li><a className="dropdown-item" href={pageLinkServicos('#outsourcing')}>Outsourcing</a></li>
-                                        <li><a className="dropdown-item" href={pageLinkServicos('#extrajudicial')}>Extrajudicial</a></li>
+                                        <li><a className="dropdown-item" href={pageLinkServicos('#patrimonial')}>Patrimonial</a></li>
                                         <li><a className="dropdown-item" href={pageLinkServicos('#expatriados')}>Expatriados</a></li>
                                     </ul>
                                 </li>

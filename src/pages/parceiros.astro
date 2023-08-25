@@ -1,83 +1,113 @@
 ---
-import { Pages } from '../utils/pages.enum.ts';
+import { Pages } from "../utils/pages.enum";
 // Style Imports
-import '../styles/global.scss';
+import "../styles/global.scss";
 
 // Component Imports
-import Navbar from '../components/nav-bar.tsx';
-import Footer from '../components/footer.tsx';
+import Navbar from "../components/nav-bar";
+import Footer from "../components/footer";
 
-let title = 'Parceiros';
+let title = "Parceiros";
 ---
 
 <html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Parceiros da vallorx.">
-    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
-    <link rel="manifest" href="/assets/favicon/site.webmanifest">
-    <link rel="mask-icon" href="/assets/favicon/safari-pinned-tab.svg" color="#fff">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Parceiros da vallorx." />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/assets/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/assets/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/assets/favicon/site.webmanifest" />
+    <link
+      rel="mask-icon"
+      href="/assets/favicon/safari-pinned-tab.svg"
+      color="#fff"
+    />
     <title>Vallox | {title}</title>
 
     <link rel="icon" type="image/x-icon" href="/assets/favicon/favicon.ico" />
     <style>
-        #parceiros {
-            color: rgb(50, 50, 50)
-        }
+      #parceiros {
+        color: rgb(50, 50, 50);
+      }
 
-        .img-parceiros {
-            width: 240px;
-            height: auto;
-            margin: 0 auto;
-            /* background-position: bottom center; */
-            background-repeat: no-repeat;
-            object-fit: contain;
-            object-position: center center;
-
-        }
+      .img-parceiros {
+        width: 240px;
+        height: auto;
+        margin: 0 auto;
+        /* background-position: bottom center; */
+        background-repeat: no-repeat;
+        object-fit: contain;
+        object-position: center center;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <main>
-        <Navbar client:visible pageActive={Pages.PARCEIROS} />
+      <Navbar client:visible pageActive={Pages.PARCEIROS} />
 
-        <section id="parceiros" class="container mt-3">
-            <h1 class="text-center text-lg-start fw-bold line-title">Parceiros</h1>
-            <div class="row">
-                <div class="col-12 col-lg-4 d-flex align-items-center justify-content-center">
-                    <a href="/contato">
-                        <img src="/assets/parceiros/orce.png" class="img-parceiros" alt="orce">
-                    </a>
-                    <img src="/assets/selo.png" class="selo" alt="selo">
-                </div>
-                <div class="col-12 col-lg-4 mt-lg-0 mt-3 d-flex align-items-center justify-content-center">
-                    <a href="/contato">
-                        <img src="/assets/parceiros/ebft.png" class="img-parceiros" alt="ebft">
-                    </a>
-                    <img src="/assets/selo.png" class="selo" alt="selo">
-                </div>
-                <div class="col-12 col-lg-4 mt-lg-0 mt-3 d-flex align-items-center justify-content-center">
-                    <a href="/contato">
-                        <img src="/assets/parceiros/MAXXIBRANDS.png" class="img-parceiros" alt="maxx"> <br>
-                        <span class="small float-end">COMÉRCIO EXTERIOR</span>
-                    </a>
-                    <img src="/assets/selo.png" class="selo" alt="selo">
-                </div>
-            </div>
-        </section>
-
-        <div class="mt-auto">
-            <Footer />
+      <section id="parceiros" class="container mt-3">
+        <h1 class="text-center text-lg-start fw-bold line-title">Parceiros</h1>
+        <div class="row">
+          <div
+            class="col-12 col-lg-4 d-flex align-items-center justify-content-center"
+          >
+            <a href="/contato">
+              <img
+                src="/assets/parceiros/orce.png"
+                class="img-parceiros"
+                alt="orce"
+              />
+            </a>
+            <img src="/assets/selo.png" class="selo" alt="selo" />
+          </div>
+          <div
+            class="col-12 col-lg-4 mt-lg-0 mt-3 d-flex align-items-center justify-content-center"
+          >
+            <a href="/contato">
+              <img
+                src="/assets/parceiros/ebft.png"
+                class="img-parceiros"
+                alt="ebft"
+              />
+            </a>
+            <img src="/assets/selo.png" class="selo" alt="selo" />
+          </div>
+          <div
+            class="col-12 col-lg-4 mt-lg-0 mt-3 d-flex align-items-center justify-content-center"
+          >
+            <a href="/contato">
+              <img
+                src="/assets/parceiros/MAXXIBRANDS.png"
+                class="img-parceiros"
+                alt="maxx"
+              />
+              <br />
+              <span class="small float-end">COMÉRCIO EXTERIOR</span>
+            </a>
+            <img src="/assets/selo.png" class="selo" alt="selo" />
+          </div>
         </div>
+      </section>
+
+      <div class="mt-auto">
+        <Footer />
+      </div>
     </main>
 
     <script>
-        import "bootstrap/dist/js/bootstrap.bundle.min.js";
+      import "bootstrap/dist/js/bootstrap.bundle.min.js";
     </script>
-</body>
-
+  </body>
 </html>

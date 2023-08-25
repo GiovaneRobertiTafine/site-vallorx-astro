@@ -4,6 +4,8 @@
         "module": "ES2015",
         // "sourceMap": true,
         "moduleResolution": "node",
+        "jsx": "react-jsx",
+        "allowSyntheticDefaultImports": true,
         "lib": [
             "ES2015",
             "DOM"
