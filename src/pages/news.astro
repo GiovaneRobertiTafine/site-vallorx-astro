@@ -60,7 +60,7 @@ const data = await fetch("https://vallorx.com.br/php/gestao-videos.php")
 
   <body>
     <main>
-      <Navbar client:only pageActive={Pages.NEWS} />
+      <Navbar client:only="react" pageActive={Pages.NEWS} />
 
       <section id="news" class="container mt-3">
         <h1 class="text-center text-lg-start fw-bold line-title">News</h1>

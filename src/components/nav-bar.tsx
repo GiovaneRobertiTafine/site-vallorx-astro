@@ -28,15 +28,15 @@ const NavBar: React.FC<{ pageActive: number; }> = ({ pageActive }) => {
         window.screen.width > 991 ? setScreenWidth(true) : setScreenWidth(false);
         window.addEventListener("resize", handleResize);
         window.addEventListener("click", handleViewTime);
-        // sessionStorage.removeItem('vallorx-modal-inscreverse');
-        // window.addEventListener('mousemove', (event) => {
-        //     if (event.clientY < 5 && !sessionStorage.getItem('vallorx-modal-inscreverse')) {
-        //         sessionStorage.setItem('vallorx-modal-inscreverse', 'active');
-        //         console.log('active');
-        //         var myModal = new bootstrap.Modal(document.getElementById('inscreverEmailModal'));
-        //         myModal.show();
-        //     }
-        // });
+        sessionStorage.removeItem('vallorx-modal-inscreverse');
+        window.addEventListener('mousemove', (event) => {
+            if (event.clientY < 5 && !sessionStorage.getItem('vallorx-modal-inscreverse')) {
+                sessionStorage.setItem('vallorx-modal-inscreverse', 'active');
+                console.log('active');
+                var myModal = new bootstrap.Modal(document.getElementById('inscreverEmailModal'));
+                myModal.show();
+            }
+        });
     }, []);
 
     function pageLinkServicos(id: string) {
