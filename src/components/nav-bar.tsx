@@ -49,7 +49,7 @@ const NavBar: React.FC<{ pageActive: number; }> = ({ pageActive }) => {
 
     return (
         <>
-            <ModalInscrever/>
+            <ModalInscrever />
             <header>
                 <nav className="navbar navbar-expand-lg navbar-light bg-light">
                     <div className="container-fluid">
@@ -109,7 +109,6 @@ const NavBar: React.FC<{ pageActive: number; }> = ({ pageActive }) => {
 
             </header >
         </>
-
     );
 };
 
