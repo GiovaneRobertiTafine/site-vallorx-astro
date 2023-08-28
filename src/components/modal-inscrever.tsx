@@ -74,7 +74,7 @@ const ModalInscrever: React.FC = () => {
                                 aria-label="Close"></button>
                         </div>
                         <div className="modal-body">
-                            <p>Para receber mais informações sobre nossos serviços e conteúdo informe seu e-mail:
+                            <p>Para receber mais informações sobre nossos serviços e conteúdo, informe seu e-mail:
                             </p>
 
                             <form className="needs-validation" id="form-inscrever-email" ref={form}>
@@ -92,6 +92,21 @@ const ModalInscrever: React.FC = () => {
                                         required
                                     />
                                     <div className="invalid-feedback">E-mail é obrigatório</div>
+                                </div>
+                                <div className="mb-3">
+                                    <label htmlFor="inputNome" className="form-label">
+                                        Nome
+                                    </label>
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        id="inputNome"
+                                        aria-describedby="nome"
+                                        title="nome"
+                                        name="nome"
+                                        required
+                                    />
+                                    <div className="invalid-feedback">Nome é obrigatório</div>
                                 </div>
                             </form>
                             <small>Após o cadastro, você poderá se desinscrever nos e-mails recebidos por nós ou entrando em contato pelo nosso site.</small>
