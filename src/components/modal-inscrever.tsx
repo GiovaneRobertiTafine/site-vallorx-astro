@@ -1,20 +1,21 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import $ from 'jquery';
 import * as bootstrap from 'bootstrap';
 
-const ModalInscrever = () => {
+const ModalInscrever: React.FC = () => {
+    let form = useRef();
+    let modal = useRef();
     useEffect(() => {
-
     });
 
     const inscreverEmail = () => {
-        const form = document.getElementById('form-inscrever-email') as HTMLFormElement;
-        if (!(form as HTMLFormElement).checkValidity()) {
-            form.classList.add('was-validated');
+
+        if (!(form.current as HTMLFormElement).checkValidity()) {
+            (form.current as HTMLFormElement).classList.add('was-validated');
             return;
         }
 
-        const formData = new FormData(form);
+        const formData = new FormData((form.current as HTMLFormElement));
 
         $.ajax({
             type: 'POST',
@@ -30,8 +31,7 @@ const ModalInscrever = () => {
                 if (result.status === '200') {
                     $('#toast-success-response-body').html(result.mensagem);
                     new bootstrap.Toast($('.toast-success')).show();
-                    const modal = document.querySelector('#inscreverEmailModal');
-                    bootstrap.Modal.getInstance(modal).hide();
+                    bootstrap.Modal.getInstance(modal.current).hide();
                 } else if (result.status === '400' || result.status === '500') {
                     $('#toast-danger-response-body').html(result.mensagem);
                     new bootstrap.Toast($('.toast-danger')).show();
@@ -61,6 +61,7 @@ const ModalInscrever = () => {
                 tabIndex={-1}
                 aria-labelledby="inscreverModalLabel"
                 aria-hidden="true"
+                ref={modal}
             >
                 <div className="modal-dialog modal-dialog-centered">
                     <div className="modal-content">
@@ -76,7 +77,7 @@ const ModalInscrever = () => {
                             <p>Para receber mais informações sobre nossos serviços e conteúdo informe seu e-mail:
                             </p>
 
-                            <form className="needs-validation" id="form-inscrever-email">
+                            <form className="needs-validation" id="form-inscrever-email" ref={form}>
                                 <div className="mb-3">
                                     <label htmlFor="inputEmail" className="form-label">
                                         E-mail

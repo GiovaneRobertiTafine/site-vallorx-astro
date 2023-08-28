@@ -86,7 +86,7 @@ const patternTelefone = "([9])?([\\d]{4})+([\\-])?([\\d]{4})$";
 
   <body>
     <main>
-      <Navbar client:visible pageActive={Pages.CONTATO} />
+      <Navbar client:only pageActive={Pages.CONTATO} />
 
       <section id="contato" class="container mt-3">
         <h1 class="text-center text-lg-start fw-bold line-title">Contato</h1>

@@ -7,7 +7,7 @@
         "jsx": "react-jsx",
         "allowSyntheticDefaultImports": true,
         "lib": [
-            "ES2015",
+            "ES7",
             "DOM"
         ]
     },

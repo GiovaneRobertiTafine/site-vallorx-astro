@@ -3,7 +3,7 @@ import { Pages } from '../utils/pages.enum';
 import React, { useEffect, useState } from 'react';
 import Time from './time';
 import ModalInscrever from './modal-inscrever.jsx';
-import { Modal } from 'bootstrap';
+import * as bootstrap from 'bootstrap';
 
 const NavBar: React.FC<{ pageActive: number; }> = ({ pageActive }) => {
     const [screenWidth, setScreenWidth] = useState(false);
@@ -25,15 +25,15 @@ const NavBar: React.FC<{ pageActive: number; }> = ({ pageActive }) => {
 
 
     useEffect(() => {
+        window.screen.width > 991 ? setScreenWidth(true) : setScreenWidth(false);
+        window.addEventListener("resize", handleResize);
+        window.addEventListener("click", handleViewTime);
         // sessionStorage.removeItem('vallorx-modal-inscreverse');
-        // window.screen.width > 991 ? setScreenWidth(true) : setScreenWidth(false);
-        // window.addEventListener("resize", handleResize);
-        // window.addEventListener("click", handleViewTime);
         // window.addEventListener('mousemove', (event) => {
         //     if (event.clientY < 5 && !sessionStorage.getItem('vallorx-modal-inscreverse')) {
         //         sessionStorage.setItem('vallorx-modal-inscreverse', 'active');
         //         console.log('active');
-        //         var myModal = new Modal(document.getElementById('inscreverEmailModal'));
+        //         var myModal = new bootstrap.Modal(document.getElementById('inscreverEmailModal'));
         //         myModal.show();
         //     }
         // });
@@ -49,7 +49,7 @@ const NavBar: React.FC<{ pageActive: number; }> = ({ pageActive }) => {
 
     return (
         <>
-            <ModalInscrever />
+            <ModalInscrever/>
             <header>
                 <nav className="navbar navbar-expand-lg navbar-light bg-light">
                     <div className="container-fluid">

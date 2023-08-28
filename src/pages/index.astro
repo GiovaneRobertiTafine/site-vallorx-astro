@@ -78,7 +78,7 @@ let title = "Home";
     <body>
         <h1 class="d-none">VallorX</h1>
         <main>
-            <Navbar client:visible pageActive={Pages.HOME} />
+            <Navbar client:only pageActive={Pages.HOME} />
 
             <section id="home" class="container mt-4">
                 <div class="d-flex flex-column flex-lg-row">
