@@ -30,7 +30,8 @@ const NavBar: React.FC<{ pageActive: number; }> = ({ pageActive }) => {
         window.addEventListener("click", handleViewTime);
         sessionStorage.removeItem('vallorx-modal-inscreverse');
         window.addEventListener('mousemove', (event) => {
-            if (event.clientY < 5 && !sessionStorage.getItem('vallorx-modal-inscreverse')) {
+            if (event.clientY < 5 && !sessionStorage.getItem('vallorx-modal-inscreverse')
+                && (window.location.pathname !== '/gestao-email' && window.location.pathname !== '/gestao-videos')) {
                 sessionStorage.setItem('vallorx-modal-inscreverse', 'active');
                 console.log('active');
                 var myModal = new bootstrap.Modal(document.getElementById('inscreverEmailModal'));

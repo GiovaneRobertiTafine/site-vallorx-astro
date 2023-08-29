@@ -65,7 +65,9 @@ export function getEmails() {
 }
 
 (function () {
-
+    const isProd = import.meta.env.GESTAO_PASSWORD;
+    const isDev = import.meta.env.PUBLIC_PASSWORD;
+    console.log(isProd, isDev);
     getEmails();
     document.getElementById("copiar-emails").disabled = true;
 })();
@@ -105,6 +107,17 @@ export function changeEmail(e) {
 export function copyEmails() {
     navigator.clipboard.writeText(emailsSelecionados.join(';')).then(() => {
         $('#toast-success-response-body').html("E-mails copiados com sucesso.");
+        new bootstrap.Toast($('.toast-success')).show();
+    }, () => {
+        $('#toast-danger-response-body').html("Não foi possível compiar os e-mails.");
+        new bootstrap.Toast($('.toast-danger')).show();
+    });
+}
+
+export function copyLinkUnsubscribe() {
+    const lin = document.getElementById("link");
+    navigator.clipboard.writeText(lin.cloneNode(true)).then(() => {
+        $('#toast-success-response-body').html("<a href='http://'>Cancelar inscricao</a>");
         new bootstrap.Toast($('.toast-success')).show();
     }, () => {
         $('#toast-danger-response-body').html("Não foi possível compiar os e-mails.");

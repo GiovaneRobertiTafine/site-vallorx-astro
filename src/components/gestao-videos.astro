@@ -3,9 +3,9 @@
 import "../styles/global.scss";
 
 // Component Imports
-import Navbar from "../components/nav-bar";
-import ModalAddNews from "../components/modal-add-news.astro";
-import ModalDeleteNews from "../components/modal-delete-news.astro";
+import Navbar from "./nav-bar";
+import ModalAddNews from "./modal-add-news.astro";
+import ModalDeleteNews from "./modal-delete-news.astro";
 
 let title = "Gestão Vídeos";
 ---
@@ -48,40 +48,45 @@ let title = "Gestão Vídeos";
 
     <body>
         <main>
-            <Navbar client:only="react" pageActive={null} />
-            <section id="gestao-email" class="container pb-3">
+            <!-- <Navbar client:only="react" pageActive={null} /> -->
+            <section id="gestao-videos" class="">
                 <div class="d-flex mb-3 justify-content-end">
                     <button
                         type="button"
-                        class="btn btn-success"
-                        id="copiar-emails"
-                        onclick="gestaoEmail.copyEmails();"
+                        class="btn"
+                        data-bs-toggle="modal"
+                        data-bs-target="#addModal"
+                        title="add"
                     >
-                        Copiar e-mails selecionados
+                        <img
+                            class="icons-header"
+                            src="/assets/svg/plus-circle.svg"
+                            alt="plus-circle"
+                        />
+                    </button>
+                    <button
+                        type="button"
+                        class="btn"
+                        data-bs-toggle="modal"
+                        data-bs-target="#deleteModal"
+                        onclick="gestaoVideos.deleteAllOrId()"
+                        title="delAll"
+                    >
+                        <img
+                            class="icons-header"
+                            src="/assets/svg/x-circle.svg"
+                            alt="x-circle"
+                        />
                     </button>
                 </div>
-                <div id="list-emails"></div>
+                <div id="list-news"></div>
             </section>
+            <ModalAddNews />
+            <ModalDeleteNews />
             <div
                 class="position-fixed bottom-0 end-0 p-3"
-                style={{ zIndex: "10000" }}
+                style="z-index: 10000"
             >
-                <div
-                    class="toast toast-danger align-items-center text-white bg-danger"
-                    role="alert"
-                    aria-live="assertive"
-                    aria-atomic="true"
-                >
-                    <div class="d-flex">
-                        <div class="toast-body" id="toast-danger-response-body">
-                        </div>
-                        <button
-                            type="button"
-                            class="btn-close btn-close-white me-2 m-auto"
-                            data-bs-dismiss="toast"
-                            aria-label="Close"></button>
-                    </div>
-                </div>
                 <div
                     class="toast toast-success align-items-center text-white bg-success"
                     role="alert"
@@ -102,12 +107,31 @@ let title = "Gestão Vídeos";
                     </div>
                 </div>
             </div>
+            <div
+                class="position-fixed bottom-0 end-0 p-3"
+                style="z-index: 10000"
+            >
+                <div
+                    class="toast toast-danger align-items-center text-white bg-danger"
+                    role="alert"
+                    aria-live="assertive"
+                    aria-atomic="true"
+                >
+                    <div class="d-flex">
+                        <div class="toast-body" id="toast-danger-response-body">
+                        </div>
+                        <button
+                            type="button"
+                            class="btn-close btn-close-white me-2 m-auto"
+                            data-bs-dismiss="toast"
+                            aria-label="Close"></button>
+                    </div>
+                </div>
+            </div>
         </main>
         <script hoist type="module">
-            import * as gestaoEmail from "../js/gestao-email.js";
-            globalThis.gestaoEmail = gestaoEmail;
-
-            // gestaoEmail.getEmails();
+            import * as gestaoVideos from "../js/gestao-videos.js";
+            globalThis.gestaoVideos = gestaoVideos;
         </script>
     </body>
 </html>
