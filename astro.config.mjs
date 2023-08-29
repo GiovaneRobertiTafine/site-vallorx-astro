@@ -10,7 +10,6 @@ import react from '@astrojs/react';
 
 // @ts-check
 export default defineConfig({
-    output: 'server',
     adapter: node({
         mode: 'standalone'
     }),
