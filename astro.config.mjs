@@ -10,9 +10,6 @@ import react from '@astrojs/react';
 
 // @ts-check
 export default defineConfig({
-    adapter: node({
-        mode: 'standalone'
-    }),
     // projectRoot: '.',     // Where to resolve all URLs relative to. Useful if you have a monorepo project.
     // pages: './src/pages', // Path to Astro components, pages, and data
     // dist: './dist',       // When running `astro build`, path to final static output
