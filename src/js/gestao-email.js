@@ -65,7 +65,7 @@ export function getEmails() {
 }
 
 (function () {
-    const isProd = import.meta.env.GESTAO_PASSWORD;
+    const isProd = import.meta.env.SECRET_PASSWORD;
     const isDev = import.meta.env.PUBLIC_PASSWORD;
     console.log(isProd, isDev);
     getEmails();
