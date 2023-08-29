@@ -92,7 +92,7 @@ const patternTelefone = "([9])?([\\d]{4})+([\\-])?([\\d]{4})$";
         <main>
             <Navbar client:only="react" pageActive={Pages.CONTATO} />
 
-            <section id="contato" class="container mt-3">
+            <section id="contato" class="container">
                 <h1 class="text-center text-lg-start fw-bold line-title">
                     Contato
                 </h1>
@@ -289,10 +289,9 @@ const patternTelefone = "([9])?([\\d]{4})+([\\-])?([\\d]{4})$";
                                     class="btn btn-primary"
                                     onclick="enviarEmail()"
                                     type="button"
-                                    id="button-e
-            ;;                        nviar"
-                                    >Enviar ;</button
-                                >
+                                    id="button-enviar">
+                                    Enviar
+                                </button>
                                 <img
                                     src="/assets/loading.gif"
                                     alt="loading"

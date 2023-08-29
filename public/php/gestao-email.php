@@ -67,9 +67,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 if($_SERVER["REQUEST_METHOD"] == "DELETE") {
-    if ($_GET['file_name']) {
-        $stmt = $pdo->prepare("DELETE FROM videos WHERE FileName = ?");
-        if ($stmt->execute([$_GET['file_name']]) && unlink("../videos/".$_GET['file_name'])) {
+    if ($_GET['email']) {
+        $stmt = $pdo->prepare("DELETE FROM Emails WHERE Email = ?");
+        if ($stmt->execute([$_GET['email']])) {
             $array  = array('status' => '200', 'mensagem' => 'Deletado com sucesso!');
             echo json_encode($array);
         } else {

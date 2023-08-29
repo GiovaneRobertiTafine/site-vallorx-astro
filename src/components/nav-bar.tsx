@@ -51,7 +51,7 @@ const NavBar: React.FC<{ pageActive: number; }> = ({ pageActive }) => {
         <>
             <ModalInscrever />
             <header>
-                <nav className="navbar navbar-expand-lg navbar-light bg-light">
+                <nav className="navbar navbar-expand-lg navbar-light bg-light position-absolute w-100">
                     <div className="container-fluid">
                         <a className="navbar-brand" href="/">
                             <img src="/assets/logo.png" alt="logo" />
