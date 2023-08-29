@@ -65,7 +65,7 @@ export function getEmails() {
 }
 
 (function () {
-    const isProd = import.meta.env.VITE_SENHA_SECRETA;
+    const isProd = window['env']['VITE_SENHA_SECRETA'];
     const isDev = import.meta.env.PUBLIC_TODOS;
     console.log(isProd, isDev, import.meta.env.PROD, import.meta.env.DEV);
     getEmails();
