@@ -67,7 +67,7 @@ export function getEmails() {
 (function () {
     const isProd = import.meta.env.SECRET_PASSWORD;
     const isDev = import.meta.env.PUBLIC_PASSWORD;
-    console.log(isProd, isDev);
+    console.log(isProd, isDev, import.meta.env.PROD, import.meta.env.DEV);
     getEmails();
     document.getElementById("copiar-emails").disabled = true;
 })();
