@@ -75,7 +75,8 @@ let title = "Gestão";
     </body>
     <script>
          import "bootstrap/dist/js/bootstrap.bundle.min.js";
-        
+         import * as gestaoEmail from "../js/gestao-email.js";
+            globalThis.gestaoEmail = gestaoEmail;
          const isProd = import.meta.env.VITE_SENHA_SECRETA;
     const isDev = import.meta.env.PUBLIC_TODOS;
     console.log(isProd, isDev, import.meta.env.PROD, import.meta.env.DEV);
