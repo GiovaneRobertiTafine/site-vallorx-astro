@@ -6,6 +6,9 @@ import GestaoVideos from "../components/gestao-videos.astro";
 import GestaoEmails from "../components/gestao-email.astro";
 let title = "Gestão";
 
+ const isProd = import.meta.env.VITE_SENHA_SECRETA;
+ console.log(isProd)
+
 ---
 
 <html lang="pt-br">
@@ -60,7 +63,7 @@ let title = "Gestão";
 <!-- Tab panes -->
             <div class="tab-content">
             <div class="tab-pane active mt-3" id="gestao-emails">
-                <GestaoEmails />
+                <GestaoEmails senha={isProd}/>
             </div>
             <div class="tab-pane fade mt-3" id="gestao-videos">
                 <GestaoVideos />
