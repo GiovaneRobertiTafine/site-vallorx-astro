@@ -2,6 +2,9 @@ import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
 // Full Astro Configuration API Documentation:
 // https://docs.astro.build/reference/configuration-reference
+import * as dotenv from 'dotenv';
+dotenv.config({ path: "./special.env" });
+import node from '@astrojs/node';
 
 // @type-check enabled!
 // VSCode and other TypeScript-enabled text editors will provide auto-completion,
@@ -10,6 +13,7 @@ import react from '@astrojs/react';
 
 // @ts-check
 export default defineConfig({
+    output: "server",
     // projectRoot: '.',     // Where to resolve all URLs relative to. Useful if you have a monorepo project.
     // pages: './src/pages', // Path to Astro components, pages, and data
     // dist: './dist',       // When running `astro build`, path to final static output
@@ -25,4 +29,7 @@ export default defineConfig({
     integrations: [
         react(),
     ],
+    adapter: node({
+        mode: process.env.MODE
+    })
 });
