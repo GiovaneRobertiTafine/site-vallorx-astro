@@ -11,6 +11,7 @@ export function getEmails() {
         contentType: false,
         success: (result) => {
             console.log(result);
+            return;
             result = JSON.parse(result);
 
             if (result.status === '400' || result.status === '500') {
