@@ -70,6 +70,9 @@ export function getEmails() {
     console.log(isProd, isDev, import.meta.env.PROD, import.meta.env.DEV);
     getEmails();
     document.getElementById("copiar-emails").disabled = true;
+    if (import.meta.env.DEV) {
+        console.log();
+    }
 })();
 
 export function changeEmail(e) {

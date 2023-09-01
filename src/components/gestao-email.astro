@@ -4,9 +4,7 @@ import "../styles/global.scss";
 
 let title = "Gestão Vídeos";
 
- const isProd = import.meta.env.VITE_SENHA_SECRETA;
- console.log(isProd)
-  const {senha} = Astro.props;
+
 ---
 
 <html lang="pt-br">
@@ -50,7 +48,6 @@ let title = "Gestão Vídeos";
             <!-- <Navbar client:only="react" pageActive={null} /> -->
             <section id="gestao-email">
                 <div class="d-flex mb-3 gap-3 justify-content-end">
-                    {isProd}
                     <a href="">Cancelar Inscrição</a>
                     <button
                         type="button"
@@ -58,7 +55,6 @@ let title = "Gestão Vídeos";
                         id="copiar-emails"
                         onclick="gestaoEmail.copyEmails();"
                     >
-                    {senha}
                         Copiar e-mails selecionados
                     </button>
                 </div>

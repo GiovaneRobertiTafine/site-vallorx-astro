@@ -20,7 +20,9 @@ if($_SERVER["REQUEST_METHOD"] == "GET") {
         $query = $pdo->query("select * from Emails");
         //$row = $query->fetch(PDO::FETCH_ASSOC);
         $all = $query->fetchAll(PDO::FETCH_ASSOC);
-        print_r(json_encode($all));
+        // print_r(json_encode($all));
+        $value = getenv('RANDOM_VALUE');
+        print_r($value);
     } catch (Exception $error) {
         $array  = array('status' => '500', 'mensagem' => 'Infelizmente houve um erro ao obter os dados!');
         echo json_encode($array);
