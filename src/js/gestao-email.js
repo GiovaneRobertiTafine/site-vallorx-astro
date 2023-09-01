@@ -5,7 +5,7 @@ export let emailsSelecionados = [];
 export function getEmails() {
     $.ajax({
         type: 'GET',
-        url: 'http://localhost:8000',
+        url: 'https://vallorx.com.br/php/gestao-email.php',
         cache: false,
         processData: false,
         contentType: false,
