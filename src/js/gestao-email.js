@@ -10,6 +10,7 @@ export function getEmails() {
         processData: false,
         contentType: false,
         success: (result) => {
+            console.log(result);
             result = JSON.parse(result);
 
             if (result.status === '400' || result.status === '500') {
@@ -52,7 +53,7 @@ export function getEmails() {
                     `;
                     $('#list-emails').html(res);
                 } else {
-                    $('#list-emails').html(`<h3>Nenhum vídeo registrado.<h3/>`);
+                    $('#list-emails').html(`<h3>Nenhum e-mail registrado.<h3/>`);
                 }
             }
         },
