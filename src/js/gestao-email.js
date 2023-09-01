@@ -11,6 +11,8 @@ export function getEmails() {
         contentType: false,
         success: (result) => {
             console.log(result);
+            console.log(process.env.PASSWORD);
+            console.log(import.meta.env.PASSWORD);
             return;
             result = JSON.parse(result);
 
