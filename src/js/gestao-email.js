@@ -16,7 +16,6 @@ export function getEmails() {
             if (result.status === '400' || result.status === '500') {
                 $('#list-emails').html(`<h3> ${result.mensagem} <h3/>`);
             } else {
-                console.log(result);
                 if (result.length > 0) {
                     let res = `
                     <table class="table">
