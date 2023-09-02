@@ -3,15 +3,10 @@ import { Pages } from "../utils/pages.enum";
 // Style Imports
 import "../styles/global.scss";
 
-// Component Imports
-import Navbar from "../components/nav-bar";
-import Footer from "../components/footer";
 import VideoNews from "../components/video-news";
 
 //Layouts
 // import VideoNews from '../layouts/video-news.astro';
-
-let title = "News";
 
 // const data = await fetch("https://vallorx.com.br/php/gestao-videos.php")
 //     .then((response) => {
@@ -24,70 +19,28 @@ let title = "News";
 //             return null;
 //         }
 //     });
+
+// Layout Imports
+import SiteLayout from "../layouts/site.layout.astro";
+
 ---
 
-<html lang="pt-br">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta
-            name="description"
-            content="Vídeos comerciais referentes aos serviços prestados pela vallorx."
-        />
-        <link
-            rel="icon"
-            type="image/png"
-            sizes="32x32"
-            href="/assets/favicon/favicon-32x32.png"
-        />
-        <link
-            rel="icon"
-            type="image/png"
-            sizes="16x16"
-            href="/assets/favicon/favicon-16x16.png"
-        />
-        <!-- <link rel="manifest" href="/assets/favicon/site.webmanifest" /> -->
-        <link
-            rel="mask-icon"
-            href="/assets/favicon/safari-pinned-tab.svg"
-            color="#fff"
-        />
-        <title>Vallox | {title}</title>
-
-        <link
-            rel="icon"
-            type="image/x-icon"
-            href="/assets/favicon/favicon.ico"
-        />
-    </head>
-
-    <body>
-        <main>
-            <Navbar client:only="react" pageActive={Pages.NEWS} />
-
-            <section id="news" class="container">
-                <h1 class="text-center text-lg-start fw-bold line-title">
-                    News
-                </h1>
-                <h3 class="text-danger" id="erro-videos"></h3>
-                <div class="row mb-5" id="box-videos">
-                    <div class="col">
-                        <VideoNews client:load />
-                    </div>
-                </div>
-            </section>
-            <div class="mt-auto">
-                <Footer />
+<SiteLayout title="News" pageActive={Pages.NEWS}>
+    <section id="news" class="container">
+        <h1 class="text-center text-lg-start fw-bold line-title">
+            News
+        </h1>
+        <h3 class="text-danger" id="erro-videos"></h3>
+        <div class="row mb-5" id="box-videos">
+            <div class="col">
+                <VideoNews />
             </div>
-        </main>
-        <script>
-            //   import "bootstrap/dist/js/bootstrap.bundle.min.js";
-        </script>
-        <script>
-            import * as obterVideos from "../js/obter-videos.js";
-            globalThis.obterVideos = obterVideos;
-            obterVideos.obterVideos();
+        </div>
+    </section>
+    <script>
+        import * as obterVideos from "../js/obter-videos.js";
+        globalThis.obterVideos = obterVideos;
+        obterVideos.obterVideos();
 
-        </script>
-    </body>
-</html>
+    </script>
+</SiteLayout>

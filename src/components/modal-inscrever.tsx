@@ -1,15 +1,12 @@
-import { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import $ from 'jquery';
 import * as bootstrap from 'bootstrap';
 
 const ModalInscrever: React.FC = () => {
     let form = useRef();
     let modal = useRef();
-    useEffect(() => {
-    });
 
     const inscreverEmail = () => {
-
         if (!(form.current as HTMLFormElement).checkValidity()) {
             (form.current as HTMLFormElement).classList.add('was-validated');
             return;

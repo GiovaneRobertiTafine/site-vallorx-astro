@@ -3,9 +3,11 @@ import * as bootstrap from 'bootstrap';
 let interval;
 
 export function getNews() {
+    const urlRequest = "http://localhost:7001";
+    if (import.meta.env.PROD) urlRequest = "https://vallorx.com.br/php/gestao-email.php";
     $.ajax({
         type: 'GET',
-        url: 'https://vallorx.com.br/php/gestao-videos.php',
+        url: urlRequest,
         cache: false,
         processData: false,
         contentType: false,
@@ -55,10 +57,11 @@ export function addNews() {
 
     const myForm = document.getElementById('form-add');
     const formData = new FormData(myForm);
-
+    const urlRequest = "http://localhost:7001";
+    if (import.meta.env.PROD) urlRequest = "https://vallorx.com.br/php/gestao-email.php";
     $.ajax({
         type: 'POST',
-        url: 'https://vallorx.com.br/php/gestao-videos.php',
+        url: urlRequest,
         data: formData,
         cache: false,
         processData: false,
@@ -116,10 +119,11 @@ export function deleteAllOrId(video = null) {
 
 export function deleteNews() {
     resetModal();
-
+    const urlRequest = "http://localhost:7001";
+    if (import.meta.env.PROD) urlRequest = "https://vallorx.com.br/php/gestao-email.php";
     $.ajax({
         type: 'DELETE',
-        url: `https://vallorx.com.br/php/gestao-videos.php${deleteValue ? "?file_name=" + deleteValue : ''}`,
+        url: `${urlRequest}${deleteValue ? "?file_name=" + deleteValue : ''}`,
         cache: false,
         processData: false,
         contentType: false,

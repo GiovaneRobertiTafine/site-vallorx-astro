@@ -1,0 +1,100 @@
+---
+// Style Imports
+// import 'bootstrap/dist/css/bootstrap.min.css';
+import "../styles/global.scss";
+
+// Full Astro Component Syntax:
+// https://docs.astro.build/core-concepts/astro-components/
+
+// Component Imports
+import Navbar from "../components/nav-bar";
+import Footer from "../components/footer";
+// You can import components from any supported Framework here!
+// Component Script:
+// You can write any JavaScript/TypeScript that you'd like here.
+// It will run during the build, but never in the browser.
+// All variables are available to use in the HTML template below.
+let {title, pageActive} = Astro.props;
+
+import ModalInscrever from '../components/modal-inscrever';
+---
+
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+            name="description"
+            content="A vallorX CONSULTORIA PRIVATE tem como MISSÃO levar aos nossos clientes e parceiros, o melhor atendimento, 
+    os melhores serviços profissionais de alta performance e qualidade, bem como, o melhor preço de custo e benefício."
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/assets/favicon/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/assets/favicon/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/assets/favicon/site.webmanifest" />
+        <link
+            rel="mask-icon"
+            href="/assets/favicon/safari-pinned-tab.svg"
+            color="#fff"
+        />
+        <title>Vallorx | {title}</title>
+
+        <link
+            rel="icon"
+            type="image/x-icon"
+            href="/assets/favicon/favicon.ico"
+        />
+    </head>
+
+    <body>
+        <main>
+            <ModalInscrever client:load/>
+            <Navbar client:only="react" pageActive={pageActive} />
+            <slot />
+
+            <div class="mt-auto">
+                <Footer />
+            </div>
+        </main>
+        <script>
+            import * as bootstrap from 'bootstrap';
+            import $ from 'jquery';
+            let topOffset = 0;
+            sessionStorage.removeItem('vallorx-modal-inscreverse');
+            if (window.innerWidth <= 991) {
+              
+                const scrollContent = document.querySelector('main'); // store in a variable so we can reference the element in multiple locations
+                scrollContent.addEventListener('scroll', () => {
+                const scrolled = scrollContent.scrollTop; // reuse `scrollContent` innstead of querying the DOM again
+                if (scrolled > 10) topOffset = scrolled;
+                if (scrolled < 10 && topOffset > 10) {
+                    sessionStorage.setItem('vallorx-modal-inscreverse', 'active');
+                    console.log('active');
+                    var myModal = new bootstrap.Modal(document.getElementById('inscreverEmailModal'));
+                    myModal.show();
+                }
+                }, {passive: true});
+            } else {
+                window.addEventListener('mousemove', (event) => {
+                    if (event.clientY > 10) topOffset = event.clientY;
+                    if (event.clientY < 10 && topOffset > 10 && !sessionStorage.getItem('vallorx-modal-inscreverse')) {
+                        sessionStorage.setItem('vallorx-modal-inscreverse', 'active');
+                        console.log('active');
+                        var myModal = new bootstrap.Modal(document.getElementById('inscreverEmailModal'));
+                        myModal.show();
+                    }
+
+                });
+            }
+        </script>
+    </body>
+</html>

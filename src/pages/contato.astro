@@ -7,420 +7,373 @@ import "../styles/global.scss";
 // Full Astro Component Syntax:
 // https://docs.astro.build/core-concepts/astro-components/
 
-// Component Imports
-import Navbar from "../components/nav-bar";
-import Footer from "../components/footer";
-// You can import components from any supported Framework here!
-// Component Script:
-// You can write any JavaScript/TypeScript that you'd like here.
-// It will run during the build, but never in the browser.
-// All variables are available to use in the HTML template below.
-let title = "Contato";
+// Layout Imports
+import SiteLayout from "../layouts/site.layout.astro";
 
 const patternEmail =
     "([a-zA-Z0-9_\\.\\-])+@(([a-zA-Z0-9\\-])+\\.)+([a-zA-Z0-9]{2,4})+$";
 const patternTelefone = "([9])?([\\d]{4})+([\\-])?([\\d]{4})$";
 ---
 
-<html lang="pt-br">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="description" content="Entre em contato com a vallorx." />
-        <link
-            rel="icon"
-            type="image/png"
-            sizes="32x32"
-            href="/assets/favicon/favicon-32x32.png"
-        />
-        <link
-            rel="icon"
-            type="image/png"
-            sizes="16x16"
-            href="/assets/favicon/favicon-16x16.png"
-        />
-        <link rel="manifest" href="/assets/favicon/site.webmanifest" />
-        <link
-            rel="mask-icon"
-            href="/assets/favicon/safari-pinned-tab.svg"
-            color="#fff"
-        />
-        <title>Vallorx | {title}</title>
+<SiteLayout title="Contato" pageActive={Pages.CONTATO}>
+    <style>
+        #contato {
+            color: rgb(50, 50, 50);
+        }
 
-        <link
-            rel="icon"
-            type="image/x-icon"
-            href="/assets/favicon/favicon.ico"
-        />
+        #descricao-escritorio {
+            font-size: 0.85rem;
+        }
 
-        <style>
-            #contato {
-                color: rgb(50, 50, 50);
-            }
+        #img-escritorio {
+            width: 100%;
+            height: 10rem;
+            background-repeat: no-repeat;
+            object-fit: cover;
+            object-position: bottom center;
+        }
 
-            #descricao-escritorio {
-                font-size: 0.85rem;
-            }
+        .siga-icons {
+            cursor: pointer;
+            width: 2.5rem;
+        }
 
-            #img-escritorio {
-                width: 100%;
-                height: 10rem;
-                background-repeat: no-repeat;
-                object-fit: cover;
-                object-position: bottom center;
-            }
+        #loading {
+            width: 5%;
+            display: none;
+        }
 
-            .siga-icons {
-                cursor: pointer;
-                width: 2.5rem;
-            }
+        #resposta-email {
+            color: #00bd68;
+            font-weight: 500;
+            display: none;
+        }
+    </style>
 
-            #loading {
-                width: 5%;
-                display: none;
-            }
-
-            #resposta-email {
-                color: #00bd68;
-                font-weight: 500;
-                display: none;
-            }
-        </style>
-    </head>
-
-    <body>
-        <main>
-            <Navbar client:only="react" pageActive={Pages.CONTATO} />
-
-            <section id="contato" class="container">
-                <h1 class="text-center text-lg-start fw-bold line-title">
-                    Contato
-                </h1>
-                <div class="row">
-                    <div class="col-lg-6 col-md-12 mx-auto">
-                        <form
-                            class="row g-3 mb-5 needs-validation"
-                            id="form-contato"
-                            novalidate
+    <section id="contato" class="container">
+        <h1 class="text-center text-lg-start fw-bold line-title">
+            Contato
+        </h1>
+        <div class="row">
+            <div class="col-lg-6 col-md-12 mx-auto">
+                <form
+                    class="row g-3 mb-5 needs-validation"
+                    id="form-contato"
+                    novalidate
+                >
+                    <div class="mb-3">
+                        <label
+                            for="inputNomeCompleto"
+                            class="form-label">Nome completo:</label
                         >
-                            <div class="mb-3">
-                                <label
-                                    for="inputNomeCompleto"
-                                    class="form-label">Nome completo:</label
-                                >
-                                <input
-                                    type="text"
-                                    class="form-control"
-                                    id="inputNomeCompleto"
-                                    aria-describedby="nome"
-                                    name="nome"
-                                    required
-                                    minlength={5}
-                                />
-                                <div class="invalid-feedback">
-                                    Nome completo é requirido, minimo 5
-                                    caracteres
-                                </div>
-                            </div>
-                            <div class="mb-3">
-                                <label for="inputEmpresa" class="form-label"
-                                    >Empresa:</label
-                                >
-                                <input
-                                    type="text"
-                                    class="form-control"
-                                    id="inputEmpresa"
-                                    aria-describedby="empresa"
-                                    name="empresa"
-                                    required
-                                    minlength={5}
-                                />
-                                <div class="invalid-feedback">
-                                    Empresa é requirido, minimo 5 caracteres
-                                </div>
-                            </div>
-                            <div class="mb-3">
-                                <label for="inputEmail" class="form-label"
-                                    >Email:</label
-                                >
-                                <input
-                                    type="text"
-                                    class="form-control"
-                                    id="inputEmail"
-                                    aria-describedby="email"
-                                    name="email"
-                                    required
-                                    minlength={5}
-                                    pattern={patternEmail}
-                                />
-                                <div class="invalid-feedback">
-                                    Email é requirido ou email inválido
-                                </div>
-                            </div>
-                            <div class="mb-3">
-                                <label for="inputTelefone" class="form-label"
-                                    >Telefone:</label
-                                >
-                                <div class="d-flex flex-wrap">
-                                    <input
-                                        type="text"
-                                        class="form-control w-25 text-center"
-                                        id="inputTelefone"
-                                        aria-describedby="ddd"
-                                        aria-label="First name"
-                                        name="ddd"
-                                        required
-                                        placeholder="DDD"
-                                        maxlength={2}
-                                        minlength={2}
-                                    />
-                                    <input
-                                        type="text"
-                                        class="form-control w-75"
-                                        id="inputTelefone"
-                                        aria-describedby="telefone"
-                                        aria-label="First name"
-                                        name="telefone"
-                                        required
-                                        pattern={patternTelefone}
-                                    />
-                                    <div class="invalid-feedback">
-                                        DDD é requirido <br />
-                                        Telefone é requirido ou telefone inválido
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="mb-3">
-                                <label for="assunto" class="form-label"
-                                    >Assunto:</label
-                                >
-                                <select
-                                    class="form-select"
-                                    aria-label="Select Assunto"
-                                    id="assunto"
-                                    name="assunto"
-                                    title="assunto"
-                                    required
-                                >
-                                    <option value="" hidden></option>
-                                    <option value="Planejamento Tributário">
-                                        Planejamento Tributário</option
-                                    >
-                                    <option
-                                        value="Revisão de Crédito Tributário – Impostos Diretos e Indiretos (Federal – Estadual – Municipal)"
-                                    >
-                                        Revisão de Crédito Tributário – Impostos
-                                        Diretos e Indiretos (Federal – Estadual
-                                        – Municipal)</option
-                                    >
-                                    <option
-                                        value="Revisão de Obrigações Acessórias (Federal – Estadual – Municipal)"
-                                    >
-                                        Revisão de Obrigações Acessórias
-                                        (Federal – Estadual – Municipal)</option
-                                    >
-                                    <option
-                                        value="Revisão da Conciliação Contábil – Ativo e Passivo"
-                                    >
-                                        Revisão da Conciliação Contábil – Ativo
-                                        e Passivo</option
-                                    >
-                                    <option
-                                        value="Balanço Patrimonial - Fechamento Contábil"
-                                    >
-                                        Balanço Patrimonial - Fechamento
-                                        Contábil</option
-                                    >
-                                    <option
-                                        value="BPO – Terceirização dos Processos de Negócios"
-                                    >
-                                        BPO – Terceirização dos Processos de
-                                        Negócios</option
-                                    >
-                                    <option value="Reorganização Societária">
-                                        Reorganização Societária</option
-                                    >
-                                    <option
-                                        value="Brasileiro/Expatriado – Saída Definitiva do País"
-                                    >
-                                        Brasileiro/Expatriado – Saída Definitiva
-                                        do País</option
-                                    >
-                                    <option
-                                        value="DIRPF – Elaboração e Preenchimento do Carnê-Leão"
-                                    >
-                                        DIRPF – Elaboração e Preenchimento do
-                                        Carnê-Leão</option
-                                    >
-                                    <option
-                                        value="Serviços para Advogados – Cálculos de Rescisão Trabalhista e Desapropriação de Bens Imóveis"
-                                    >
-                                        Serviços para Advogados – Cálculos de
-                                        Rescisão Trabalhista e Desapropriação de
-                                        Bens Imóveis</option
-                                    >
-                                    <option value="Outro/ Especificar:">
-                                        Outro/ Especificar</option
-                                    >
-                                </select>
-                                <div class="invalid-feedback">
-                                    Assunto é requirido
-                                </div>
-                            </div>
-                            <div class="mb-3">
-                                <label for="textAreaMensagem" class="form-label"
-                                    >Mensagem:</label
-                                >
-                                <textarea
-                                    class="form-control"
-                                    id="mensagem"
-                                    rows={5}
-                                    name="mensagem"
-                                    style="overflow-y: auto; resize: none;"
-                                    title="Mensagem"
-                                    required
-                                    minlength={10}></textarea>
-                                <div class="invalid-feedback">
-                                    Mensagem é requirido, minimo 10 caracteres
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <button
-                                    class="btn btn-primary"
-                                    onclick="enviarEmail()"
-                                    type="button"
-                                    id="button-enviar">
-                                    Enviar
-                                </button>
-                                <img
-                                    src="/assets/loading.gif"
-                                    alt="loading"
-                                    id="loading"
-                                />
-                            </div>
-                            <span id="resposta-email"></span>
-                        </form>
-                        <h4>Fale conosco:</h4>
-                        <div class="row my-4">
-                            <div class="col-lg-6 col-12">
-                                <img
-                                    src="/assets/svg/telephone.svg"
-                                    alt="telefone"
-                                />
-                                +55 11 97769-6191
-                            </div>
-                            <div class="col-lg-6 col-12 mt-3 mt-lg-0">
-                                <img
-                                    src="/assets/svg/envelope.svg"
-                                    alt="email"
-                                />
-                                private@vallorx.com.br
-                            </div>
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="inputNomeCompleto"
+                            aria-describedby="nome"
+                            name="nome"
+                            required
+                            minlength={5}
+                        />
+                        <div class="invalid-feedback">
+                            Nome completo é requirido, minimo 5
+                            caracteres
                         </div>
-                        <h4>Escritório:</h4>
-                        <div class="row my-4">
-                            <div
-                                class="col-12 col-lg-8"
-                                id="descricao-escritorio"
-                            >
-                                <div
-                                    class="d-inline-flex align-items-start gap-2"
-                                >
-                                    <img
-                                        src="/assets/svg/building.svg"
-                                        alt="endereco"
-                                    />
-                                    <p class="ml-4 small">
-                                        Avenida Paulista, 1842 <br />
-                                        Edifício CETENCO PLAZA <br /> Torre Norte
-                                        – 15° andar – conj. 155 <br />
-                                        Bela Vista - São Paulo / SP – CEP: 01310-923
-                                    </p>
-                                </div>
-                                <div
-                                    class="d-inline-flex align-items-start gap-2"
-                                >
-                                    <img
-                                        src="/assets/svg/stoplights.svg"
-                                        alt="estacionamento"
-                                    />
-                                    <p class="ml-4 small">
-                                        <strong
-                                            >Estacionamento/Convênio: (Visita –
-                                            Pré-Agendada)</strong
-                                        ><br />
-                                        Rua Frei Caneca, 1381 – Bela Vista – São
-                                        Paulo/SP
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="col-12 col-lg-4 mb-3">
-                                <img
-                                    src="/assets/predio.jfif"
-                                    alt="escr"
-                                    id="img-escritorio"
-                                />
-                            </div>
-                            <div class="col-12">
-                                <iframe
-                                    title="Mapa esc est"
-                                    src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d3657.2620056777496!2d-46.66062483538401!3d-23.559031717390592!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e6!4m5!1s0x94ce59ccfe9d9519%3A0xf276453731f2aa4!2sRua%20Frei%20Caneca%2C%201381%20-%20Consola%C3%A7%C3%A3o%2C%20S%C3%A3o%20Paulo%20-%20SP!3m2!1d-23.558511499999998!2d-46.658305899999995!4m5!1s0x94ce59cc461c5d55%3A0x47375bee97c54255!2sAv.%20Paulista%2C%201842%20-%20Bela%20Vista%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2001310-200!3m2!1d-23.559588299999998!2d-46.658066!5e0!3m2!1spt-BR!2sbr!4v1643685337277!5m2!1spt-BR!2sbr"
-                                    height="450"
-                                    style="border:0; width: 100%;"
-                                    loading="lazy"></iframe>
-                            </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="inputEmpresa" class="form-label"
+                            >Empresa:</label
+                        >
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="inputEmpresa"
+                            aria-describedby="empresa"
+                            name="empresa"
+                            required
+                            minlength={5}
+                        />
+                        <div class="invalid-feedback">
+                            Empresa é requirido, minimo 5 caracteres
                         </div>
-                        <h4>Siga-nos:</h4>
-                        <div class="row my-4">
-                            <div class="d-flex gap-4" id="siga-nos">
-                                <a
-                                    href="https://www.facebook.com/VallorX-100364011748833"
-                                    rel="noopener"
-                                    target="_blank"
-                                >
-                                    <img
-                                        src="/assets/svg/facebook.svg"
-                                        alt="facebook"
-                                        class="siga-icons"
-                                    />
-                                </a>
-                                <a
-                                    href="https://instagram.com/vallorx"
-                                    rel="noopener"
-                                    target="_blank"
-                                >
-                                    <img
-                                        src="/assets/svg/instagram.svg"
-                                        alt="instagram"
-                                        class="siga-icons"
-                                    />
-                                </a>
-                                <a
-                                    href="https://www.linkedin.com/company/vallorx/about"
-                                    class="ml-3"
-                                    rel="noopener"
-                                    target="_blank"
-                                >
-                                    <img
-                                        src="/assets/svg/linkedin.svg"
-                                        alt="linkedin"
-                                        class="siga-icons"
-                                    />
-                                </a>
+                    </div>
+                    <div class="mb-3">
+                        <label for="inputEmail" class="form-label"
+                            >Email:</label
+                        >
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="inputEmail"
+                            aria-describedby="email"
+                            name="email"
+                            required
+                            minlength={5}
+                            pattern={patternEmail}
+                        />
+                        <div class="invalid-feedback">
+                            Email é requirido ou email inválido
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="inputTelefone" class="form-label"
+                            >Telefone:</label
+                        >
+                        <div class="d-flex flex-wrap">
+                            <input
+                                type="text"
+                                class="form-control w-25 text-center"
+                                id="inputTelefone"
+                                aria-describedby="ddd"
+                                aria-label="First name"
+                                name="ddd"
+                                required
+                                placeholder="DDD"
+                                maxlength={2}
+                                minlength={2}
+                            />
+                            <input
+                                type="text"
+                                class="form-control w-75"
+                                id="inputTelefone"
+                                aria-describedby="telefone"
+                                aria-label="First name"
+                                name="telefone"
+                                required
+                                pattern={patternTelefone}
+                            />
+                            <div class="invalid-feedback">
+                                DDD é requirido <br />
+                                Telefone é requirido ou telefone inválido
                             </div>
                         </div>
                     </div>
+                    <div class="mb-3">
+                        <label for="assunto" class="form-label"
+                            >Assunto:</label
+                        >
+                        <select
+                            class="form-select"
+                            aria-label="Select Assunto"
+                            id="assunto"
+                            name="assunto"
+                            title="assunto"
+                            required
+                        >
+                            <option value="" hidden></option>
+                            <option value="Planejamento Tributário">
+                                Planejamento Tributário</option
+                            >
+                            <option
+                                value="Revisão de Crédito Tributário – Impostos Diretos e Indiretos (Federal – Estadual – Municipal)"
+                            >
+                                Revisão de Crédito Tributário – Impostos
+                                Diretos e Indiretos (Federal – Estadual
+                                – Municipal)</option
+                            >
+                            <option
+                                value="Revisão de Obrigações Acessórias (Federal – Estadual – Municipal)"
+                            >
+                                Revisão de Obrigações Acessórias
+                                (Federal – Estadual – Municipal)</option
+                            >
+                            <option
+                                value="Revisão da Conciliação Contábil – Ativo e Passivo"
+                            >
+                                Revisão da Conciliação Contábil – Ativo
+                                e Passivo</option
+                            >
+                            <option
+                                value="Balanço Patrimonial - Fechamento Contábil"
+                            >
+                                Balanço Patrimonial - Fechamento
+                                Contábil</option
+                            >
+                            <option
+                                value="BPO – Terceirização dos Processos de Negócios"
+                            >
+                                BPO – Terceirização dos Processos de
+                                Negócios</option
+                            >
+                            <option value="Reorganização Societária">
+                                Reorganização Societária</option
+                            >
+                            <option
+                                value="Brasileiro/Expatriado – Saída Definitiva do País"
+                            >
+                                Brasileiro/Expatriado – Saída Definitiva
+                                do País</option
+                            >
+                            <option
+                                value="DIRPF – Elaboração e Preenchimento do Carnê-Leão"
+                            >
+                                DIRPF – Elaboração e Preenchimento do
+                                Carnê-Leão</option
+                            >
+                            <option
+                                value="Serviços para Advogados – Cálculos de Rescisão Trabalhista e Desapropriação de Bens Imóveis"
+                            >
+                                Serviços para Advogados – Cálculos de
+                                Rescisão Trabalhista e Desapropriação de
+                                Bens Imóveis</option
+                            >
+                            <option value="Outro/ Especificar:">
+                                Outro/ Especificar</option
+                            >
+                        </select>
+                        <div class="invalid-feedback">
+                            Assunto é requirido
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="textAreaMensagem" class="form-label"
+                            >Mensagem:</label
+                        >
+                        <textarea
+                            class="form-control"
+                            id="mensagem"
+                            rows={5}
+                            name="mensagem"
+                            style="overflow-y: auto; resize: none;"
+                            title="Mensagem"
+                            required
+                            minlength={10}></textarea>
+                        <div class="invalid-feedback">
+                            Mensagem é requirido, minimo 10 caracteres
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <button
+                            class="btn btn-primary"
+                            onclick="enviarEmail()"
+                            type="button"
+                            id="button-enviar">
+                            Enviar
+                        </button>
+                        <img
+                            src="/assets/loading.gif"
+                            alt="loading"
+                            id="loading"
+                        />
+                    </div>
+                    <span id="resposta-email"></span>
+                </form>
+                <h4>Fale conosco:</h4>
+                <div class="row my-4">
+                    <div class="col-lg-6 col-12">
+                        <img
+                            src="/assets/svg/telephone.svg"
+                            alt="telefone"
+                        />
+                        +55 11 97769-6191
+                    </div>
+                    <div class="col-lg-6 col-12 mt-3 mt-lg-0">
+                        <img
+                            src="/assets/svg/envelope.svg"
+                            alt="email"
+                        />
+                        private@vallorx.com.br
+                    </div>
                 </div>
-            </section>
-
-            <div class="mt-auto">
-                <Footer />
+                <h4>Escritório:</h4>
+                <div class="row my-4">
+                    <div
+                        class="col-12 col-lg-8"
+                        id="descricao-escritorio"
+                    >
+                        <div
+                            class="d-inline-flex align-items-start gap-2"
+                        >
+                            <img
+                                src="/assets/svg/building.svg"
+                                alt="endereco"
+                            />
+                            <p class="ml-4 small">
+                                Avenida Paulista, 1842 <br />
+                                Edifício CETENCO PLAZA <br /> Torre Norte
+                                – 15° andar – conj. 155 <br />
+                                Bela Vista - São Paulo / SP – CEP: 01310-923
+                            </p>
+                        </div>
+                        <div
+                            class="d-inline-flex align-items-start gap-2"
+                        >
+                            <img
+                                src="/assets/svg/stoplights.svg"
+                                alt="estacionamento"
+                            />
+                            <p class="ml-4 small">
+                                <strong
+                                    >Estacionamento/Convênio: (Visita –
+                                    Pré-Agendada)</strong
+                                ><br />
+                                Rua Frei Caneca, 1381 – Bela Vista – São
+                                Paulo/SP
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4 mb-3">
+                        <img
+                            src="/assets/predio.jfif"
+                            alt="escr"
+                            id="img-escritorio"
+                        />
+                    </div>
+                    <div class="col-12">
+                        <iframe
+                            title="Mapa esc est"
+                            src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d3657.2620056777496!2d-46.66062483538401!3d-23.559031717390592!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e6!4m5!1s0x94ce59ccfe9d9519%3A0xf276453731f2aa4!2sRua%20Frei%20Caneca%2C%201381%20-%20Consola%C3%A7%C3%A3o%2C%20S%C3%A3o%20Paulo%20-%20SP!3m2!1d-23.558511499999998!2d-46.658305899999995!4m5!1s0x94ce59cc461c5d55%3A0x47375bee97c54255!2sAv.%20Paulista%2C%201842%20-%20Bela%20Vista%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2001310-200!3m2!1d-23.559588299999998!2d-46.658066!5e0!3m2!1spt-BR!2sbr!4v1643685337277!5m2!1spt-BR!2sbr"
+                            height="450"
+                            style="border:0; width: 100%;"
+                            loading="lazy"></iframe>
+                    </div>
+                </div>
+                <h4>Siga-nos:</h4>
+                <div class="row my-4">
+                    <div class="d-flex gap-4" id="siga-nos">
+                        <a
+                            href="https://www.facebook.com/VallorX-100364011748833"
+                            rel="noopener"
+                            target="_blank"
+                        >
+                            <img
+                                src="/assets/svg/facebook.svg"
+                                alt="facebook"
+                                class="siga-icons"
+                            />
+                        </a>
+                        <a
+                            href="https://instagram.com/vallorx"
+                            rel="noopener"
+                            target="_blank"
+                        >
+                            <img
+                                src="/assets/svg/instagram.svg"
+                                alt="instagram"
+                                class="siga-icons"
+                            />
+                        </a>
+                        <a
+                            href="https://www.linkedin.com/company/vallorx/about"
+                            class="ml-3"
+                            rel="noopener"
+                            target="_blank"
+                        >
+                            <img
+                                src="/assets/svg/linkedin.svg"
+                                alt="linkedin"
+                                class="siga-icons"
+                            />
+                        </a>
+                    </div>
+                </div>
             </div>
-        </main>
-        <script>
-            // import "bootstrap/dist/js/bootstrap.bundle.min.js";
-            import { enviarEmail } from "../js/enviar-email.js";
-            globalThis.enviarEmail = enviarEmail;
-        </script>
-    </body>
-</html>
+        </div>
+    </section>
+
+    <script>
+        // import "bootstrap/dist/js/bootstrap.bundle.min.js";
+        import { enviarEmail } from "../js/enviar-email.js";
+        globalThis.enviarEmail = enviarEmail;
+    </script>
+</SiteLayout>

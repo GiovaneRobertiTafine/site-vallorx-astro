@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import * as obterVideos from "../js/obter-videos.js";
 
-const VideoNews: React.FC<null> = () => {
-    const [news, setNews] = useState<[]>([]);
+const VideoNews: React.FC<{}> = () => {
+    const [news, setNews] = useState<any[]>([]);
 
     useEffect(() => {
         obterVideos.obterVideos()
