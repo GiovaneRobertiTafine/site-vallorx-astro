@@ -14,10 +14,11 @@ const Footer = () => {
                         Copyright &#0169; - Todos os Direitos Reservados
                     </div>
                 </div>
+                <a className='text-white small' href="/gestao-access">Entrar</a>
             </div>
             <hr />
-            <div className="d-lg-flex justify-content-end align-content-center w-100">
-                <a className="small cursor-pointer text-reset text-decoration-none" href="https://br.linkedin.com/in/mandrilla" target="_blank">Desenvolvido por: Giovane Roberti Tafine</a>
+            <div className="d-flex align-items-center justify-content-center justify-content-lg-end w-100" style={{ height: "40px" }}>
+                <a className="small cursor-pointer text-reset " href="https://br.linkedin.com/in/mandrilla" target="_blank">Desenvolvido por: Giovane Roberti Tafine</a>
             </div>
         </footer>
 
