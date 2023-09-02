@@ -4,7 +4,7 @@ let interval;
 
 export function getNews() {
     let urlRequest = "http://localhost:7001";
-    if (import.meta.env.PROD) urlRequest = "https://vallorx.com.br/php/gestao-email.php";
+    if (import.meta.env.PROD) urlRequest = "https://vallorx.com.br/php/gestao-videos.php";
     $.ajax({
         type: 'GET',
         url: urlRequest,
@@ -58,7 +58,7 @@ export function addNews() {
     const myForm = document.getElementById('form-add');
     const formData = new FormData(myForm);
     let urlRequest = "http://localhost:7001";
-    if (import.meta.env.PROD) urlRequest = "https://vallorx.com.br/php/gestao-email.php";
+    if (import.meta.env.PROD) urlRequest = "https://vallorx.com.br/php/gestao-videos.php";
     $.ajax({
         type: 'POST',
         url: urlRequest,
@@ -120,7 +120,7 @@ export function deleteAllOrId(video = null) {
 export function deleteNews() {
     resetModal();
     let urlRequest = "http://localhost:7001";
-    if (import.meta.env.PROD) urlRequest = "https://vallorx.com.br/php/gestao-email.php";
+    if (import.meta.env.PROD) urlRequest = "https://vallorx.com.br/php/gestao-videos.php";
     $.ajax({
         type: 'DELETE',
         url: `${urlRequest}${deleteValue ? "?file_name=" + deleteValue : ''}`,
