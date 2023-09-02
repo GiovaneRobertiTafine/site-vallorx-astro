@@ -4,109 +4,26 @@ import "../styles/global.scss";
 
 let title = "Gestão Vídeos";
 
-
 ---
-
-<html lang="pt-br">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link
-            rel="icon"
-            type="image/png"
-            sizes="32x32"
-            href="/assets/favicon/favicon-32x32.png"
-        />
-        <link
-            rel="icon"
-            type="image/png"
-            sizes="16x16"
-            href="/assets/favicon/favicon-16x16.png"
-        />
-        <link rel="manifest" href="/assets/favicon/site.webmanifest" />
-        <link
-            rel="mask-icon"
-            href="/assets/favicon/safari-pinned-tab.svg"
-            color="#fff"
-        />
-        <title>Vallorx | {title}</title>
-
-        <link
-            rel="icon"
-            type="image/x-icon"
-            href="/assets/favicon/favicon.ico"
-        />
-        <style>
-            .icons-header {
-                width: 2em;
-            }
-        </style>
-    </head>
-
-    <body>
-        <main>
-            <!-- <Navbar client:only="react" pageActive={null} /> -->
-            <section id="gestao-email">
-                <div class="d-flex mb-3 gap-3 justify-content-end">
-                    <a href="">Cancelar Inscrição</a>
-                    <button
-                        type="button"
-                        class="btn btn-success"
-                        id="copiar-emails"
-                        onclick="gestaoEmail.copyEmails();"
-                    >
-                        Copiar e-mails selecionados
-                    </button>
-                </div>
-                <div id="list-emails"></div>
-            </section>
-            <div
-                class="position-fixed bottom-0 end-0 p-3"
-                style={{ zIndex: "10000" }}
+    <section id="gestao-email">
+        <div class="d-flex mb-3 gap-3 justify-content-end">
+            <a href="">Cancelar Inscrição</a>
+            <button
+                type="button"
+                class="btn btn-success"
+                id="copiar-emails"
+                onclick="gestaoEmail.copyEmails();"
             >
-                <div
-                    class="toast toast-danger align-items-center text-white bg-danger"
-                    role="alert"
-                    aria-live="assertive"
-                    aria-atomic="true"
-                >
-                    <div class="d-flex">
-                        <div class="toast-body" id="toast-danger-response-body">
-                        </div>
-                        <button
-                            type="button"
-                            class="btn-close btn-close-white me-2 m-auto"
-                            data-bs-dismiss="toast"
-                            aria-label="Close">
-                        </button>
-                    </div>
-                </div>
-                <div
-                    class="toast toast-success align-items-center text-white bg-success"
-                    role="alert"
-                    aria-live="assertive"
-                    aria-atomic="true"
-                >
-                    <div class="d-flex">
-                        <div
-                            class="toast-body"
-                            id="toast-success-response-body"
-                        >
-                        </div>
-                        <button
-                            type="button"
-                            class="btn-close btn-close-white me-2 m-auto"
-                            data-bs-dismiss="toast"
-                            aria-label="Close"></button>
-                    </div>
-                </div>
-            </div>
-        </main>
-        <script>
-            import * as gestaoEmail from "../js/gestao-email.js";
-            globalThis.gestaoEmail = gestaoEmail;
+                Copiar e-mails selecionados
+            </button>
+        </div>
+        <div id="list-emails"></div>
+    </section>
+<script>
+    import * as gestaoEmail from "../js/gestao-email.js";
+    import $ from 'jquery';
 
-            // gestaoEmail.getEmails();
-        </script>
-    </body>
-</html>
+    globalThis.gestaoEmail = gestaoEmail;
+    gestaoEmail.getEmails();
+    $("#copiar-emails").prop("disabled", true);
+</script>

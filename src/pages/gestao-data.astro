@@ -1,0 +1,43 @@
+---
+
+// Style Imports
+import "../styles/global.scss";
+
+// Component Imports
+import GestaoVideos from "../components/gestao-videos.astro";
+import GestaoEmails from "../components/gestao-email.astro";
+
+import GestaoLayout from '../layouts/gestao.layout.astro';
+
+let title = "Gestão";
+---
+    <GestaoLayout>
+        <section id="gestao-data" class="container mt-5">
+            <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" data-bs-toggle="tab" href="#gestao-emails">Gestão Emails</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#gestao-videos">Gestão Videos</a>
+            </li>
+            </ul>
+
+
+            <div class="tab-content">
+            <div class="tab-pane active mt-3" id="gestao-emails">
+                <GestaoEmails/>
+            </div>
+            <div class="tab-pane fade mt-3" id="gestao-videos">
+                <GestaoVideos/>
+            </div>
+        
+            </div>
+        </section>
+    </GestaoLayout>
+    <script>
+        if(!(sessionStorage.getItem("gestao-access"))) {
+            location.replace("/gestao-access");
+        } 
+    </script>
+    </body>
+</html>

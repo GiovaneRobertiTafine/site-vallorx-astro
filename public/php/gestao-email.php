@@ -20,16 +20,15 @@ if($_SERVER["REQUEST_METHOD"] == "GET") {
         $query = $pdo->query("select * from Emails");
         //$row = $query->fetch(PDO::FETCH_ASSOC);
         $all = $query->fetchAll(PDO::FETCH_ASSOC);
-        // print_r(json_encode($all));
-        $value = getenv('RANDOM_VALUE');
-        print_r($value);
+        print_r(json_encode($all));
     } catch (Exception $error) {
         $array  = array('status' => '500', 'mensagem' => 'Infelizmente houve um erro ao obter os dados!');
         echo json_encode($array);
     }
     
 }
-    
+
+
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     // Verifica se houve algum erro com o upload. Se sim, exibe a mensagem do erro
     if (!isset($_POST['email']) || !isset($_POST['nome'])) {
@@ -53,7 +52,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         // Depois verifica se é possível mover o arquivo para a pasta escolhida
         if ($result->execute([$_POST['email'], $_POST['nome']])) {
             // Upload efetuado com sucesso, exibe uma mensagem e um link para o arquivo
-             $array  = array('status' => '200', 'mensagem' => 'Salvo com sucesso');
+            $array  = array('status' => '200', 'mensagem' => 'Salvo com sucesso');
             echo json_encode($array);
         } else {
             // Não foi possível fazer o upload, provavelmente a pasta está incorreta

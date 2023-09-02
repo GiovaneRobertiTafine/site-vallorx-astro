@@ -3,135 +3,48 @@
 import "../styles/global.scss";
 
 // Component Imports
-import Navbar from "./nav-bar";
 import ModalAddNews from "./modal-add-news.astro";
 import ModalDeleteNews from "./modal-delete-news.astro";
 
 let title = "Gestão Vídeos";
 ---
 
-<html lang="pt-br">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link
-            rel="icon"
-            type="image/png"
-            sizes="32x32"
-            href="/assets/favicon/favicon-32x32.png"
-        />
-        <link
-            rel="icon"
-            type="image/png"
-            sizes="16x16"
-            href="/assets/favicon/favicon-16x16.png"
-        />
-        <link rel="manifest" href="/assets/favicon/site.webmanifest" />
-        <link
-            rel="mask-icon"
-            href="/assets/favicon/safari-pinned-tab.svg"
-            color="#fff"
-        />
-        <title>Vallorx | {title}</title>
-
-        <link
-            rel="icon"
-            type="image/x-icon"
-            href="/assets/favicon/favicon.ico"
-        />
-        <style>
-            .icons-header {
-                width: 2em;
-            }
-        </style>
-    </head>
-
-    <body>
-        <main>
-            <!-- <Navbar client:only="react" pageActive={null} /> -->
-            <section id="gestao-videos" class="">
-                <div class="d-flex mb-3 justify-content-end">
-                    <button
-                        type="button"
-                        class="btn"
-                        data-bs-toggle="modal"
-                        data-bs-target="#addModal"
-                        title="add"
-                    >
-                        <img
-                            class="icons-header"
-                            src="/assets/svg/plus-circle.svg"
-                            alt="plus-circle"
-                        />
-                    </button>
-                    <button
-                        type="button"
-                        class="btn"
-                        data-bs-toggle="modal"
-                        data-bs-target="#deleteModal"
-                        onclick="gestaoVideos.deleteAllOrId()"
-                        title="delAll"
-                    >
-                        <img
-                            class="icons-header"
-                            src="/assets/svg/x-circle.svg"
-                            alt="x-circle"
-                        />
-                    </button>
-                </div>
-                <div id="list-news"></div>
-            </section>
-            <ModalAddNews />
-            <ModalDeleteNews />
-            <div
-                class="position-fixed bottom-0 end-0 p-3"
-                style="z-index: 10000"
+    <section id="gestao-videos" class="">
+        <div class="d-flex mb-3 justify-content-end">
+            <button
+                type="button"
+                class="btn"
+                data-bs-toggle="modal"
+                data-bs-target="#addModal"
+                title="add"
             >
-                <div
-                    class="toast toast-success align-items-center text-white bg-success"
-                    role="alert"
-                    aria-live="assertive"
-                    aria-atomic="true"
-                >
-                    <div class="d-flex">
-                        <div
-                            class="toast-body"
-                            id="toast-success-response-body"
-                        >
-                        </div>
-                        <button
-                            type="button"
-                            class="btn-close btn-close-white me-2 m-auto"
-                            data-bs-dismiss="toast"
-                            aria-label="Close"></button>
-                    </div>
-                </div>
-            </div>
-            <div
-                class="position-fixed bottom-0 end-0 p-3"
-                style="z-index: 10000"
+                <img
+                    class="icons-header"
+                    src="/assets/svg/plus-circle.svg"
+                    alt="plus-circle"
+                />
+            </button>
+            <button
+                type="button"
+                class="btn"
+                data-bs-toggle="modal"
+                data-bs-target="#deleteModal"
+                onclick="gestaoVideos.deleteAllOrId()"
+                title="delAll"
             >
-                <div
-                    class="toast toast-danger align-items-center text-white bg-danger"
-                    role="alert"
-                    aria-live="assertive"
-                    aria-atomic="true"
-                >
-                    <div class="d-flex">
-                        <div class="toast-body" id="toast-danger-response-body">
-                        </div>
-                        <button
-                            type="button"
-                            class="btn-close btn-close-white me-2 m-auto"
-                            data-bs-dismiss="toast"
-                            aria-label="Close"></button>
-                    </div>
-                </div>
-            </div>
-        </main>
-        <script hoist type="module">
-            import * as gestaoVideos from "../js/gestao-videos.js";
-            globalThis.gestaoVideos = gestaoVideos;
-        </script>
-    </body>
-</html>
+                <img
+                    class="icons-header"
+                    src="/assets/svg/x-circle.svg"
+                    alt="x-circle"
+                />
+            </button>
+        </div>
+        <div id="list-news"></div>
+    </section>
+    <ModalAddNews />
+    <ModalDeleteNews />
+    
+<script>
+    import * as gestaoVideos from "../js/gestao-videos.js";
+    globalThis.gestaoVideos = gestaoVideos;
+</script>

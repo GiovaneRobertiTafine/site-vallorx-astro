@@ -1,0 +1,72 @@
+---
+
+// Style Imports
+import "../styles/global.scss";
+
+// LAyout Imports
+import GestaoLayout from '../layouts/gestao.layout.astro';
+
+---
+    <GestaoLayout>
+        <section id="gestao-access" style="height: 100vh" class="d-flex justify-content-center align-items-center">
+            <div class="card">
+                <div class="card-header">
+                    Acessar Gestão
+                </div>
+                <div class="card-body">
+                <form action="">
+                    <label for="inputAccess" class="form-label">Access:</label>
+                    <input type="password" id="inputAccess" class="form-control" autocomplete="on">
+                    <button type="button" class="btn btn-success w-100 mt-3" id="btn-access">Acessar</button>
+
+                </form>
+                </div>
+            </div>
+        </section> 
+    </GestaoLayout>
+    <script>
+         import "bootstrap/dist/js/bootstrap.bundle.min.js";
+         import * as bootstrap from 'bootstrap';
+         import $ from 'jquery';
+        
+         document.getElementById("btn-access").addEventListener("click", () => {
+            if (import.meta.env.DEV) location.replace("/gestao-data");
+            const form = new FormData();
+            form.append("access", $("#inputAccess").val());
+
+            $.ajax({
+                type: 'POST',
+                url: 'http://localhost:8000',
+                data: form,
+                timeout: 0,
+                processData: false,
+                mimeType: "multipart/form-data",
+                contentType: false,
+                success: (result) => {
+                    result = JSON.parse(result);
+                    if (result.status === '200') {
+                        sessionStorage.setItem("gestao-access", "true")
+                        location.replace("/gestao-data")
+                    } else {
+                        $('#toast-danger-response-body').html(result.mensagem);
+                        new bootstrap.Toast($('.toast-danger')).show();
+                    }
+                },
+                error: (result) => {
+                    $('#toast-danger-response-body').html(result.mensagem);
+                    new bootstrap.Toast($('.toast-danger')).show();
+                },
+                beforeSend: () => { /* antes de enviar */
+                    $('#btn-access').prop('disabled', true);
+                    $('#spinner-save').removeClass('d-none'); /* mostra o loading */
+                },
+                complete: () => { /* completo */
+                    $('#inputAccess').val("");
+                    $('#spinner-save').addClass('d-none');
+                    $('#btn-access').prop('disabled', false);
+                },
+
+            });
+        })
+    </script>
+</html>

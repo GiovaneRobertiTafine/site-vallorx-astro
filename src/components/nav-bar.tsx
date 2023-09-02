@@ -2,7 +2,7 @@ import '../styles/nav-bar.scss';
 import { Pages } from '../utils/pages.enum';
 import React, { useEffect, useState } from 'react';
 import Time from './time';
-import ModalInscrever from './modal-inscrever.jsx';
+import ModalInscrever from './modal-inscrever.js';
 import * as bootstrap from 'bootstrap';
 
 const NavBar: React.FC<{ pageActive: number; }> = ({ pageActive }) => {

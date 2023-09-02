@@ -73,7 +73,6 @@ export async function obterVideos() {
     // jqxhr.always(() => {
     //     // alert("second finished");
     // });
-
     return await $.ajax({
         type: 'GET',
         url: 'https://vallorx.com.br/php/gestao-videos.php',

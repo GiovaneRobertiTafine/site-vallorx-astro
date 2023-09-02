@@ -3,17 +3,15 @@ import * as bootstrap from 'bootstrap';
 export let emailsSelecionados = [];
 
 export function getEmails() {
+    const urlRequest = "http://localhost:7000";
+    if (import.meta.env.PROD) urlRequest = "https://vallorx.com.br/php/gestao-email.php";
     $.ajax({
         type: 'GET',
-        url: 'https://vallorx.com.br/php/gestao-email.php',
+        url: urlRequest,
         cache: false,
         processData: false,
         contentType: false,
         success: (result) => {
-            console.log(result);
-            console.log(process.env.PASSWORD);
-            console.log(import.meta.env.PASSWORD);
-            return;
             result = JSON.parse(result);
 
             if (result.status === '400' || result.status === '500') {
@@ -66,17 +64,6 @@ export function getEmails() {
 
     });
 }
-
-(function () {
-    const isProd = import.meta.env.VITE_SENHA_SECRETA;
-    const isDev = import.meta.env.PUBLIC_TODOS;
-    console.log(isProd, isDev, import.meta.env.PROD, import.meta.env.DEV);
-    getEmails();
-    document.getElementById("copiar-emails").disabled = true;
-    if (import.meta.env.DEV) {
-        console.log();
-    }
-})();
 
 export function changeEmail(e) {
     const { checked, id } = e.target;
