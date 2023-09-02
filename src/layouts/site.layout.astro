@@ -76,7 +76,7 @@ import ModalInscrever from '../components/modal-inscrever';
                 scrollContent.addEventListener('scroll', () => {
                 const scrolled = scrollContent.scrollTop; // reuse `scrollContent` innstead of querying the DOM again
                 if (scrolled > 10) topOffset = scrolled;
-                if (scrolled < 10 && topOffset > 10) {
+                if (scrolled < 10 && topOffset > 10 && !sessionStorage.getItem('vallorx-modal-inscreverse')) {
                     sessionStorage.setItem('vallorx-modal-inscreverse', 'active');
                     console.log('active');
                     var myModal = new bootstrap.Modal(document.getElementById('inscreverEmailModal'));
