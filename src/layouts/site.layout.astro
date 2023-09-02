@@ -57,7 +57,7 @@ import ModalInscrever from '../components/modal-inscrever';
 
     <body>
         <main>
-            <ModalInscrever client:load/>
+            <ModalInscrever client:only="react"/>
             <Navbar client:only="react" pageActive={pageActive} />
             <slot />
 
@@ -67,7 +67,7 @@ import ModalInscrever from '../components/modal-inscrever';
         </main>
         <script>
             import * as bootstrap from 'bootstrap';
-            import $ from 'jquery';
+
             let topOffset = 0;
             sessionStorage.removeItem('vallorx-modal-inscreverse');
             if (window.innerWidth <= 991) {
