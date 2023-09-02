@@ -30,7 +30,10 @@ import GestaoLayout from '../layouts/gestao.layout.astro';
          import $ from 'jquery';
         
          document.getElementById("btn-access").addEventListener("click", () => {
-            if (import.meta.env.DEV) location.replace("/gestao-data");
+            if (import.meta.env.DEV) {
+                location.replace("/gestao-data");
+                sessionStorage.setItem("gestao-access", 'true')
+            }
             const form = new FormData();
             form.append("access", $("#inputAccess").val());
 

@@ -3,7 +3,7 @@ import * as bootstrap from 'bootstrap';
 let interval;
 
 export function getNews() {
-    const urlRequest = "http://localhost:7001";
+    let urlRequest = "http://localhost:7001";
     if (import.meta.env.PROD) urlRequest = "https://vallorx.com.br/php/gestao-email.php";
     $.ajax({
         type: 'GET',
@@ -57,7 +57,7 @@ export function addNews() {
 
     const myForm = document.getElementById('form-add');
     const formData = new FormData(myForm);
-    const urlRequest = "http://localhost:7001";
+    let urlRequest = "http://localhost:7001";
     if (import.meta.env.PROD) urlRequest = "https://vallorx.com.br/php/gestao-email.php";
     $.ajax({
         type: 'POST',
@@ -119,7 +119,7 @@ export function deleteAllOrId(video = null) {
 
 export function deleteNews() {
     resetModal();
-    const urlRequest = "http://localhost:7001";
+    let urlRequest = "http://localhost:7001";
     if (import.meta.env.PROD) urlRequest = "https://vallorx.com.br/php/gestao-email.php";
     $.ajax({
         type: 'DELETE',

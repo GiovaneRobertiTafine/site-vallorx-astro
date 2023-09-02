@@ -3,7 +3,7 @@ import * as bootstrap from 'bootstrap';
 export let emailsSelecionados = [];
 
 export function getEmails() {
-    const urlRequest = "http://localhost:7000";
+    let urlRequest = "http://localhost:7000";
     if (import.meta.env.PROD) urlRequest = "https://vallorx.com.br/php/gestao-email.php";
     $.ajax({
         type: 'GET',
