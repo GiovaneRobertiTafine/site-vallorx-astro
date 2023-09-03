@@ -13,10 +13,11 @@ const ModalInscrever: React.FC = () => {
         }
 
         const formData = new FormData((form.current as HTMLFormElement));
-
+        let urlRequest = "http://localhost:7000";
+        if (import.meta.env.PROD) urlRequest = "https://vallorx.com.br/php/gestao-email.php";
         $.ajax({
             type: 'POST',
-            url: 'http://localhost:8000',
+            url: urlRequest,
             timeout: 0,
             data: formData,
             processData: false,
