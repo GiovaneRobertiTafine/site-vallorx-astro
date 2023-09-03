@@ -68,9 +68,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 if($_SERVER["REQUEST_METHOD"] == "DELETE") {
-    if ($_GET['email']) {
+    parse_str($_SERVER['QUERY_STRING'] ?? '', $queries);
+
+    if ($queries['email'] ?? false) {
         $stmt = $pdo->prepare("DELETE FROM Emails WHERE Email = ?");
-        if ($stmt->execute([$_GET['email']])) {
+        if ($stmt->execute([$queries['email']])) {
             $array  = array('status' => '200', 'mensagem' => 'Deletado com sucesso!');
             echo json_encode($array);
         } else {
