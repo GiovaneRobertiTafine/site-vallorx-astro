@@ -43,10 +43,11 @@ import GestaoLayout from '../layouts/gestao.layout.astro';
             }
             const form = new FormData();
             form.append("access", $("#inputAccess").val());
-
+            let urlRequest = "http://localhost:7000";
+            if (import.meta.env.PROD) urlRequest = "https://vallorx.com.br/php/gestao-email.php";
             $.ajax({
                 type: 'POST',
-                url: 'https://vallorx.com.br/php/gestao.php',
+                url: urlRequest,
                 data: form,
                 timeout: 0,
                 processData: false,

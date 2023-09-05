@@ -2,11 +2,12 @@
 // Style Imports
 import "../styles/global.scss";
 
-
+let urlRequest = "http://localhost:7000/gestao-unsubscribe-email";
+if (import.meta.env.PROD) urlRequest = "https://vallorx.com.br/gestao-unsubscribe-email";
 ---
     <section id="gestao-email">
         <div class="d-flex mb-3 gap-3 justify-content-end">
-            <a href="https://vallorx.com.br/gestao-unsubscribe-email">Cancelar Inscrição</a>
+            <a href={urlRequest}>Cancelar Inscrição</a>
             <button
                 type="button"
                 class="btn btn-success"
