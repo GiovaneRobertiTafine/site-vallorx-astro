@@ -12,7 +12,11 @@ import GestaoLayout from '../layouts/gestao.layout.astro';
 let title = "Gestão";
 ---
     <GestaoLayout>
-        <section id="gestao-data" class="container mt-5">
+        <div class="d-flex justify-content-between container mt-0 pt-3">
+            <img src="/assets/logo.png" style="width: 150px;"  alt="logo" />
+            <span class="text-decoration-underline mt-auto" style="cursor: pointer" id="sair">Sair</span>
+        </div>
+        <section id="gestao-data" class="container mt-3">
             <ul class="nav nav-tabs">
             <li class="nav-item">
                 <a class="nav-link active" data-bs-toggle="tab" href="#gestao-emails">Gestão Emails</a>
@@ -35,6 +39,10 @@ let title = "Gestão";
         </section>
     </GestaoLayout>
     <script>
+        document.getElementById("sair").addEventListener("click", () => {
+            sessionStorage.removeItem("gestao-access")
+            location.replace("/gestao-access")
+        })
         if(!(sessionStorage.getItem("gestao-access"))) {
             location.replace("/gestao-access");
         } 

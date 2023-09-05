@@ -1,0 +1,116 @@
+---
+// Style Imports
+// import 'bootstrap/dist/css/bootstrap.min.css';
+import "../styles/global.scss";
+
+// Full Astro Component Syntax:
+// https://docs.astro.build/core-concepts/astro-components/
+
+// You can import components from any supported Framework here!
+// Component Script:
+// You can write any JavaScript/TypeScript that you'd like here.
+// It will run during the build, but never in the browser.
+// All variables are available to use in the HTML template below.
+const title =  "Gestão Unsubscribe Email"
+---
+
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+            name="description"
+            content="A vallorX CONSULTORIA PRIVATE tem como MISSÃO levar aos nossos clientes e parceiros, o melhor atendimento, 
+    os melhores serviços profissionais de alta performance e qualidade, bem como, o melhor preço de custo e benefício."
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/assets/favicon/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/assets/favicon/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/assets/favicon/site.webmanifest" />
+        <link
+            rel="mask-icon"
+            href="/assets/favicon/safari-pinned-tab.svg"
+            color="#fff"
+        />
+        <title>Vallorx | {title}</title>
+
+        <link
+            rel="icon"
+            type="image/x-icon"
+            href="/assets/favicon/favicon.ico"
+        />
+    </head>
+
+    <body>
+        <main>
+            <section class="m-3">
+                <a href="/">
+                        <img src="/assets/logo.png" style="width: 150px;"  alt="logo" />
+                </a>
+                <h5 class="mt-3 ps-2">
+                    Cancelar Inscrição
+                </h5>
+                <form action="" class="p-2">
+                    <label for="inputAccess" class="form-label">Email:</label>
+                    <div class="d-flex gap-3 flex-column flex-md-row">
+                        <input type="email" id="inputUnsubscribe" class="form-control w-md-25 w-sm-100" autocomplete="on">
+                        <input type="submit" class="btn btn-success" id="btn-unsubscribe" value="Acessar"/>
+                    </div>
+
+                </form>
+            </section>
+        </main>
+        <script>
+            import "bootstrap/dist/js/bootstrap.bundle.min.js";
+            import * as bootstrap from 'bootstrap';
+            import $ from 'jquery';
+            
+            document.getElementById("btn-unsubscribe").addEventListener("click", () => {
+                let urlRequest = "http://localhost:7000";
+                if (import.meta.env.PROD) urlRequest = "https://vallorx.com.br/php/gestao-email.php";
+                $.ajax({
+                    type: 'DELETE',
+                    url: urlRequest+$("#inputUnsubscribe").val(),
+                    data: form,
+                    timeout: 0,
+                    processData: false,
+                    mimeType: "multipart/form-data",
+                    contentType: false,
+                    success: (result) => {
+                        result = JSON.parse(result);
+                        if (result.status === '200') {
+                            sessionStorage.setItem("gestao-access", "true")
+                            location.replace("/gestao-data")
+                        } else {
+                            $('#toast-danger-response-body').html(result.mensagem);
+                            new bootstrap.Toast($('.toast-danger')).show();
+                        }
+                    },
+                    error: (result) => {
+                        $('#toast-danger-response-body').html(result.mensagem);
+                        new bootstrap.Toast($('.toast-danger')).show();
+                    },
+                    beforeSend: () => { /* antes de enviar */
+                        $('#btn-access').prop('disabled', true);
+                        $('#spinner-save').removeClass('d-none'); /* mostra o loading */
+                    },
+                    complete: () => { /* completo */
+                        $('#inputAccess').val("");
+                        $('#spinner-save').addClass('d-none');
+                        $('#btn-access').prop('disabled', false);
+                    },
+
+                });
+            })
+        </script>
+    </body>
+</html>
