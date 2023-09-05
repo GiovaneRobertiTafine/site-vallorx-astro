@@ -40,6 +40,7 @@ export function enviarEmail() {
         complete: () => { /* completo */
             $('#loading').fadeOut('fast'); /* esconde o loading */
             $('#form-contato').trigger('reset');
+            form.classList.remove('was-validated');
         }
 
     });
