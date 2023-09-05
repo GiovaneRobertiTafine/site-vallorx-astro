@@ -12,46 +12,10 @@ import "../styles/global.scss";
 // It will run during the build, but never in the browser.
 // All variables are available to use in the HTML template below.
 const title =  "Gestão Unsubscribe Email"
+// LAyout Imports
+import GestaoLayout from '../layouts/gestao.layout.astro';
 ---
-
-<html lang="pt-br">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta
-            name="description"
-            content="A vallorX CONSULTORIA PRIVATE tem como MISSÃO levar aos nossos clientes e parceiros, o melhor atendimento, 
-    os melhores serviços profissionais de alta performance e qualidade, bem como, o melhor preço de custo e benefício."
-        />
-        <link
-            rel="icon"
-            type="image/png"
-            sizes="32x32"
-            href="/assets/favicon/favicon-32x32.png"
-        />
-        <link
-            rel="icon"
-            type="image/png"
-            sizes="16x16"
-            href="/assets/favicon/favicon-16x16.png"
-        />
-        <link rel="manifest" href="/assets/favicon/site.webmanifest" />
-        <link
-            rel="mask-icon"
-            href="/assets/favicon/safari-pinned-tab.svg"
-            color="#fff"
-        />
-        <title>Vallorx | {title}</title>
-
-        <link
-            rel="icon"
-            type="image/x-icon"
-            href="/assets/favicon/favicon.ico"
-        />
-    </head>
-
-    <body>
-        <main>
+        <GestaoLayout>
             <section class="m-3">
                 <a href="/">
                         <img src="/assets/logo.png" style="width: 150px;"  alt="logo" />
@@ -63,33 +27,31 @@ const title =  "Gestão Unsubscribe Email"
                     <label for="inputAccess" class="form-label">Email:</label>
                     <div class="d-flex gap-3 flex-column flex-md-row">
                         <input type="email" id="inputUnsubscribe" class="form-control w-md-25 w-sm-100" autocomplete="on">
-                        <input type="submit" class="btn btn-success" id="btn-unsubscribe" value="Acessar"/>
+                        <input type="submit" class="btn btn-success" id="btn-unsubscribe" value="Cancelar"/>
                     </div>
 
                 </form>
             </section>
-        </main>
+        </GestaoLayout>
         <script>
             import "bootstrap/dist/js/bootstrap.bundle.min.js";
             import * as bootstrap from 'bootstrap';
             import $ from 'jquery';
             
-            document.getElementById("btn-unsubscribe").addEventListener("click", () => {
-                let urlRequest = "http://localhost:7000";
-                if (import.meta.env.PROD) urlRequest = "https://vallorx.com.br/php/gestao-email.php";
+            $("#btn-unsubscribe").click((e) => {
+                e.preventDefault();
+                console.log($("#inputUnsubscribe").val())
+                let urlRequest = "http://localhost:7000?email=";
+                if (import.meta.env.PROD) urlRequest = "https://vallorx.com.br/php/gestao-email.php?email=";
                 $.ajax({
-                    type: 'DELETE',
+                    method: 'DELETE',
                     url: urlRequest+$("#inputUnsubscribe").val(),
-                    data: form,
                     timeout: 0,
-                    processData: false,
-                    mimeType: "multipart/form-data",
-                    contentType: false,
                     success: (result) => {
                         result = JSON.parse(result);
                         if (result.status === '200') {
-                            sessionStorage.setItem("gestao-access", "true")
-                            location.replace("/gestao-data")
+                             $('#toast-success-response-body').html(result.mensagem);
+                            new bootstrap.Toast($('.toast-success')).show();
                         } else {
                             $('#toast-danger-response-body').html(result.mensagem);
                             new bootstrap.Toast($('.toast-danger')).show();

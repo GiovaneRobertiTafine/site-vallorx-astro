@@ -37,7 +37,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         exit; // Para a execução do script
     }
 
-    if (verificarEmailCadastrado()) {
+    if (verificarEmailCadastrado($_POST['email'])) {
         $array  = array('status' => '500', 'mensagem' => 'E-mail já cadastrado!');
         echo json_encode($array);
         exit;
@@ -71,6 +71,11 @@ if($_SERVER["REQUEST_METHOD"] == "DELETE") {
     parse_str($_SERVER['QUERY_STRING'] ?? '', $queries);
 
     if ($queries['email'] ?? false) {
+        if (!verificarEmailCadastrado($queries['email'])) {
+            $array  = array('status' => '500', 'mensagem' => 'E-mail não encontrado!');
+            echo json_encode($array);
+            exit;
+        }
         $stmt = $pdo->prepare("DELETE FROM Emails WHERE Email = ?");
         if ($stmt->execute([$queries['email']])) {
             $array  = array('status' => '200', 'mensagem' => 'Deletado com sucesso!');
@@ -94,12 +99,12 @@ if($_SERVER["REQUEST_METHOD"] == "DELETE") {
     exit;
 }
 
-function verificarEmailCadastrado() {
+function verificarEmailCadastrado($email) {
     $pdo = new PDO('sqlite:../sqlite/email.db');
     try {
         $query = $pdo->prepare("select * from Emails where Email =:email");
         //$row = $query->fetch(PDO::FETCH_ASSOC);
-        $query->execute(['email' => $_POST['email'] ]);
+        $query->execute(['email' => $email ]);
         return $query->fetch();
         
     } catch (Exception $error) {
