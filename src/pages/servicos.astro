@@ -14,9 +14,12 @@ import "../styles/global.scss";
 
 // Layout Imports
 import SiteLayout from "../layouts/site.layout.astro";
+const pageDescription = `Contábil | Obrigações Acessórias, Planejamento Tributário | Recuperação de Créditos Tributários, 
+Exportação & Importação | Estratégia de Negócios e Novos Mercados, Outsourcing | Serviços in Company, Patrimonial – Holding Familiar | 
+Administradora de Bens Imóveis Próprios, Expatriados/Expatriates | Consultoria Personalizada`;
 ---
 
-<SiteLayout title="Serviços" pageActive={Pages.SERVICOS}>
+<SiteLayout title="Serviços" pageActive={Pages.SERVICOS} pageDescription={pageDescription}>
     <style>
         #servicos {
             color: rgb(50, 50, 50);

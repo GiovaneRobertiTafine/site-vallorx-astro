@@ -23,9 +23,11 @@ import VideoNews from "../components/video-news";
 // Layout Imports
 import SiteLayout from "../layouts/site.layout.astro";
 
+const pageDescription = `vallorX News`;
+
 ---
 
-<SiteLayout title="News" pageActive={Pages.NEWS}>
+<SiteLayout title="News" pageActive={Pages.NEWS} pageDescription={pageDescription}>
     <section id="news" class="container">
         <h1 class="text-center text-lg-start fw-bold line-title">
             News

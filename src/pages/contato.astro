@@ -13,9 +13,12 @@ import SiteLayout from "../layouts/site.layout.astro";
 const patternEmail =
     "([a-zA-Z0-9_\\.\\-])+@(([a-zA-Z0-9\\-])+\\.)+([a-zA-Z0-9]{2,4})+$";
 const patternTelefone = "([9])?([\\d]{4})+([\\-])?([\\d]{4})$";
+
+const pageDescription = `vallorX Contato`;
+
 ---
 
-<SiteLayout title="Contato" pageActive={Pages.CONTATO}>
+<SiteLayout title="Contato" pageActive={Pages.CONTATO} pageDescription={pageDescription}>
     <style>
         #contato {
             color: rgb(50, 50, 50);

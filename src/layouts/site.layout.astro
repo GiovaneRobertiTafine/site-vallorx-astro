@@ -14,7 +14,7 @@ import Footer from "../components/footer";
 // You can write any JavaScript/TypeScript that you'd like here.
 // It will run during the build, but never in the browser.
 // All variables are available to use in the HTML template below.
-let {title, pageActive} = Astro.props;
+let {title, pageActive, pageDescription} = Astro.props;
 
 import ModalInscrever from '../components/modal-inscrever';
 ---
@@ -25,9 +25,10 @@ import ModalInscrever from '../components/modal-inscrever';
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta
             name="description"
-            content="A vallorX CONSULTORIA PRIVATE tem como MISSÃO levar aos nossos clientes e parceiros, o melhor atendimento, 
-    os melhores serviços profissionais de alta performance e qualidade, bem como, o melhor preço de custo e benefício."
+            content={pageDescription}
         />
+        <meta name="keywords" content="vallorX, vallor X, vallor x, Vallorx, Vallor X, Vallor x"/>
+        <meta name="robots" content="index, follow"> 
         <link
             rel="icon"
             type="image/png"

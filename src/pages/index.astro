@@ -9,8 +9,10 @@ import "../styles/global.scss";
 
 // Layout Imports
 import SiteLayout from "../layouts/site.layout.astro";
+const pageDescription = `A vallorX CONSULTORIA PRIVATE tem como MISSÃO levar aos nossos clientes e parceiros, o melhor atendimento, 
+    os melhores serviços profissionais de alta performance e qualidade, bem como, o melhor preço de custo e benefício.`;
 ---
-<SiteLayout title="Index" pageActive={Pages.HOME}>
+<SiteLayout title="Index" pageActive={Pages.HOME} pageDescription={pageDescription}>
     <style>
         .carousel-indicators {
             position: absolute;

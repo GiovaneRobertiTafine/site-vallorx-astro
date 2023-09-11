@@ -5,9 +5,12 @@ import "../styles/global.scss";
 
 // Layout Imports
 import SiteLayout from "../layouts/site.layout.astro";
+
+const pageDescription = `vallorX Parceiros`;
+
 ---
 
-<SiteLayout title="Parceiros" pageActive={Pages.PARCEIROS}>
+<SiteLayout title="Parceiros" pageActive={Pages.PARCEIROS} pageDescription={pageDescription}>
     <style>
         #parceiros {
             color: rgb(50, 50, 50);
