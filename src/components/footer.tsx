@@ -3,7 +3,7 @@ import '../styles/footer.scss';
 const Footer = () => {
     return (
         <footer>
-            <div className="container">
+            <div className="container pb-2">
                 <div className="row">
                     <div className="col-12 col-lg-6 mx-auto">
                         <img src="/assets/logoPB.png" id="logopb" alt="logoPB" />
