@@ -40,7 +40,6 @@ import GestaoLayout from '../layouts/gestao.layout.astro';
             
             $("#btn-unsubscribe").click((e) => {
                 e.preventDefault();
-                console.log($("#inputUnsubscribe").val())
                 let urlRequest = "http://localhost:7000?email=";
                 if (import.meta.env.PROD) urlRequest = "https://vallorx.com.br/php/gestao-email.php?email=";
                 $.ajax({
@@ -50,6 +49,7 @@ import GestaoLayout from '../layouts/gestao.layout.astro';
                     success: (result) => {
                         result = JSON.parse(result);
                         if (result.status === '200') {
+                            $("#inputUnsubscribe").val("")
                              $('#toast-success-response-body').html(result.mensagem);
                             new bootstrap.Toast($('.toast-success')).show();
                         } else {
