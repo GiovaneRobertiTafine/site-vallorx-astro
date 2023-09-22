@@ -85,7 +85,6 @@ import ModalInscrever from '../components/modal-inscrever';
                 if (scrolled > 10) topOffset = scrolled;
                 if (scrolled < 10 && topOffset > 10 && !sessionStorage.getItem('vallorx-modal-inscreverse')) {
                     sessionStorage.setItem('vallorx-modal-inscreverse', 'active');
-                    console.log('active');
                     var myModal = new bootstrap.Modal(document.getElementById('inscreverEmailModal'));
                     myModal.show();
                 }
@@ -95,7 +94,6 @@ import ModalInscrever from '../components/modal-inscrever';
                     if (event.clientY > 10) topOffset = event.clientY;
                     if (event.clientY < 10 && topOffset > 10 && !sessionStorage.getItem('vallorx-modal-inscreverse')) {
                         sessionStorage.setItem('vallorx-modal-inscreverse', 'active');
-                        console.log('active');
                         var myModal = new bootstrap.Modal(document.getElementById('inscreverEmailModal'));
                         myModal.show();
                     }

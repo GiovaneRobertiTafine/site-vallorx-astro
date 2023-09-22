@@ -11,13 +11,15 @@ const NavBar: React.FC<{ pageActive: number; }> = ({ pageActive }) => {
         window.screen.width > 991 ? setScreenWidth(true) : setScreenWidth(false);
     };
 
-    const handleViewTime = (event?) => {
-        if (event?.path?.indexOf(document.querySelector('#time-link')) < 0 &&
-            event?.path?.indexOf(document.querySelector('.box-time')) < 0
-        ) {
+    const handleViewTime = (event: boolean | object) => {
+        if (event && typeof event === 'boolean') {
+            setViewTime(true);
+        } else if (!event && typeof event === 'boolean') {
             setViewTime(false);
-        } else if (!event) {
-            !viewTime ? setViewTime(true) : setViewTime(false);
+        } else if (typeof event === 'object' &&
+            event.composedPath().indexOf(document.querySelector('#time-link')) < 0 &&
+            event.composedPath().indexOf(document.querySelector('.box-time')) < 0) {
+            setViewTime(false);
         }
     };
 
@@ -82,7 +84,7 @@ const NavBar: React.FC<{ pageActive: number; }> = ({ pageActive }) => {
                             </li>
                             {(screenWidth) ?
                                 <li className="nav-item">
-                                    <div className="nav-link" id="time-link" onClick={() => handleViewTime()}>
+                                    <div className="nav-link" id="time-link" onClick={() => handleViewTime(true)}>
                                         <img src="/assets/svg/clock.svg" alt="time" />
                                     </div>
                                 </li>
