@@ -13,5 +13,5 @@ footer hr {
 
 #logopb {
     width: 70%;
-
+    aspect-ratio: attr(width) / attr(height);
 }
