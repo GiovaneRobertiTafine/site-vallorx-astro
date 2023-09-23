@@ -44,7 +44,7 @@ const NavBar: React.FC<{ pageActive: number; }> = ({ pageActive }) => {
             <nav className="navbar navbar-expand-lg navbar-light bg-light position-absolute w-100">
                 <div className="container-fluid">
                     <a className="navbar-brand" href="/">
-                        <img src="/assets/logo.png" width="150" height="47" loading='eager' alt="logo" />
+                        <img src="/assets/logo-768.png" width="150" height="47" loading='eager' alt="logo" />
                     </a>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
