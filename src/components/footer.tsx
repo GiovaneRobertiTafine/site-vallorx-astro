@@ -18,7 +18,7 @@ const Footer = () => {
             </div>
             <hr />
             <div className="d-flex align-items-center justify-content-around justify-content-lg-between w-100 px-3" style={{ height: "40px" }}>
-                <a className='text-white small text-start' href="/gestao-access">
+                <a className='text-white small text-start' href="/gestao-access" aria-label='gestao-access'>
                     <svg width="30px" height="30px" viewBox="0 0 24 24" style={{ padding: '5px' }} fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                         <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>

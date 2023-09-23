@@ -17,8 +17,8 @@ const NavBar: React.FC<{ pageActive: number; }> = ({ pageActive }) => {
         } else if (!event && typeof event === 'boolean') {
             setViewTime(false);
         } else if (typeof event === 'object' &&
-            event.composedPath().indexOf(document.querySelector('#time-link')) < 0 &&
-            event.composedPath().indexOf(document.querySelector('.box-time')) < 0) {
+            (event as any).composedPath().indexOf(document.querySelector('#time-link')) < 0 &&
+            (event as any).composedPath().indexOf(document.querySelector('.box-time')) < 0) {
             setViewTime(false);
         }
     };
