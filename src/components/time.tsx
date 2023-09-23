@@ -24,7 +24,7 @@ const Time = ({ viewTime, changeViewTime }) => {
 
     return (
         <div className={changeViewTimeMobile}>
-            <div className="card img-clock" onClick={() => changeViewTime(true)}>
+            <div className="card img-clock" onClick={() => changeViewTime(!viewTime)}>
                 <img src="/assets/svg/clock.svg" width="16" height="16" alt="time" />
             </div>
 

@@ -2,6 +2,7 @@ import '../styles/nav-bar.scss';
 import { Pages } from '../utils/pages.enum';
 import React, { useEffect, useState } from 'react';
 import Time from './time';
+import * as bootstrap from 'bootstrap';
 
 const NavBar: React.FC<{ pageActive: number; }> = ({ pageActive }) => {
     const [screenWidth, setScreenWidth] = useState(false);
@@ -23,11 +24,22 @@ const NavBar: React.FC<{ pageActive: number; }> = ({ pageActive }) => {
         }
     };
 
+    const handleViewMenuMobile = (event) => {
+        if ((event as any).composedPath().indexOf(document.querySelector('.navbar')) < 0 &&
+            window.screen.width < 991 &&
+            document.getElementById('navbarNavDropdown').classList.contains('show')) {
+            let bsCollapse = new bootstrap.Collapse(document.getElementById('navbarNavDropdown'));
+            bsCollapse.toggle();
+
+        }
+
+    };
 
     useEffect(() => {
         window.screen.width > 991 ? setScreenWidth(true) : setScreenWidth(false);
         window.addEventListener("resize", handleResize);
         window.addEventListener("click", handleViewTime);
+        window.addEventListener("click", handleViewMenuMobile);
 
     }, []);
 
@@ -84,7 +96,7 @@ const NavBar: React.FC<{ pageActive: number; }> = ({ pageActive }) => {
                             </li>
                             {(screenWidth) ?
                                 <li className="nav-item">
-                                    <div className="nav-link" id="time-link" onClick={() => handleViewTime(true)}>
+                                    <div className="nav-link" id="time-link" onClick={() => handleViewTime(!viewTime)}>
                                         <img src="/assets/svg/clock.svg" width="16" height="16" loading='eager' alt="time" />
                                     </div>
                                 </li>
