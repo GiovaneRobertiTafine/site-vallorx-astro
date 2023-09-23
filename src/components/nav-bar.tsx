@@ -44,7 +44,7 @@ const NavBar: React.FC<{ pageActive: number; }> = ({ pageActive }) => {
             <nav className="navbar navbar-expand-lg navbar-light bg-light position-absolute w-100">
                 <div className="container-fluid">
                     <a className="navbar-brand" href="/">
-                        <img src="/assets/logo.png" loading='eager' alt="logo" />
+                        <img src="/assets/logo.png" width="150" height="47" loading='eager' alt="logo" />
                     </a>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
@@ -85,7 +85,7 @@ const NavBar: React.FC<{ pageActive: number; }> = ({ pageActive }) => {
                             {(screenWidth) ?
                                 <li className="nav-item">
                                     <div className="nav-link" id="time-link" onClick={() => handleViewTime(true)}>
-                                        <img src="/assets/svg/clock.svg" alt="time" />
+                                        <img src="/assets/svg/clock.svg" width="16" height="16" loading='eager' alt="time" />
                                     </div>
                                 </li>
                                 :
