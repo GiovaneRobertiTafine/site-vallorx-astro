@@ -19,6 +19,13 @@ if (import.meta.env.PROD) urlRequest = "https://vallorx.com.br/gestao-unsubscrib
         </div>
         <div id="list-emails"></div>
     </section>
+    <style>
+        #list-emails {
+            overflow: auto;
+            white-space: nowrap;
+        }
+
+    </style>
 <script>
     import * as gestaoEmail from "../js/gestao-email.js";
     import $ from 'jquery';
