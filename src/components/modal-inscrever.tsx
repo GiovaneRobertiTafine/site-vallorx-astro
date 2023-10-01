@@ -24,7 +24,6 @@ const ModalInscrever: React.FC = () => {
             mimeType: "multipart/form-data",
             contentType: false,
             success: (result) => {
-                console.log(result);
                 result = JSON.parse(result);
                 if (result.status === '200') {
                     $('#toast-success-response-body').html(result.mensagem);

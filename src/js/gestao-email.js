@@ -29,6 +29,7 @@ export function getEmails() {
                                 </th>
                                 <th scope="col">E-mail</th>
                                 <th scope="col">Nome</th>
+                                <th scope="col">Data de Inscrição</th> 
                             </tr>
                         </thead>
                         <tbody>
@@ -44,6 +45,7 @@ export function getEmails() {
                                 </td>
                                 <td>${email.Email}</td>
                                 <td>${email.Nome}</td>
+                                <td>${email.Data_Inscricao.substring(8, 10) + '/' + email.Data_Inscricao.substring(5, 7) + '/' + email.Data_Inscricao.substring(0, 4)}</td>
                             </tr>
                             `;
                     });

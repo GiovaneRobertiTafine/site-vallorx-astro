@@ -44,13 +44,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     
     // Inserir dados no sqlite
-    $sql = "INSERT INTO Emails (Email, Nome) VALUES (?, ?)";
+    $sql = "INSERT INTO Emails (Email, Nome, Data_Inscricao) VALUES (?, ?, ?)";
 
     try {
         $result = $pdo->prepare($sql);
         
         // Depois verifica se é possível mover o arquivo para a pasta escolhida
-        if ($result->execute([$_POST['email'], $_POST['nome']])) {
+        if ($result->execute([$_POST['email'], $_POST['nome'], date("Y-m-d")])) {
             // Upload efetuado com sucesso, exibe uma mensagem e um link para o arquivo
             $array  = array('status' => '200', 'mensagem' => 'Salvo com sucesso');
             echo json_encode($array);
