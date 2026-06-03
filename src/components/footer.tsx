@@ -5,8 +5,8 @@ const Footer = () => {
         <footer>
             <div className="container pb-2">
                 <div className="row">
-                    <div className="col-12 col-lg-6 mx-auto">
-                        <img src="/assets/logoPB.png" id="logopb" alt="logoPB" width={'70%'} height={'auto'} />
+                    <div className="col-12 col-lg-6 mx-auto my-3">
+                        <img src="/assets/logoPB.png" id="logopb" alt="logoPB" width={'50%'} height={'auto'} />
                     </div>
                 </div>
                 <div className="row">
