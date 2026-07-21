@@ -28,34 +28,57 @@ const pageDescription = `A vallorX CONSULTORIA PRIVATE tem como MISSÃO levar ao
         }
 
         .image-slide {
-            height: 300px;
+            height: 380px;
             width: 100%;
             object-fit: cover;
+
+            @media (max-width: 768px) {
+                height: 250px;
+            }
+        }
+
+        #claudemir {
+            max-width: 100%;
+            height: 300px;
+            object-fit: cover;
+
+            @media (max-width: 768px) {
+                width: 200px;
+                height: 200px;
+                object-position: top;
+                margin: 0 auto;
+                border-radius: 50%;
+            }
+        }
+
+        #claudemir-info {
+            margin-bottom: 1rem;
+            @media (max-width: 768px) {
+                text-align: center;
+            }
         }
     </style>
 
     <section id="home" class="container">
         <div class="d-flex flex-column flex-lg-row">
             <div class="w-100">
-                <h3 class="text-blue">Private feito pra você!</h3>
-                <h3>
-                    <em>
-                        "Muitas pessoas não querem te ver chegar ao
-                        topo, mas elas vão ver mesmo assim."
-                    </em>
-                    Pense nisso!
-                </h3><br />
+                <h3 class="text-blue">Compliance Contábil e Tributário</h3>
 
-                <div class="text-justify">
-                    Diante da necessidade individual de cada cliente,
-                    estamos preparados para ajudá-lo em momentos de
-                    grande demanda de tarefas pontuais, como: Prestação
-                    de Serviços e Gestão nas áreas
-                    <strong
-                        >Administrativa, Contábil, Fiscal, Financeira,
-                        Proteção Patrimonial e Expatriados</strong
-                    >, dando-lhe apoio necessário para consolidação do
-                    resultado desejado em cada área.
+                <div class="text-justify me-3">
+                    Em um cenário cada vez mais regulado e competitivo, estar em conformidade 
+                    não é apenas uma obrigação legal é um diferencial estratégico. 
+                    O compliance contábil e tributário garante que sua empresa esteja alinhada 
+                    às normas fiscais e contábeis, evitando riscos, multas e passivos inesperados. 
+                    <br><br>
+                    <strong>Por que isso importa para você?</strong>
+                    <ul style="list-style-type: disc;">
+                        <li><strong>Segurança jurídica:</strong> reduza riscos de autuações e processos.</li>
+                        <li><strong>Eficiência financeira:</strong> otimize tributos e melhore a gestão dos recursos.</li>
+                        <li><strong>Transparência e credibilidade:</strong> fortaleça a confiança de investidores, clientes e parceiros.</li>
+                        <li><strong>Sustentabilidade do negócio:</strong> construa uma base sólida para crescimento contínuo.</li>
+                    </ul>
+                    Ao investir em compliance, você não apenas protege sua empresa, 
+                    mas também abre portas para novas oportunidades de mercado, parcerias estratégicas e maior competitividade. 
                 </div>
             </div>
             <div class="mt-3 mt-lg-0 w-100 position-relative">
@@ -149,7 +172,7 @@ const pageDescription = `A vallorX CONSULTORIA PRIVATE tem como MISSÃO levar ao
                         </div>
                         <div class="carousel-item">
                             <img
-                                src="/assets/cargueiro3.webp"
+                                src="/assets/cargueiro.webp"
                                 class="img-fluid d-block image-slide"
                                 alt="..."
                             />
@@ -198,37 +221,58 @@ const pageDescription = `A vallorX CONSULTORIA PRIVATE tem como MISSÃO levar ao
             <div class="col">
                 <h3 class="text-blue">Quem somos</h3>
                 <p>
-                    O vallorX CONSULTORIA PRIVATE tem como 
-                    <span class="text-blue">MISSÃO</span> 
-                    levar aos nossos clientes e parceiros, o melhor atendimento,
-                    os melhores serviços profissionais de alta performance
-                    e qualidade, bem como, o melhor preço de custo e benefício.
-                    <br /><br />
-                      <p>
-                    Somos especialistas tributário em Impostos Diretos e Indiretos, 
-                    atuamos com base legal, ajudando Empresas de diversos segmentos 
-                    diminuírem a sua carga tributária.
-                    Bem como, geramos positivamente para sua empresa, na maioria das vezes, 
-                    uma receita de crédito tributário, uma vez que, 
-                    este crédito não tenha sido utilizado no período dos últimos cinco anos, 
-                    junto ao fisco.
-                    </p>
-                    <br>
-                    <p>
-                        Nossa outra especialidade, é ajudar pessoas físicas diminuírem parte 
-                        dos seus impostos sobre as receitas tributadas, uma vez que, 
-                        administram diversos imóveis próprios e possuem receitas de aluguéis.
-                        Além disso, elaboramos um planejamento sucessório familiar, objetivando, 
-                        proteger o seu patrimônio de terceiros e diminuir parte das despesas com inventário.
-                    </p>
-                    <br>
-                    <strong class="text-muted"
-                        >"Busque ser tão grande que todos queiram te
-                        alcançar e tão humilde que todos queiram estar
-                        com você!" <br /><br />
-                        Nós queremos estar com você!
-                    </strong>
+                    <span class="fw-bold">Missão, Visão e Valores</span> 
+                    <br><br>
+                    <span class="fw-bold text-blue">Missão:</span>
+                    Oferecer soluções estratégicas em compliance contábil, tributário e financeiro, 
+                    transformando a Reforma Tributária em vantagem competitiva. 
+                    <br />
+                    <span class="fw-bold text-blue">Visão:</span>
+                    Transformamos desafios tributários em oportunidades de crescimento sustentável!
+                    <br />
+                    <span class="fw-bold text-blue">Valores:</span>
+                    Ética • Inovação • Responsabilidade Social e ambiental • Excelência • Colaboração • Educação. 
+                    <br />
+                    <div>
+                        Somos uma <strong>Contabilidade Consultiva Estratégica de Negócios</strong>, 
+                        que apoia empresas na adaptação à Reforma Tributária e na gestão eficiente de riscos. 
+                        <br><br>
+                        Além disso, prestamos serviços especializada em <strong>recuperação de créditos tributários</strong> e 
+                        <strong>BPO financeiro</strong>, com foco em setores estratégicos: 
+                        <br><br>
+                        <ul style="list-style-type: disc;">
+                            <li>Tecnologia da Informação</li>
+                            <li>Clínicas Médicas</li>
+                            <li>Serviços de Telecomunicações</li>
+                            <li>Energia (geradores e distribuidores)</li>
+                            <li>Construção civil</li>
+                            <li>Agronegócio</li>
+                        </ul>
+                    </div>
                 </p>
+            </div>
+        </div>
+        <div class="d-flex flex-column flex-lg-row mt-5 align-items-start gap-3">
+            <img src="assets/claudemir.jpg" alt="claudemir" id="claudemir"/>
+            <div>
+                <div id="claudemir-info">
+                    <h3 class="fw-bold">CLAUDEMIR PEDRO | CEO</h3>
+                    <h4 class="text-blue">Empresário contábil, contador e controller.</h4>
+                </div>
+                <div style="line-height: 1.2;">
+                    Formado em Ciências Contábeis e Controladoria. 
+                    <br><br>
+                    Com mais de 30 anos de atuação na área tributária, 
+                    possui ampla experiência em diversos segmentos empresariais. 
+                    <br><br>
+                    Sua atuação abrange toda a cadeia de processos, 
+                    desde a concepção do produto, formação de preços e definição da carga tributária, 
+                    até a análise macro da operação e do negócio como um todo. 
+                    <br><br>
+                    Atualmente, seu principal desafio é preparar empresas para a Reforma Tributária, 
+                    desenvolvendo estratégias que minimizem impactos no fluxo de caixa e reduzam a carga tributária, 
+                    garantindo maior eficiência e sustentabilidade financeira. 
+                </div>
             </div>
         </div>
     </section>
