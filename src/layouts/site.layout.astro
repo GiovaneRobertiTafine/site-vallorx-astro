@@ -172,7 +172,7 @@ import ModalIr from '../components/modal-ir';
                 scrollContent.addEventListener('scroll', () => {
                 const scrolled = scrollContent.scrollTop; // reuse `scrollContent` innstead of querying the DOM again
                 if (scrolled > 10) topOffset = scrolled;
-                if (scrolled < 10 && topOffset > 10 && !sessionStorage.getItem('vallorx-modal-inscreverse') && bootstrap.Modal.getInstance('irModal') === null) {
+                if (scrolled < 10 && topOffset > 10 && !sessionStorage.getItem('vallorx-modal-inscreverse') && bootstrap.Modal.getInstance(document.getElementById('inscreverEmailModal') ?? '') === null) {
                     sessionStorage.setItem('vallorx-modal-inscreverse', 'active');
                     var myModal = new bootstrap.Modal(document.getElementById('inscreverEmailModal'));
                     myModal.show();
@@ -181,7 +181,7 @@ import ModalIr from '../components/modal-ir';
             } else {
                 window.addEventListener('mousemove', (event) => {
                     if (event.clientY > 10) topOffset = event.clientY;
-                    if (event.clientY < 10 && topOffset > 10 && !sessionStorage.getItem('vallorx-modal-inscreverse') && bootstrap.Modal.getInstance('irModal') === null) {
+                    if (event.clientY < 10 && topOffset > 10 && !sessionStorage.getItem('vallorx-modal-inscreverse') && bootstrap.Modal.getInstance(document.getElementById('inscreverEmailModal') ?? '') === null) {
                         sessionStorage.setItem('vallorx-modal-inscreverse', 'active');
                         var myModal = new bootstrap.Modal(document.getElementById('inscreverEmailModal'));
                         myModal.show();
