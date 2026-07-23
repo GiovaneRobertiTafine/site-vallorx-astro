@@ -164,27 +164,43 @@ import ModalIr from '../components/modal-ir';
             import * as bootstrap from 'bootstrap';
 
             let topOffset = 0;
-            var irModal = new bootstrap.Modal(document.getElementById('irModal'));
-            irModal.show();
+            const irModalElement = document.getElementById('irModal');
+            const inscreverModalElement = document.getElementById('inscreverEmailModal');
+
+            const isModalOpen = (element: HTMLElement | null) =>
+                element?.classList.contains('show') ?? false;
+
+            const openInscreverModal = () => {
+                if (
+                    !inscreverModalElement ||
+                    isModalOpen(irModalElement) ||
+                    isModalOpen(inscreverModalElement) ||
+                    sessionStorage.getItem('vallorx-modal-inscreverse')
+                ) return;
+
+                sessionStorage.setItem('vallorx-modal-inscreverse', 'active');
+                bootstrap.Modal.getOrCreateInstance(inscreverModalElement).show();
+            };
+
+            if (irModalElement) {
+                bootstrap.Modal.getOrCreateInstance(irModalElement).show();
+            }
+
             if (window.innerWidth <= 991) {
               
                 const scrollContent = document.querySelector('main'); // store in a variable so we can reference the element in multiple locations
                 scrollContent.addEventListener('scroll', () => {
                 const scrolled = scrollContent.scrollTop; // reuse `scrollContent` innstead of querying the DOM again
                 if (scrolled > 10) topOffset = scrolled;
-                if (scrolled < 10 && topOffset > 10 && !sessionStorage.getItem('vallorx-modal-inscreverse') && bootstrap.Modal.getInstance(document.getElementById('inscreverEmailModal') ?? '') === null) {
-                    sessionStorage.setItem('vallorx-modal-inscreverse', 'active');
-                    var myModal = new bootstrap.Modal(document.getElementById('inscreverEmailModal'));
-                    myModal.show();
+                if (scrolled < 10 && topOffset > 10) {
+                    openInscreverModal();
                 }
                 }, {passive: true});
             } else {
                 window.addEventListener('mousemove', (event) => {
                     if (event.clientY > 10) topOffset = event.clientY;
-                    if (event.clientY < 10 && topOffset > 10 && !sessionStorage.getItem('vallorx-modal-inscreverse') && bootstrap.Modal.getInstance(document.getElementById('inscreverEmailModal') ?? '') === null) {
-                        sessionStorage.setItem('vallorx-modal-inscreverse', 'active');
-                        var myModal = new bootstrap.Modal(document.getElementById('inscreverEmailModal'));
-                        myModal.show();
+                    if (event.clientY < 10 && topOffset > 10) {
+                        openInscreverModal();
                     }
 
                 });
