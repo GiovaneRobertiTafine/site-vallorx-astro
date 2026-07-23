@@ -146,19 +146,24 @@ import ModalIr from '../components/modal-ir';
             <div class="mt-auto">
                 <Footer />
             </div>
-            <a class="position-fixed bottom-0 end-0 mb-5 me-3 me-md-5" href="https://wa.me/5511977696191"
-                rel="noopener"
-                target="_blank"
-                id="whatsapp-button">
+
+            <div class="position-fixed bottom-0 end-0 mb-5 me-3 me-md-5" id="whatsapp-button">
                 <span>
                     Como posso te ajudar?
                 </span>
-                <div class="box-image">
-                    <img  src="/assets/avatar.webp"
-                        alt="whatsapp"
-                    />
-                </div>
-            </a>
+                <a  
+                rel="noopener"
+                target="_blank"
+                id="whatsapp-button" 
+                href="https://wa.me/5511977696191"
+                class="box-image">
+                    <div class="box-image">
+                        <img  src="/assets/avatar.webp"
+                            alt="whatsapp"
+                        />
+                    </div>
+                </a>
+            </div>
         </main>
         <script>
             import * as bootstrap from 'bootstrap';
