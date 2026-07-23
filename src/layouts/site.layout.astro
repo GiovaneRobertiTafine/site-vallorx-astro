@@ -17,6 +17,7 @@ import Footer from "../components/footer";
 let {title, pageActive, pageDescription} = Astro.props;
 
 import ModalInscrever from '../components/modal-inscrever';
+import ModalIr from '../components/modal-ir';
 ---
 
 <html lang="pt-br">
@@ -138,6 +139,7 @@ import ModalInscrever from '../components/modal-inscrever';
     <body>
         <main>
             <ModalInscrever client:only="react"/>
+            <ModalIr/>
             <Navbar client:only="react" pageActive={pageActive} />
             <slot />
 
@@ -162,6 +164,8 @@ import ModalInscrever from '../components/modal-inscrever';
             import * as bootstrap from 'bootstrap';
 
             let topOffset = 0;
+            var irModal = new bootstrap.Modal(document.getElementById('irModal'));
+            irModal.show();
             if (window.innerWidth <= 991) {
               
                 const scrollContent = document.querySelector('main'); // store in a variable so we can reference the element in multiple locations
