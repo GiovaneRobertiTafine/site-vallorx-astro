@@ -165,20 +165,22 @@ import ModalIr from '../components/modal-ir';
 
             let topOffset = 0;
             const irModalElement = document.getElementById('irModal');
-            const inscreverModalElement = document.getElementById('inscreverEmailModal');
 
             const isModalOpen = (element: HTMLElement | null) =>
                 element?.classList.contains('show') ?? false;
 
             const openInscreverModal = () => {
+                const inscreverModalElement = document.getElementById('inscreverEmailModal');
+
                 if (
+                    !inscreverModalElement ||
                     isModalOpen(irModalElement) ||
                     isModalOpen(inscreverModalElement) ||
                     sessionStorage.getItem('vallorx-modal-inscreverse')
                 ) return;
 
-                sessionStorage.setItem('vallorx-modal-inscreverse', 'active');
                 bootstrap.Modal.getOrCreateInstance(inscreverModalElement).show();
+                sessionStorage.setItem('vallorx-modal-inscreverse', 'active');
             };
 
             if (irModalElement) {
