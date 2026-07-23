@@ -25,7 +25,7 @@ const ModalIr: React.FC = () => {
                                 aria-label="Close"></button>
                         </div>
                         <div className="modal-body">
-                            <img src="assets/ir-img-modal.webp" alt="imagem para modal IR" className="img-fluid" />
+                            <img src="/assets/ir-img-modal.webp" alt="imagem para modal IR" className="img-fluid" />
                         </div>
                     </div>
                 </div>
