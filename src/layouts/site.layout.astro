@@ -174,7 +174,7 @@ import ModalIr from '../components/modal-ir';
                 if (
                     isModalOpen(irModalElement) ||
                     isModalOpen(inscreverModalElement) ||
-                    !sessionStorage.getItem('vallorx-modal-inscreverse')
+                    sessionStorage.getItem('vallorx-modal-inscreverse')
                 ) return;
 
                 sessionStorage.setItem('vallorx-modal-inscreverse', 'active');
