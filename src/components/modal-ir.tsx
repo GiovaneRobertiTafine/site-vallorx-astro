@@ -34,7 +34,7 @@ const ModalIr: React.FC = () => {
                         <div className="modal-body">
                             <img src="/assets/imagem-modal-rt.png" alt="imagem para modal IR" className="img-fluid" />
                             <div className="text-center mt-3">
-                                <a className="btn btn-primary position-absolute" style={{ top: '285px', left: '75px' }} href="/reforma-tributaria" target="_blank">
+                                <a className="btn btn-primary position-absolute" style={{ top: '285px', left: '75px' }} href="/reforma-tributaria">
                                     Solicite um Diagnóstico Gratuito!
                                 </a>
                             </div>
