@@ -57,22 +57,17 @@ const ModalIr: React.FC = () => {
                         </div>
                         <div className="modal-body">
                             <picture>
-                            <source
-                                src="/assets/imagem-modal-rt-766x365.avif"
-                                type="image/avif"
-                            />
+                                <source
+                                    srcSet="/assets/imagem-modal-rt-766x365.webp"
+                                    type="image/webp"
+                                />
 
-                            <source
-                                src="/assets/imagem-modal-rt-766x365.webp"
-                                type="image/webp"
-                            />
-
-                            <img
-                                src="/assets/imagem-modal-rt-766x365.webp"
-                                width="766"
-                                height="365"
-                                alt="Reforma Tributária"
-                                loading="lazy"
+                                <img
+                                    src="/assets/imagem-modal-rt-766x365.webp"
+                                    width="766"
+                                    height="365"
+                                    alt="Reforma Tributária"
+                                    loading="lazy"
                             />
                             </picture>
                             <div className="text-center mt-3">

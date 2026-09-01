@@ -11,6 +11,11 @@ import partytown from '@astrojs/partytown';
 
 // @ts-check
 export default defineConfig({
+    // Mantém os estilos em arquivos externos para que funcionem com a CSP
+    // de produção: style-src 'self' (sem 'unsafe-inline').
+    build: {
+        inlineStylesheets: "never",
+    },
     // projectRoot: '.',     // Where to resolve all URLs relative to. Useful if you have a monorepo project.
     // pages: './src/pages', // Path to Astro components, pages, and data
     // dist: './dist',       // When running `astro build`, path to final static output
