@@ -12,6 +12,31 @@ const ModalIr: React.FC = () => {
                         overflow: hidden !important;
                     }
                 }
+                    .link-form-rt {
+                        position: absolute;
+                        top: 65%;
+                        left: 12%;
+                        padding: 0.20rem 0.45rem;
+                        font-size: 0.5rem;
+
+                        @media (min-width: 375px) {
+                            padding: 0.20rem 0.45rem;
+                            font-size: 0.5rem;
+                            top: 65%;
+                            left: 10%;
+                        }
+                        @media (min-width: 768px) {
+                            padding: 0.25rem 0.5rem;
+                            font-size: 0.75rem;
+                            left: 10%;
+                            top: 70%;
+                        }
+                        @media (min-width: 992px) {
+                            padding: 0.25rem 0.5rem;
+                            font-size: 1rem;
+                            left: 9%;
+                        }
+                    }
             `}</style>
             <div
                 className="modal fade"
@@ -34,7 +59,7 @@ const ModalIr: React.FC = () => {
                         <div className="modal-body">
                             <img src="/assets/imagem-modal-rt.png" alt="imagem para modal IR" className="img-fluid" />
                             <div className="text-center mt-3">
-                                <a className="btn btn-primary position-absolute" style={{ top: '285px', left: '75px' }} href="/reforma-tributaria">
+                                <a className="btn btn-primary link-form-rt" href="/reforma-tributaria">
                                     Solicite um Diagnóstico Gratuito!
                                 </a>
                             </div>
