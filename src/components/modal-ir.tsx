@@ -56,7 +56,25 @@ const ModalIr: React.FC = () => {
                                 aria-label="Close"></button>
                         </div>
                         <div className="modal-body">
-                            <img src="/assets/imagem-modal-rt.png" alt="imagem para modal IR" className="img-fluid" />
+                            <picture>
+                            <source
+                                src="/assets/imagem-modal-rt-766x365.avif"
+                                type="image/avif"
+                            />
+
+                            <source
+                                src="/assets/imagem-modal-rt-766x365.webp"
+                                type="image/webp"
+                            />
+
+                            <img
+                                src="/assets/imagem-modal-rt-766x365.webp"
+                                width="766"
+                                height="365"
+                                alt="Reforma Tributária"
+                                loading="lazy"
+                            />
+                            </picture>
                             <div className="text-center mt-3">
                                 <a className="btn btn-primary link-form-rt" href="/reforma-tributaria">
                                     Solicite um Diagnóstico Gratuito!
