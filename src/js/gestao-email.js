@@ -59,7 +59,7 @@ export function getEmails() {
                 }
             }
         },
-        error: (result) => {
+        error: () => {
             $('#list-email').html('<h3>Infelizmente houve um erro ao solicitar!</h3>');
 
         }

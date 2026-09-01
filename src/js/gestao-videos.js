@@ -38,7 +38,7 @@ export function getNews() {
                 }
             }
         },
-        error: (result) => {
+        error: () => {
             $('#list-news').html('<h3>Infelizmente houve um erro ao solicitar!</h3>');
 
         }
@@ -87,7 +87,7 @@ export function addNews() {
                 activeToastDanger(result.mensagem);
             }
         },
-        error: (result) => {
+        error: () => {
             activeToastDanger('Erro ao solicitar');
 
         },
@@ -137,7 +137,7 @@ export function deleteNews() {
                 activeToastDanger(result.mensagem);
             }
         },
-        error: (result) => {
+        error: () => {
             activeToastDanger('Infelizmente houve um erro ao solicitar!');
 
         },

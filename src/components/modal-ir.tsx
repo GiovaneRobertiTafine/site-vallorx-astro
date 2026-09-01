@@ -1,5 +1,4 @@
 import React, { useRef } from 'react';
-import * as bootstrap from 'bootstrap';
 
 const ModalIr: React.FC = () => {
     const modal = useRef<HTMLDivElement>(null);

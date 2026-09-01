@@ -45,5 +45,5 @@ import ModalDeleteNews from "./modal-delete-news.astro";
     
 <script>
     import * as gestaoVideos from "../js/gestao-videos.js";
-    globalThis.gestaoVideos = gestaoVideos;
+    (globalThis as any).gestaoVideos = gestaoVideos;
 </script>

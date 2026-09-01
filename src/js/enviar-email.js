@@ -27,7 +27,7 @@ export function enviarEmail() {
                 }, 10000);
             }
         },
-        error: (result) => {
+        error: () => {
             $('#resposta-email').html('Infelizmente houve um erro ao enviar sua mensagem!').css('color', 'red').show();
             setTimeout(() => {
                 $('#resposta-email').hide();

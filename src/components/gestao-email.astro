@@ -30,7 +30,7 @@ if (import.meta.env.PROD) urlRequest = "https://vallorx.com.br/gestao-unsubscrib
     import * as gestaoEmail from "../js/gestao-email.js";
     import $ from 'jquery';
 
-    globalThis.gestaoEmail = gestaoEmail;
+    (globalThis as any).gestaoEmail = gestaoEmail;
     gestaoEmail.getEmails();
     $("#copiar-emails").prop("disabled", true);
 </script>

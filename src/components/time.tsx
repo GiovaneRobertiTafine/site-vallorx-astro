@@ -1,9 +1,9 @@
 import '../styles/time.scss';
 import { useEffect } from 'react';
-import { DateTimeFormat } from '../utils/date-time-format.interface';
+import type { DateTimeFormat } from "../utils/date-time-format.interface";
 import { TimeZone } from '../utils/time-zone.enum';
 
-const Time = ({ viewTime, changeViewTime }) => {
+const Time = ({ viewTime, changeViewTime }: { viewTime: boolean; changeViewTime: (value: boolean) => void }) => {
     const optionsTime = { hour: 'numeric', minute: 'numeric', hour12: false } as DateTimeFormat;
 
     const setTimeZone = (zone: TimeZone) => {
@@ -12,9 +12,13 @@ const Time = ({ viewTime, changeViewTime }) => {
 
     useEffect(() => {
         const interval = setInterval(() => {
-            document.getElementById('new-york').innerHTML = setTimeZone(TimeZone.NY);
-            document.getElementById('pequim').innerHTML = setTimeZone(TimeZone.HK);
-            document.getElementById('londres').innerHTML = setTimeZone(TimeZone.UK);
+            const newYorkElement = document.getElementById('new-york');
+            const pequimElement = document.getElementById('pequim');
+            const londresElement = document.getElementById('londres');
+            
+            if (newYorkElement) newYorkElement.innerHTML = setTimeZone(TimeZone.NY);
+            if (pequimElement) pequimElement.innerHTML = setTimeZone(TimeZone.HK);
+            if (londresElement) londresElement.innerHTML = setTimeZone(TimeZone.UK);
         }, 1000);
 
         return () => clearInterval(interval);

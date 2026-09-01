@@ -82,7 +82,7 @@ export async function obterVideos() {
         success: (result) => {
             return result = JSON.parse(result);
         },
-        error: (result) => {
+        error: () => {
             return '';
 
         }

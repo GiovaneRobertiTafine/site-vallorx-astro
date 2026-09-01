@@ -1,5 +1,6 @@
 import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
+import partytown from '@astrojs/partytown';
 // Full Astro Configuration API Documentation:
 // https://docs.astro.build/reference/configuration-reference
 
@@ -23,6 +24,10 @@ export default defineConfig({
     //     // port: 3000,             // The port to run the dev server on.
     // },
     integrations: [
-        react(),
-    ],
+        react(), 
+        partytown({
+            config: {
+                forward: ["dataLayer.push"],
+            },
+    })],
 });

@@ -34,7 +34,7 @@ const ModalInscrever: React.FC = () => {
                     new bootstrap.Toast($('.toast-danger')[0]).show();
                 }
             },
-            error: (result) => {
+            error: () => {
                 $('#toast-danger-response-body').html("Erro ao solicitar");
                 new bootstrap.Toast($('.toast-danger')[0]!).show();
 

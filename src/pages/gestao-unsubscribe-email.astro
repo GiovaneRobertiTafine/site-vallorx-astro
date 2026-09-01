@@ -11,7 +11,7 @@ import "../styles/global.scss";
 // You can write any JavaScript/TypeScript that you'd like here.
 // It will run during the build, but never in the browser.
 // All variables are available to use in the HTML template below.
-const title =  "Gestão Unsubscribe Email"
+// const title =  "Gestão Unsubscribe Email"
 // LAyout Imports
 import GestaoLayout from '../layouts/gestao.layout.astro';
 ---
@@ -38,7 +38,7 @@ import GestaoLayout from '../layouts/gestao.layout.astro';
             import * as bootstrap from 'bootstrap';
             import $ from 'jquery';
             
-            $("#btn-unsubscribe").click((e) => {
+            $("#btn-unsubscribe").on('click', (e) => {
                 e.preventDefault();
                 let urlRequest = "http://localhost:7000?email=";
                 if (import.meta.env.PROD) urlRequest = "https://vallorx.com.br/php/gestao-email.php?email=";
