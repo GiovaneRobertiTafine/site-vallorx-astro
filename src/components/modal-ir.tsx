@@ -13,7 +13,7 @@ const ModalIr: React.FC = () => {
                 }
                     .link-form-rt {
                         position: absolute;
-                        top: 65%;
+                        top: 70%;
                         left: 12%;
                         padding: 0.20rem 0.45rem;
                         font-size: 0.5rem;
@@ -21,14 +21,12 @@ const ModalIr: React.FC = () => {
                         @media (min-width: 375px) {
                             padding: 0.20rem 0.45rem;
                             font-size: 0.5rem;
-                            top: 65%;
                             left: 10%;
                         }
                         @media (min-width: 768px) {
                             padding: 0.25rem 0.5rem;
                             font-size: 0.75rem;
                             left: 10%;
-                            top: 70%;
                         }
                         @media (min-width: 992px) {
                             padding: 0.25rem 0.5rem;
@@ -68,13 +66,12 @@ const ModalIr: React.FC = () => {
                                     height="365"
                                     alt="Reforma Tributária"
                                     loading="lazy"
+                                    className="img-fluid"
                             />
                             </picture>
-                            <div className="text-center mt-3">
-                                <a className="btn btn-primary link-form-rt" href="/reforma-tributaria">
-                                    Solicite um Diagnóstico Gratuito!
-                                </a>
-                            </div>
+                            <a className="btn btn-primary link-form-rt" href="/reforma-tributaria">
+                                Solicite um Diagnóstico Gratuito!
+                            </a>
                         </div>
                     </div>
                 </div>
