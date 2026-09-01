@@ -1,11 +1,18 @@
 import React, { useRef } from 'react';
-import $ from 'jquery';
 import * as bootstrap from 'bootstrap';
 
 const ModalIr: React.FC = () => {
-    let modal = useRef();
+    const modal = useRef<HTMLDivElement>(null);
+
     return (
         <>
+            <style>{`
+                iframe {
+                    .main-content {
+                        overflow: hidden !important;
+                    }
+                }
+            `}</style>
             <div
                 className="modal fade"
                 id="irModal"
@@ -25,11 +32,17 @@ const ModalIr: React.FC = () => {
                                 aria-label="Close"></button>
                         </div>
                         <div className="modal-body">
-                            <img src="/assets/ir-img-modal.webp" alt="imagem para modal IR" className="img-fluid" />
+                            <img src="/assets/imagem-modal-rt.png" alt="imagem para modal IR" className="img-fluid" />
+                            <div className="text-center mt-3">
+                                <a className="btn btn-primary position-absolute" style={{ top: '285px', left: '75px' }} href="/reforma-tributaria" target="_blank">
+                                    Solicite um Diagnóstico Gratuito!
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            
         </>
     );
 }

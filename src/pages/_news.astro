@@ -41,7 +41,7 @@ const pageDescription = `vallorX News`;
     </section>
     <script>
         import * as obterVideos from "../js/obter-videos.js";
-        globalThis.obterVideos = obterVideos;
+        (globalThis as any).obterVideos = obterVideos;
         obterVideos.obterVideos();
 
     </script>

@@ -35,49 +35,61 @@ import GestaoLayout from '../layouts/gestao.layout.astro';
          import "bootstrap/dist/js/bootstrap.bundle.min.js";
          import * as bootstrap from 'bootstrap';
          import $ from 'jquery';
-        
-         document.getElementById("btn-access").addEventListener("click", () => {
-            if (import.meta.env.DEV) {
-                location.replace("/gestao-data");
-                sessionStorage.setItem("gestao-access", 'true')
-            }
-            const form = new FormData();
-            form.append("access", $("#inputAccess").val());
-            let urlRequest = "http://localhost:7000";
-            if (import.meta.env.PROD) urlRequest = "https://vallorx.com.br/php/gestao.php";
-            $.ajax({
-                type: 'POST',
-                url: urlRequest,
-                data: form,
-                timeout: 0,
-                processData: false,
-                mimeType: "multipart/form-data",
-                contentType: false,
-                success: (result) => {
-                    result = JSON.parse(result);
-                    if (result.status === '200') {
-                        sessionStorage.setItem("gestao-access", "true")
-                        location.replace("/gestao-data")
-                    } else {
-                        $('#toast-danger-response-body').html(result.mensagem);
-                        new bootstrap.Toast($('.toast-danger')).show();
-                    }
-                },
-                error: (result) => {
-                    $('#toast-danger-response-body').html(result.mensagem);
-                    new bootstrap.Toast($('.toast-danger')).show();
-                },
-                beforeSend: () => { /* antes de enviar */
-                    $('#btn-access').prop('disabled', true);
-                    $('#spinner-save').removeClass('d-none'); /* mostra o loading */
-                },
-                complete: () => { /* completo */
-                    $('#inputAccess').val("");
-                    $('#spinner-save').addClass('d-none');
-                    $('#btn-access').prop('disabled', false);
-                },
 
-            });
-        })
+         const btnAccess = document.getElementById("btn-access");
+
+         if (btnAccess) {
+             btnAccess.addEventListener("click", () => {
+                if (import.meta.env.DEV) {
+                    location.replace("/gestao-data");
+                    sessionStorage.setItem("gestao-access", 'true')
+                }
+                const accessValue = String($("#inputAccess").val() ?? "");
+                const form = new FormData();
+                form.append("access", accessValue);
+                let urlRequest = "http://localhost:7000";
+                if (import.meta.env.PROD) urlRequest = "https://vallorx.com.br/php/gestao.php";
+                $.ajax({
+                    type: 'POST',
+                    url: urlRequest,
+                    data: form,
+                    timeout: 0,
+                    processData: false,
+                    mimeType: "multipart/form-data",
+                    contentType: false,
+                    success: (result) => {
+                        result = JSON.parse(result);
+                        if (result.status === '200') {
+                            sessionStorage.setItem("gestao-access", "true")
+                            location.replace("/gestao-data")
+                        } else {
+                            $('#toast-danger-response-body').html(result.mensagem);
+                            const toastDanger = document.querySelector('.toast-danger');
+                            if (toastDanger) {
+                                new bootstrap.Toast(toastDanger).show();
+                            }
+                        }
+                    },
+                    error: (result) => {
+                        const errorMessage = (result as any)?.responseJSON?.mensagem ?? 'Ocorreu um erro inesperado.';
+                        $('#toast-danger-response-body').html(errorMessage);
+                        const toastDanger = document.querySelector('.toast-danger');
+                        if (toastDanger) {
+                            new bootstrap.Toast(toastDanger).show();
+                        }
+                    },
+                    beforeSend: () => { /* antes de enviar */
+                        $('#btn-access').prop('disabled', true);
+                        $('#spinner-save').removeClass('d-none'); /* mostra o loading */
+                    },
+                    complete: () => { /* completo */
+                        $('#inputAccess').val("");
+                        $('#spinner-save').addClass('d-none');
+                        $('#btn-access').prop('disabled', false);
+                    },
+
+                });
+            })
+         }
     </script>
 </html>

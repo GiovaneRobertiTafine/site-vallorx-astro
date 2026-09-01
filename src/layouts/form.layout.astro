@@ -1,0 +1,113 @@
+---
+import "../styles/global.scss";
+
+export interface Props {
+    title: string;
+    pageDescription: string;
+}
+
+const { title, pageDescription } = Astro.props;
+---
+
+<!doctype html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content={pageDescription} />
+        <meta name="robots" content="index, follow" />
+
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/assets/favicon/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/assets/favicon/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/assets/favicon/site.webmanifest" />
+        <link
+            rel="mask-icon"
+            href="/assets/favicon/safari-pinned-tab.svg"
+            color="#ffffff"
+        />
+        <link
+            rel="icon"
+            type="image/x-icon"
+            href="/assets/favicon/favicon.ico"
+        />
+
+        <title>Vallorx | {title}</title>
+    </head>
+    <body>
+        <header class="form-header">
+            <div class="form-header__inner">
+                <a class="form-brand" href="/" aria-label="Vallorx — página inicial">
+                    <img
+                        src="/assets/logo-768.png"
+                        width="150"
+                        height="47"
+                        loading="eager"
+                        alt="Vallorx"
+                    />
+                </a>
+            </div>
+        </header>
+
+        <main class="form-page">
+            <slot />
+        </main>
+    </body>
+</html>
+
+<style>
+    .form-header {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        width: 100%;
+        background-color: #f8f9fa;
+        border-bottom: 4px solid;
+        border-image: linear-gradient(to right, #006699, #00bd68) 1;
+        box-shadow: 0 8px 16px rgb(0 0 0 / 20%);
+    }
+
+    .form-header__inner {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        min-height: 63px;
+        padding: 0.5rem 0.75rem;
+    }
+
+    .form-brand {
+        display: inline-flex;
+        border-radius: 0.25rem;
+    }
+
+    .form-brand:focus-visible {
+        outline: 3px solid #006699;
+        outline-offset: 4px;
+    }
+
+    .form-brand img {
+        display: block;
+        width: 150px;
+        height: 47px;
+        object-fit: contain;
+    }
+
+    .form-page {
+        display: block;
+        width: 100%;
+        height: auto;
+        min-height: calc(100vh - 67px);
+        min-height: calc(100dvh - 67px);
+        overflow-x: hidden;
+        overflow-y: visible;
+    }
+</style>

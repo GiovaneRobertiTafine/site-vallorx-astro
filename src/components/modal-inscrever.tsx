@@ -3,16 +3,16 @@ import $ from 'jquery';
 import * as bootstrap from 'bootstrap';
 
 const ModalInscrever: React.FC = () => {
-    let form = useRef();
-    let modal = useRef();
+    const form = useRef<HTMLFormElement>(null);
+    const modal = useRef<HTMLDivElement>(null);
 
     const inscreverEmail = () => {
-        if (!(form.current as HTMLFormElement).checkValidity()) {
-            (form.current as HTMLFormElement).classList.add('was-validated');
+        if (!form.current || !form.current.checkValidity()) {
+            form.current?.classList.add('was-validated');
             return;
         }
 
-        const formData = new FormData((form.current as HTMLFormElement));
+        const formData = new FormData(form.current);
         let urlRequest = "http://localhost:7000";
         if (import.meta.env.PROD) urlRequest = "https://vallorx.com.br/php/gestao-email.php";
         $.ajax({
@@ -27,16 +27,16 @@ const ModalInscrever: React.FC = () => {
                 result = JSON.parse(result);
                 if (result.status === '200') {
                     $('#toast-success-response-body').html(result.mensagem);
-                    new bootstrap.Toast($('.toast-success')).show();
-                    bootstrap.Modal.getInstance(modal.current).hide();
+                    new bootstrap.Toast($('.toast-success')[0]).show();
+                    bootstrap.Modal.getInstance(modal.current!)?.hide();
                 } else if (result.status === '400' || result.status === '500') {
                     $('#toast-danger-response-body').html(result.mensagem);
-                    new bootstrap.Toast($('.toast-danger')).show();
+                    new bootstrap.Toast($('.toast-danger')[0]).show();
                 }
             },
             error: (result) => {
                 $('#toast-danger-response-body').html("Erro ao solicitar");
-                new bootstrap.Toast($('.toast-danger')).show();
+                new bootstrap.Toast($('.toast-danger')[0]!).show();
 
             },
             beforeSend: () => { /* antes de enviar */

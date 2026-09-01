@@ -39,13 +39,18 @@ import GestaoLayout from '../layouts/gestao.layout.astro';
         </section>
     </GestaoLayout>
     <script>
-        document.getElementById("sair").addEventListener("click", () => {
-            sessionStorage.removeItem("gestao-access")
-            location.replace("/gestao-access")
-        })
-        if(!(sessionStorage.getItem("gestao-access"))) {
+        const sair = document.getElementById("sair");
+
+        if (sair) {
+            sair.addEventListener("click", () => {
+                sessionStorage.removeItem("gestao-access");
+                location.replace("/gestao-access");
+            });
+        }
+
+        if (!sessionStorage.getItem("gestao-access")) {
             location.replace("/gestao-access");
-        } 
+        }
     </script>
     </body>
 </html>

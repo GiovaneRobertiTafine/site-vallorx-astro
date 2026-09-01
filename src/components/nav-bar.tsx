@@ -24,11 +24,12 @@ const NavBar: React.FC<{ pageActive: number; }> = ({ pageActive }) => {
         }
     };
 
-    const handleViewMenuMobile = (event) => {
+    const handleViewMenuMobile = (event: Event) => {
+        const navbarElement = document.getElementById('navbarNavDropdown');
         if ((event as any).composedPath().indexOf(document.querySelector('.navbar')) < 0 &&
             window.screen.width < 991 &&
-            document.getElementById('navbarNavDropdown').classList.contains('show')) {
-            let bsCollapse = new bootstrap.Collapse(document.getElementById('navbarNavDropdown'));
+            navbarElement && navbarElement.classList.contains('show')) {
+            let bsCollapse = new bootstrap.Collapse(navbarElement);
             bsCollapse.toggle();
 
         }

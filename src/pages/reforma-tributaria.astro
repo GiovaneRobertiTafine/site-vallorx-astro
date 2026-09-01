@@ -1,0 +1,123 @@
+---
+import FormLayout from "../layouts/form.layout.astro";
+
+const pageTitle = "Reforma Tributária";
+const pageDescription =
+    "Descubra se a sua empresa está preparada para a Reforma Tributária.";
+const formUrl =
+    "https://app.4c.tec.br/foreseeforms/52fe4d4b-8b48-48d1-afeb-b00b49a78e5c/48fbb126-0129-42c4-824d-97d5511a33300375d939-66fb-4b46-9514-4a0b787d3d00/d7b19775c747de6fc886ad320d6f48e7fd1d387c/70f219d6-05d9-439f-9e2e-8b36ed9cb63e";
+---
+
+<FormLayout title={pageTitle} pageDescription={pageDescription}>
+    <section class="form-container" aria-label="Diagnóstico tributário">
+        <div class="form-introduction">
+            <aside class="privacy-notice small" aria-labelledby="privacy-title">
+                <h2 id="privacy-title">Privacidade dos seus dados</h2>
+                <p>
+                    Ao preencher e enviar este formulário, você fornece nome,
+                    e-mail, telefone e informações profissionais. A VallorX
+                    utilizará esses dados para analisar as respostas, preparar
+                    o diagnóstico e entrar em contato sobre o resultado.
+                </p>
+                <p>
+                    O formulário é disponibilizado pela plataforma 4C, que
+                    processa os dados para viabilizar a coleta e o envio. O
+                    preenchimento é opcional. Para solicitar acesso, correção,
+                    eliminação ou informações sobre o tratamento dos seus
+                    dados, escreva para
+                    <a href="mailto:private@vallorx.com.br">
+                        private@vallorx.com.br
+                    </a>.
+                </p>
+            </aside>
+
+            <p class="form-help">
+                Se o formulário não abrir,
+                <a href={formUrl} target="_blank" rel="noopener noreferrer">
+                    acesse-o em uma nova janela
+                </a>.
+            </p>
+        </div>
+
+        <iframe
+            class="form-frame"
+            aria-label="A sua empresa está pronta para a Reforma Tributária? Faça o diagnóstico da sua empresa."
+            title="Diagnóstico: sua empresa está pronta para a Reforma Tributária?"
+            src={formUrl}
+            sandbox="allow-forms allow-scripts allow-same-origin"
+            referrerpolicy="strict-origin-when-cross-origin"
+            loading="eager"
+        ></iframe>
+    </section>
+
+    <style>
+        .form-container {
+            width: 100%;
+        }
+
+        .form-introduction {
+            width: min(100%, 72rem);
+            margin: 0 auto;
+            padding: 1.5rem 1rem 1rem;
+        }
+
+        h1 {
+            margin-bottom: 1rem;
+            color: #1f2933;
+            font-size: clamp(1.5rem, 4vw, 2rem);
+        }
+
+        .privacy-notice {
+            padding: 1rem 1.25rem;
+            color: #1f2933;
+            background-color: #eff8fb;
+            border-left: 4px solid #006699;
+            border-radius: 0.25rem;
+        }
+
+        .privacy-notice h2 {
+            margin-bottom: 0.5rem;
+            font-size: 1.125rem;
+        }
+
+        .privacy-notice p + p {
+            margin-top: 0.75rem;
+        }
+
+        .privacy-notice a,
+        .form-help a {
+            color: #005580;
+            font-weight: 700;
+            text-decoration: underline;
+            text-underline-offset: 0.15em;
+        }
+
+        .privacy-notice a:focus-visible,
+        .form-help a:focus-visible {
+            border-radius: 0.125rem;
+            outline: 3px solid #006699;
+            outline-offset: 3px;
+        }
+
+        .form-help {
+            margin-top: 0.75rem;
+        }
+
+        .form-frame {
+            display: block;
+            width: 100%;
+            height: 1150px;
+            border: 0;
+
+            @media (min-width: 360px) {
+                height: 1250px;
+            }
+            @media (min-width: 768px) {
+                height: 1200px;
+            }
+            @media (min-width: 1024px) {
+                height: 1150px;
+            }
+        }
+    </style>
+</FormLayout>

@@ -48,18 +48,29 @@ import GestaoLayout from '../layouts/gestao.layout.astro';
                     timeout: 0,
                     success: (result) => {
                         result = JSON.parse(result);
+                        const toastSuccess = document.querySelector('.toast-success');
+                        const toastDanger = document.querySelector('.toast-danger');
+
                         if (result.status === '200') {
                             $("#inputUnsubscribe").val("")
                              $('#toast-success-response-body').html(result.mensagem);
-                            new bootstrap.Toast($('.toast-success')).show();
+                            if (toastSuccess) new bootstrap.Toast(toastSuccess).show();
                         } else {
                             $('#toast-danger-response-body').html(result.mensagem);
-                            new bootstrap.Toast($('.toast-danger')).show();
+                            if (toastDanger) new bootstrap.Toast(toastDanger).show();
                         }
                     },
                     error: (result) => {
-                        $('#toast-danger-response-body').html(result.mensagem);
-                        new bootstrap.Toast($('.toast-danger')).show();
+                        let errorMessage = 'Erro ao processar a solicitação';
+                        try {
+                            const parsedError = JSON.parse(result.responseText);
+                            errorMessage = parsedError.mensagem || errorMessage;
+                        } catch (e) {
+                            errorMessage = result.statusText || errorMessage;
+                        }
+                        $('#toast-danger-response-body').html(errorMessage);
+                        const toastDanger = document.querySelector('.toast-danger');
+                        if (toastDanger) new bootstrap.Toast(toastDanger).show();
                     },
                     beforeSend: () => { /* antes de enviar */
                         $('#btn-access').prop('disabled', true);

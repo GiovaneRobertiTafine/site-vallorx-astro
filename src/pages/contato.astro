@@ -419,6 +419,10 @@ const pageDescription = `vallorX Contato`;
     <script>
         // import "bootstrap/dist/js/bootstrap.bundle.min.js";
         import { enviarEmail } from "../js/enviar-email.js";
-        globalThis.enviarEmail = enviarEmail;
+
+        const globalScope = globalThis as typeof globalThis & {
+            enviarEmail?: typeof enviarEmail;
+        };
+        globalScope.enviarEmail = enviarEmail;
     </script>
 </SiteLayout>
